@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IFT2255 | Rapport DM1</title>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/base.css">
+    <style>
+        .report-header {
+            padding-top: 24px; padding-bottom: 24px;
+            background-color: #fff;
+        }
+
+        .title-section {
+            padding-left: 5vw;
+            padding-right: 5vw;
+        }
+
+        .report-title {
+            color: royalblue;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .report-summary {
+            max-width: 800px;
+            font-size: 1.4em;
+            color: #555;
+        }
+        
+        .section-title {
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            font-size: 2.4em; font-weight: 300;
+        }
+
+        .team-section {
+            padding-left: 5vw;
+            padding-right: 5vw;
+        }
+
+            .team-title {
+                font-weight: 500;
+                margin-bottom: 12px;
+                color: #1C3A94;
+            }
+
+            .members {
+                display: flex; flex-direction: row;
+            }
+
+            .member {
+                display: flex; flex-direction: column;
+            }
+                .member:not(:last-child) {
+                    margin-right: 12px;
+                }
+
+                .member-pic {
+                    display: block;
+                    width: 120px;
+                    height: 120px;
+                    border-radius: 50%;
+                }
+
+                .member-role {
+                    font-size: 0.9em; font-weight: 500;
+                    color: #555;
+                }
+
+        .report-body {
+            display: flex;
+        }
+
+        .report-aside {
+            padding-top: 24px;
+            padding-right: 12px;
+            padding-left: 5vw;
+            box-shadow: 1px 0 1px #999;
+        }
+
+        .report-main {
+            padding-left: 12px;
+            padding-right: 5vw;
+            padding-top: 24px;
+        }
+
+        .nav {
+            color: #E87429;
+        }
+
+        .nav-item__link {
+            display: block;
+            padding: 6px;
+            text-decoration: none;
+        }
+
+        .glossary {
+            font-size: 1.4em;
+        }
+
+        .preview-img {
+            width: 600px;
+            height: 400px;
+        }
+
+        .report-footer {
+            background-color: #2C5EB4;
+            padding: 12px 5vw 24px;
+        }
+
+        .report-footer p {
+            margin: 0;
+        }
+
+        .report-footer__link {
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="report-header">
+        <div class="title-section">
+            <h1 class="report-title">Rapport du livrable 1</h1>
+            <p class="report-summary">
+                Ce livrable se concentre sur...
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia distinctio tempora quam nulla quod enim. 
+                Odit eius dolores repellendus incidunt doloribus delectus at ex sunt error, iste dicta, maiores blanditiis.
+            </p>
+        </div>
+
+        <div class="team-section">
+            <h2 class="team-title">Notre équipe</h2>
+            <ul class="bare-list members">
+                <li class="member">
+                    <img class="member-pic" src="" alt="" >
+                    <div class="member-identification">
+                        <span class="member-name">Yuchen HUI</span>
+                        <span class="member-id">1254869</span>
+                    </div> 
+                    <a href="mailto:prenom.nom@umontreal.ca">prenom.nom@umontreal.ca</a>
+                    <span class="member-role">Chargé de...</span>
+                </li>
+                <li class="member">
+                    <img class="member-pic" src="" alt="" >
+                    <div class="member-identification">
+                        <span class="member-name">Yuyang XIONG</span>
+                        <span class="member-id">1134870</span>
+                    </div> 
+                    <a href="mailto:prenom.nom@umontreal.ca">prenom.nom@umontreal.ca</a>
+                    <span class="member-role">Chargé de...</span>
+                </li>
+                <li class="member">
+                    <img class="member-pic" src="" alt="" >
+                    <div class="member-identification">
+                        <span class="member-name">Wenhao XU</span>
+                        <span class="member-id">20150702</span>
+                    </div> 
+                    <a href="mailto:prenom.nom@umontreal.ca">wenhao.xu@umontreal.ca</a>
+                    <span class="member-role">Chargé de...</span>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <main class="report-body">
+        <aside class="report-aside">
+            <nav>
+                <ul class="bare-list nav">
+                    <li class="nav-item">
+                        <a class="nav-item__link" href="#plan">Plannification</a> 
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item__link" href="#domain">Compréhension du domaine</a> 
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item__link" href="#model">Modélisation du domaine</a> 
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item__link" href="#analysis">Analyse</a> 
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item__link" href="#prototype">Prototype</a> 
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item__link" href="#annex">Annexe</a> 
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+        <div class="report-main">
+            <section>
+                <h2 id="plan" class="section-title">Plannification</h2>
+
+                <h3>Description</h3>
+                <p>
+
+                    L'organisme à but non lucratif (OBNL) GoodPeople a entrepris l'initiative VaxTodo en coordination avec le gouvernement.
+                    Le programme est conçu pour aider les personnes de plus de 18 ans à prendre rendez-vous pour les vaccinations.<br/>
+                    En raison de l'excellente réaction, le nombre de réservations pour le programme a dépassé les attentes. GoodPeople nous 
+                    a donc chargé de mettre en place un système permettant d'organiser correctement le processus de vaccination et de fournir le service.
+
+                </p>
+
+
+                <h3>Distribution des taches</h3>
+                <p>
+
+
+                </p>
+
+
+                <h3>Hypothèses</h3>
+                <p>
+                    Nous avons posé les hypothèses suivantes :
+                    <ul>
+                        <li>
+
+                        </li>
+
+
+                    </ul>
+
+
+                </p>
+            </section>
+
+            <section>
+                <h2 id="domain" class="section-title">Compréhension du domaine</h2>
+                <p>
+
+                    Au cours de la première semaine, nous nous sommes familiarisés avec 
+                    les exigences spécifiques de VaxTodo et nous avons eu une idée générale 
+                    de ce qu'était le projet. Nous avons ensuite établi un cadre général. 
+                    Sur la base du cadre général, nous avons étudié et recherché et analysé 
+                    les domaines de connaissance pertinents.<br/>
+
+                    La semaine suivante, nous avions rendez-vous avec le client pour partager 
+                    ces détails en réponse à certains détails du processus de compréhension 
+                    qui pourraient conduire à la différenciation. L'échange s'est déroulé sans 
+                    problème et nous avons optimisé les détails du cadre.<br/>
+
+                    <br/>
+                    Après de nombreuses rencontres et une familiarisation avec l'activité 
+                    VaxTodo, nous avons préparé un glossaire rassemblant les termes et 
+                    expressions clés caractérisant l'environnement.
+                </p>
+                <h3>Glossaire</h3>
+                <dl class="glossary">
+                    <dt class="glossary-term">Campagne de vaccination</dt>
+                    <dd class="glossary-def">la campagne lancée par le gouvernement du Québec, avec le but de lutter contre la Pandémie de Covid-19, où tout les résident sont sugérés de se faire vacciner de quatre types de vaccins : Moderna, Pfizer, AstraZeneca, Janssen.</dd>
+                    <dt class="glossary-term">VaxTodo</dt>
+                    <dd class="glossary-def">Une initiative entreprise par l'organisme à but non lucratif (OBNL) GoodPeople qui permet à toute personne majeure agée de 18 ans et plus de prendre un rendez-vous avec GoodPeople pour se faire vacciner.</dd>
+                    <dt class="glossary-term">VaxTodo:re</dt>
+                    <dd class="glossary-def">Un système d'information qui sera manipulé uniquement par les employés, à implémenter par notre équipe de développement.</dd>
+                    <dt class="glossary-term">Local</dt>
+                    <dd class="glossary-def">Emplacement dédié à la vaccination, loué par l’organisme, où se déroule la campagne de vaccination. Pour respecter au mieux les règles sanitaires, la capacité du local se limite à 40 personnes, ne comptant pas l’équipe et les professionnels de la santé.</dd>
+                    <dt class="glossary-term">Service</dt>
+                    <dd class="glossary-def">Service de vaccination, y compris la pris de Rendez-vous, la vaccination et le suivi.</dd>
+                    <dt class="glossary-term">Visiteur</dt>
+                    <dd class="glossary-def">Personne majeure agée de 18 ans qui se présente au local pour se faire vacciner (Avec ou sans Rendez-vous).</dd>
+                    <dt class="glossary-term">Bénévole</dt>
+                    <dd class="glossary-def">Personel responsables d'accueillir une personne et les acheminer aux employés.</dd>
+                    <dt class="glossary-term">Employé</dt>
+                    <dd class="glossary-def">Personel qui font le traitement du dossier (visiteur,bénévole et lui-même) et le choix du vaccin avec le visiteur.</dd>
+                    <dt class="glossary-term">Équipe</dt>
+                    <dd class="glossary-def">Qui consiste des emplyés et des
+                        Professionnels de la santé : 
+                        personel : apportent tout l'équipement nécessaire pour la vaccination.
+                        </dd>
+                    <dt class="glossary-term">Type de dose</dt>
+                    <dd class="glossary-def">Première dose ou deuxième dose.</dd>
+                    <dt class="glossary-term">Rapport (de vaccination</dt>
+                    <dd class="glossary-def">Une preuve de vaccination, soit un document PDF présentant son nom, sa date de naissance, un code QR et la liste des vaccins administrés.</dd>
+                    <dt class="glossary-term">Suivi</dt>
+                    <dd class="glossary-def">Service supplémentaire chargé par les employés traitant les changement de rendez-vous, Envoi des courriels et génération des rapport Etc..</dd>
+                    <dt class="glossary-term">Compte</dt>
+                    <dd class="glossary-def">Un compte dans le système VaxTode :re qui présentera les informations personnelles du visiteur. Il est lié au numéro de compte de douze chiffre et le courriel du visiteur. Créé par l’employé au moment de comfirmation de RDV.</dd>
+                    <dt class="glossary-term">Profil de vaccination</dt>
+                    <dd class="glossary-def">Un emsemble qui regroupe les informations liées aux vaccins reçus: type de dose, identification du vaccin, date et heure de vaccination. (pour chaque compte)</dd>
+                    <dt class="glossary-term">Calendrier de rendez-vous</dt>
+                    <dd class="glossary-def">un calendirer où sont enregistrées les heures et des dates des RDV prise.</dd>
+                    <dt class="glossary-term">Équipement</dt>
+                    <dd class="glossary-def">Outils utilités par le professionel pour la vaccination, tels que alcool, injecteur, etc.</dd>
+                    <dt class="glossary-term">Rendez-vous</dt>
+                    <dd class="glossary-def">Une intervalle de temps qu'une personne a réservé ou réservera pour se rencontrer avec un professionel.</dd>
+                    <dt class="glossary-term">Visite planifiée</dt>
+                    <dd class="glossary-def">Entrer dans le local pour se vacciner sans rendez-vous.</dd>
+                    <dt class="glossary-term">Visite spontanée</dt>
+                    <dd class="glossary-def">Entrer dans le local pour se vacciner avec rendez-vous.</dd>
+                    <dt class="glossary-term">Questionnaire</dt>
+                    <dd class="glossary-def">Formulaire qui demande au visiteur à remplir avec toutes ses informations nécessaires, telles que nom, prénom, si déjà reçu une première dose, etc.</dd>
+                </dl>
+            </section>
+
+            <section>
+                <h2 id="model" class="section-title">Modélisation du domaine</h2>
+                <h4>Cas d'utilisation 6</h4>
+                
+                <ul>
+                    <li>
+                        <b>Nom:</b> Ajouter un bénévole
+                    </li>
+                    <li>
+                        <b>But:</b> l'équipe voudrait ajouter son information personel dans le système 
+                    </li>
+                    <li>
+                        <b>Précondition:</b> l'équipe recrute un vouveau bébévole.
+                        
+                    </li>
+                    <li>
+                        <b>Acteur:</b>Employé(principal), bénévole(secondaire).
+                    </li>
+                </ul>
+
+                <p>Scénarios</p>
+                <li><b>Scénario principal:</b></li>
+                <li>
+                    1. Un employé fait appel au cas d'utilisation "accéder au système".
+                </li>
+                <li>
+                    2. L'employé choisit "ajouter un nouveau bénévole".
+                </li>
+                <li>
+                    3. L'employé demande au bénévole de fournir ses informations et les saisit dans le système:
+                    <ul>
+                        <li>
+                         som nom, prénom, adresse, numéro de téléphone et adresse courriel
+                        </li>
+                        <li>
+                         liste de jours où il est disponible pour venir au local
+                        </li>
+                    </ul> 
+                </li>
+                <li>
+                    3. Le bénébole donne ces informations à l'employé. 
+                </li>
+                <li>
+                    4. L'employé entre ces informations dans le système.
+                </li>
+                <li>
+                    5. Le système ajoute ces information dans la liste des bénévoles. 
+                </li>
+                <li><b>Postcondition : </h4> Des informations de ce bénévole sont disponibles dans le système.</b></li>
+                <h4>Cas d'utilisation 7 </h4>
+                
+                <ul>
+                    <li>
+                        <b>Nom:</b> supprimer un bénévole
+                    </li>
+                    <li>
+                        <b>But:</b> supprimer les informations d'un bénévole du système. 
+                    </li>
+                    <li>
+                        <b>Précondition:</b> Un bénévole ne fait plus partie de l'équipe.
+                        
+                    </li>
+                    <li>
+                        <b>Acteur:</b>Employé. 
+                    </li>
+                </ul>
+
+                <p>Scénarios</p>
+                <li><b>Scénario principal:</b></li>
+                <li>
+                    1. Un employé fait appel au cas d'utilisation "accéder au système".
+                </li>
+                <li>
+                    2. L'employé choisit supprimer un bénévole. 
+                </li>
+                <li>
+                    3. L'employé entre le nom du bénévole à supprimer. 
+                    <ul>
+                        <li>
+                            3.1 le système vérifie que le nom existe.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    4. Le système affiche le (les) bénévole(s) cherché(s);
+                </li>
+                <li>
+                    5. l'employé comfirme son choix de bénévole à supprimer.
+                </li>
+                <li>
+                    6. Le système supprime le bénévole de la liste des bénévole et affiche réussi. 
+                </li>
+
+                <li><b>Scénario alternatif:</b></li>
+                <li>
+                    3a. Le nom n'est pas dans le système.
+                    <ul>
+                    <li>
+                        3a.1. Le système invite l'employé à resaisir le nom. 
+                    </li>
+                    <li>
+                        3a.2. L'employé resaisit le nom du bénévole à supprimer. 
+                    </li>
+                    <li>
+                        3a.3  Le scénario reprend à l’étape 4 
+                    </li>
+                    </ul>
+                </li> 
+                <li><b>Postcondition : </b></li> Des informations de ce bénévole ne sont disponibles dans le système.
+                <h4>Cas d'utilisation 8</h4>
+                
+                <ul>
+                    <li>
+                        <b>Nom:</b> modifier un bénévoles.
+                    </li>
+                    <li>
+                        <b>But:</b> modifier les informations d'un bénévole dans le système. 
+                    </li>
+                    <li>
+                        <b>Précondition:</b> Quand une modification sur des informations des bénévoles est nécessaire. 
+                    </li>
+                    <li>
+                        <b>Acteur:</b>Employé. 
+                    </li>
+                </ul>
+
+                <p>Scénarios</p>
+                <li><b>Scénario principal:</b></li>
+                <li>
+                    1. Un employé fait appel au cas d'utilisation "accéder au système".
+                </li>
+                <li>
+                    2. L'employé choisit "modifier un bénévole".
+                </li>
+                <li>
+                    3. L'employé entre le nom du bénévole.
+                </li>
+                <li>
+                    4. Le système affiche le (les) bénévole(s) cherché(s);
+                </li>
+                <li>
+                    5. l'employé comfirme son choix de bénévole à modifier.
+                </li>
+                <li>
+                    6. Le système invite l'employé à choisir les information à modifier. 
+                </li>
+                <li>
+                    7. L'employé chosit et entre les informations.
+                </li>
+                <li>
+                    8. Le système affiche réussi. 
+                </li>
+
+                <li><b>Scénario alternatif:</b></li>
+                <li>
+                    3a. Le nom n'est pas dans le système.
+                    <ul>
+                    <li>
+                        3a.1. Le système invite l'employé à resaisir le nom. 
+                    </li>
+                    <li>
+                        3a.2. L'employé resaisit le nom du bénévole à supprimer. 
+                    </li>
+                    <li>
+                        3a.3  Le scénario reprend à l’étape 4 
+                    </li>
+
+                    </ul>
+                </li>
+                <li><b>Postcondition : </b></li> Des informations de ce bénévole sont modifiées. 
+                <h4>Cas d'utilisation 9</h4>
+                
+                <ul>
+                    <li>
+                        <b>Nom:</b> Accéder au système. 
+                    </li>
+                    <li>
+                        <b>But:</b> Un employé log in dans le système pour des gestions 
+                    </li>
+                    <li>
+                        <b>Précondition:</b> L'employé procède son code d'employé valide et son mot de pass.
+                    </li>
+                </ul>
+
+                <p>Scénarios</p>
+                <li><b>Scénario principal:</b></li>
+                <li>
+                    1. L'employé choisit "accéder au système ".
+                </li>
+                <li>
+                    2. L'employé entre le code d'employé et son mot de pass.
+                </li>
+                <li>
+                    3. Le système lui affiche réussi. 
+                </li>
+                
+
+                <li><b>Scénario alternatif:</b></li>
+                <li>
+                    2a. Le code ou le mot de pass n'est pas valide.
+                    <ul>
+                    <li>
+                        2a.1. Le système invite l'employé à resaisir le code et le mot de pass. 
+                    </li>
+                    <li>
+                        2a.2. L'employé resaisit le code et le mot de pass. 
+                    </li>
+                    <li>
+                        2a.3  Le scénario reprend à l’étape 3 
+                    </li>
+
+                    </ul>
+                </li>
+                <li><b>Postcondition : </b></li> L'employé est permit de gérer les informations dans le système. 
+
+            </section>
+              
+            <section>
+                <h2 id="analysis" class="section-title">Analyse</h2>
+                <p>Notre analyse préliminaire nous a permet de...</p>
+                <div>
+                    <h3>Risques</h3>
+                    <ol class="risks">
+                        <li>Risques sévère : 
+                            <ul>
+                                <li>
+                                    Les données personnelles des visiteur est sous menace de divulgation
+                                </li>
+                                <li>
+                                    La fonctionnalité du système dépend du réseaux local.
+                                </li>
+                            </ul>
+                            
+                        <li>Risques importante:  
+                            <ul>
+                                <li>
+                                    L'exigence est sujete à changer dans le future.
+                                </li>
+                                <li>
+                                    Le fond non adéquat pour pour le développement, du fait que l'organisme est non-lucatif.
+                                </li>
+                            </ul>
+                            
+                            
+                        </li>
+                        <li>Risques éloignées : <br>
+                            <ul>
+                                <li>
+                                 Les programmeurs manque des compétences techniques nécessaires à satisfaire l'exigence
+                                </li>
+                                <li>
+                                 Distribution irraisonnable des tâches entre les programmeurs.
+                                </li>
+                            </ul>
+                        </li> 
+                        <li>Obstacle Mineur :
+                            <ul>
+                                <li>
+                                  Des étudiants dans l'équipe de développement est trop chargé par des devoirs dans l'université. <br>
+                                </li>
+                                <li>
+                                  La pandémie Covid-19 affecte la communication entre nous.
+                                </li>
+                            </ul>
+
+                        </li>
+                    </ol>
+                </div>
+                <div>
+                    <h3>Exigences non-fonctionnelles</h3>
+                    <ul class="nf-requirements">
+                        <li>Plateforme : Le logiciel doit s'adapter au système Windows</li>
+                        <li>Interface utilisateur : sous forme de commande de ligne et éventuellement GUI dans l'avenir</li>
+                        <li>Sécurité : Les données sont censées d'être protégées des divulgations.</li>
+                        <li>Communication avec d'autres système : Vaxtodo:re doit permet des transferts de données dans le réseax local</li>
+                        <li>Fiabilité : Durant la journée (8-18h), les pannes ne seront pas tolérées.</li>
+                        <li>Données et format de stockage:  les enregistrements seront stockés sur disque en fichier texte.</li>
+                        <li>performance: Réponse rapide aux demandes énormes en même temps </li>
+
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2 id="prototype" class="section-title">Prototype</h2>
+                <ul class="bare-list previews">
+                    <li class="preview">
+                        <img class="preview-img" src="url-du-prototype" alt="">
+                        Description du prototype.
+                    </li>
+                    <li class="preview">
+                        <img class="preview-img" src="url-du-prototype" alt="">
+                        Description du prototype.
+                    </li>
+                    <li class="preview">
+                        <img class="preview-img" src="url-du-prototype" alt="">
+                        Description du prototype.
+                    </li>
+                </li>
+            </section>
+        </div>
+    </main>
+    <footer class="report-footer">
+        <p>
+            <a class="link report-footer__link" href="bitbucket.com"> Lien vers compte Bitbucket</a></p>
+        <p>
+           <a class="link report-footer__link" href="fichier-dm1.vpp">Lien vers ressource externe (fichiers VPP)</a></p>
+    </footer>
+</body>
+
+</html>
