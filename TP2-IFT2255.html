@@ -437,7 +437,7 @@
                         Le visiteur a une carte d'assurance.
                     </li>
                     <li>
-                        <b>Acteur:</b>Employé(principal), visiteur
+                        <b>Acteur:</b>Employé, visiteur(principal)
                     </li>
                 </ul>
                 <br>
@@ -646,7 +646,7 @@
                 -------------------------------------------------------------------------------------
             </b>         
             <li>
-                5. L'employé choisit sur le menu "Mise à jour un nouveau compte".
+                5. L'employé choisit sur le menu "Mise à jour un nouveau compte".
             </li>
             <li>
                 6. L'employé a accédé au compte du visiteur en saisissant les informations.
@@ -1170,6 +1170,177 @@
                 <ul>
                     <li>L'employé est permit de gérer les informations dans le système. </li>
                 </ul>
+
+                <h4>Cas d'utilisation 12</h4>
+                <ul>
+                    <li>
+                        <b>Nom:</b>Confirmer visiteur
+                    </li>
+                    <li>
+                        <b>But:</b>L'employé confirme le visiteur.
+                    </li>
+                    <li>
+                        <b>Acteur:</b>Visiteur(principal), Employé(secondaire)
+                    </li>
+                </ul>
+                <br>
+
+            <li>
+                <b>Scénario principal:</b>
+            </li>
+            <li>
+                1. L'employé demande au visiteur qu'il est planifié ou spontané.
+            </li>
+            <li>
+                2. L'employé clique sur la fonctionnalité "Confirmer RDV".
+            </li>     
+            <li>
+                3. L'employé demande au visiteur son numéro de réservation.
+            </li>      
+            <li>
+                4. L'employé entre le numéro de réservation.
+            </li>
+            <li>
+                5. Le système valide le numéro de réservation.
+            </li>
+            <li>
+                6. Le systèm affiche sur l'écran "Validé".
+            </li>
+            <li>
+                7. Ce sénario se termine.
+            </li>
+
+            <li><b>Scénario alternatif:</b></li>
+                <li>
+                    2a. Le visiteur est spontané.
+                    <ul>
+                    <li>
+                        2a.1. L'employé ouvre le calendrier. 
+                    </li>
+                    <li>
+                        2a.2. L'employé demande au visiteur son nom et son numéro de téléphone. 
+                    </li>
+                    <li>
+                        2a.3  L'employé cherche ces informations sur le calendirer. 
+                    </li>
+                    <li>
+                        2a.4  Ce sénario se termine. 
+                    </li>
+
+                    </ul>
+                </li>
+
+                <li>
+                    2a.3.a L'employé n'a pas cherché ces informations.
+                    <ul>
+                    <li>
+                        2a.3.a.1 L'employé redemande au visiteur ses informations. 
+                    </li>
+                    <li>
+                        2a.2.a.2 Le scénario reprend à l’étape 2a.3.
+                    </li>
+                    </ul>
+                </li>
+
+                <li>
+                    6a. Le numéro de réservation entré n'est pas valide.
+                    <ul>
+                    <li>
+                        6a.1. Le systèm affiche sur l'écran "Numéro de réservation invalide". 
+                    </li>
+                    <li>
+                        6a.2  Le scénario reprend à l’étape 3.
+                    </li>
+
+                    </ul>
+                </li>
+            <br>
+
+            <h4>Cas d'utilisation 13</h4>
+                <ul>
+                    <li>
+                        <b>Nom:</b> Vérifier RDV
+                    </li>
+                    <li>
+                        <b>But:</b> Bénévole vérifie qu'un visiteur a pris un RDV. 
+                    </li>
+                    <li>
+                        <b>Acteur:</b>visiteur(principal), bénévole(secondaire).
+                    </li>
+                </ul>
+
+                <li><b>Scénario principal:</b></li>
+                <li>
+                    1. Le bénévole demande au visiteur son numéro de réservation, son nom et l'heure du RDV.
+                </li>
+                <li>
+                    2. L'employé entre ces informations dans le système.
+                </li>
+                <li>
+                    3. Le système valide ces informations.
+                </li>
+                <li>
+                    4. Le système affiche sur l'écran des informations par rapport à ce RDV.
+                </li>
+                <li>
+                    5. Le scénario se termine.
+                </li>
+                
+                <li><b>Scénario alternatif:</b></li>
+                <li>
+                    4a. Ces informations ne sont pas bonnes.
+                    <ul>
+                    <li>
+                        4a.1. Le système affiche "trouvé pas ce RDV". 
+                    </li>
+                    <li>
+                        4a.2. Le scénario reprend à l'étape 1. 
+                    </li>
+                    </ul>
+                </li>
+                <br>
+
+                <h4>Cas d'utilisation 15</h4>
+                <ul>
+                    <li>
+                        <b>Nom:</b> Ajouter un visiteur spontané au calendrier
+                    </li>
+                    <li>
+                        <b>But:</b> Ajouter un visiteur spontané au calendrier. 
+                    </li>
+                    <li>
+                        <b>Acteur:</b> visiteur(principal), bénévole(secondaire).
+                    </li>
+                    <li>
+                        <b>Précondition:</b> Le visiteur n'a pas pris de RDV ou il est en retard de 15 min.
+                    </li>
+                </ul>
+
+                <li><b>Scénario principal:</b></li>
+                <li>
+                    1. Le bénévole clique sur la fonctionnalité "Ajouter un visiteur spontané au calendrier".
+                </li>
+                <li>
+                    2. Le système lui retourne un calendrier.
+                </li>
+                <li>
+                    3. Le bénévole confirme la période avec le visiteur.
+                </li>
+                <li>
+                    4. Le bénévole demande au visiteur son nom et son numéro de téléphone.
+                </li>
+                <li>
+                    5. Le bénévole entre ces information dans la période choisie.
+                </li>
+                <li>
+                    6. Le système affiche "Ajout réussi".
+                </li>
+                
+                <li>
+                    <b>Postcondition:</b> Le nombre de RDV disponible dans la période choisie diminue d'un.
+                </li>
+                <br>
+        </ul>
 
                 <br><br>
             </section>
