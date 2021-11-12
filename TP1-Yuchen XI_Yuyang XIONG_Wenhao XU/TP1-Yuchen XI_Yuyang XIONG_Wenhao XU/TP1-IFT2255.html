@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IFT2255 | Rapport DM1</title>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/base.css">
+    <style>
+        .report-header {
+            padding-top: 24px; padding-bottom: 24px;
+            background-color: #fff;
+        }
+
+        .title-section {
+            padding-left: 5vw;
+            padding-right: 5vw;
+        }
+
+        .report-title {
+            color: royalblue;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .report-summary {
+            max-width: 800px;
+            font-size: 1.4em;
+            color: #555;
+        }
+        
+        .section-title {
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            font-size: 2.4em; font-weight: 300;
+        }
+
+        .team-section {
+            padding-left: 5vw;
+            padding-right: 5vw;
+        }
+
+            .team-title {
+                font-weight: 500;
+                margin-bottom: 12px;
+                color: #1C3A94;
+            }
+
+            .members {
+                display: flex; flex-direction: row;
+            }
+
+            .member {
+                display: flex; flex-direction: column;
+            }
+                .member:not(:last-child) {
+                    margin-right: 12px;
+                }
+
+                .member-pic {
+                    display: block;
+                    width: 120px;
+                    height: 120px;
+                    border-radius: 50%;
+                }
+
+                .member-role {
+                    font-size: 0.9em; font-weight: 500;
+                    color: #555;
+                }
+
+        .report-body {
+            display: flex;
+        }
+
+        .report-aside {
+            padding-top: 24px;
+            padding-right: 12px;
+            padding-left: 5vw;
+            box-shadow: 1px 0 1px #999;
+        }
+
+        .report-main {
+            padding-left: 12px;
+            padding-right: 5vw;
+            padding-top: 24px;
+        }
+
+        .nav {
+            color: #E87429;
+        }
+
+        .nav-item__link {
+            display: block;
+            padding: 6px;
+            text-decoration: none;
+        }
+
+        .glossary {
+            font-size: 1.4em;
+        }
+
+        .preview-img {
+            width: 600px;
+            height: 400px;
+        }
+
+        .report-footer {
+            background-color: #2C5EB4;
+            padding: 12px 5vw 24px;
+        }
+
+        .report-footer p {
+            margin: 0;
+        }
+
+        .report-footer__link {
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="report-header">
+        <div class="title-section">
+            <h1 class="report-title">Rapport du livrable 1</h1>
+            <p class="report-summary">
+                Notre équipe a développé un système pour gérer les rendez-vous de vaccination. 
+                Après plusieurs séries de réunions avec le client pour définir les exigences spécifiques, 
+                la première version du système a été livré.
+            </p>
+        </div>
+
+        <div class="team-section">
+            <h2 class="team-title">Notre équipe</h2>
+            <ul class="bare-list members">
+                <li class="member">
+                    <img class="member-pic" src="images/2c0f8af6-b4d4-461b-bbf2-0706f16768ec.jpeg" alt="" >
+                    <div class="member-identification">
+                        <span class="member-name">Yuchen HUI</span>
+                        <span class="member-id">20150470</span>
+                    </div> 
+                    <a href="mailto:yuchen.hui@umontreal.ca">yuchen.hui@umontreal.ca</a>
+                </li>
+                <li class="member">
+                    <img class="member-pic" src="images/WechatIMG226.jpeg" alt="" >
+                    <div class="member-identification">
+                        <span class="member-name">Yuyang XIONG</span>
+                        <span class="member-id">20151236</span>
+                    </div> 
+                    <a href="mailto:yuyang.xiong@umontreal.ca">yuyang.xiong@umontreal.ca</a>
+                </li>
+                <li class="member">
+                    <img class="member-pic" src="images/IMG_8433.jpg" alt="" >
+                    <div class="member-identification">
+                        <span class="member-name">Wenhao XU</span>
+                        <span class="member-id">20150702</span>
+                    </div> 
+                    <a href="mailto:wenhao.xu@umontreal.ca">wenhao.xu@umontreal.ca</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <main class="report-body">
+        <aside class="report-aside">
+            <nav>
+                <ul class="bare-list nav">
+                    <li class="nav-item">
+                        <a class="nav-item__link" href="#plan">Plannification</a> 
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item__link" href="#progre">Progrès</a> 
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item__link" href="#domain">Compréhension du domaine</a> 
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item__link" href="#model">Modélisation du domaine</a> 
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item__link" href="#analysis">Analyse</a> 
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item__link" href="#prototype">Prototype</a> 
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item__link" href="#annex">Annexe</a> 
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+        <div class="report-main">
+            <section>
+                <h2 id="plan" class="section-title">Plannification</h2>
+
+                <h3>Description</h3>
+                <p>
+
+                    L'organisme à but non lucratif (OBNL) GoodPeople a entrepris l'initiative VaxTodo en coordination avec le gouvernement.
+                    Le programme est conçu pour aider les personnes de plus de 18 ans à prendre rendez-vous pour les vaccinations.<br/>
+                    En raison de l'excellente réaction, le nombre de réservations pour le programme a dépassé les attentes. GoodPeople nous 
+                    a donc chargé de mettre en place un système permettant d'organiser le processus de vaccination et de fournir le service. <br/>
+                    Ce système permet de gérer les rendez-vous de vaccination, d'aider à la collecte d'informations et de rationaliser 
+                    le nombre de personnes vaccinées à chaque créneau horaire.
+
+                </p>
+
+
+                <h3>Distribution des taches</h3>
+                <table cellpadding="7px">
+                    <thead>
+                        <tr>
+                            <th class="first_col">Tâche</th>
+                            <th>Yuchen HUI</th>
+                            <th>Yuyang XIONG</th>
+                            <th>Wenhao XU</th>
+                        </tr>
+                    </thead>
+    
+                    <tbody>
+                        <tr>
+                            <td class="first_col">Rapport</td>
+                            <td></td>
+                            <td></td>
+                            <td>100%</td>
+                        </tr>
+                        <tr>
+                            <td class="first_col">Plannification</td>
+                            <td></td>
+                            <td></td>
+                            <td>100%</td>
+                        </tr>
+                        <tr>
+                            <td class="first_col">Compréhension</td>
+                            <td>50%</td>
+                            <td></td>
+                            <td>50%</td>
+                        </tr>
+                        <tr>
+                            <td class="first_col">Glossaire</td>
+                            <td>50%</td>
+                            <td>50%</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="first_col">Cas d'utilisation</td>
+                            <td>33%</td>
+                            <td>33%</td>
+                            <td>33%</td>
+                        </tr>
+                        <tr>
+                            <td class="first_col">Scénario</td>
+                            <td>33%</td>
+                            <td>33%</td>
+                            <td>33%</td>
+                        </tr>
+                        <tr>
+                            <td class="first_col">Diagramme de cas d'utilisation</td>
+                            <td> </td>
+                            <td>100%</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="first_col">Risques</td>
+                            <td>100%</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="first_col">Exigences non-fonctionnelles</td>
+                            <td>100%</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="first_col">Prototype</td>
+                            <td></td>
+                            <td>100%</td>
+                            <td></td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+
+
+                <h3>Hypothèses</h3>
+                <p>
+                    Nous avons posé les hypothèses suivantes :
+                    <ul>
+                        <li>
+                            Il y a deux files d'attente au guichet de ce local, 
+                            une pour les personnes ayant un rendez-vous et une pour les personnes sans rendez-vous.
+                        </li>
+                        <li>
+                            Les volontaires se placeront devant les deux files d'attente et si une personne 
+                            ayant une réservation est en retard (arrive plus de 15 minutes avant le créneau), 
+                            elle sera affectée à l'autre file pour les personnes sans rendez-vous.
+                        </li>
+                        <li>
+                            Les ordinateurs de ce local se connecteront automatiquement au serveur et partageront les données.
+                        </li>
+                        <li>
+                            L'employé devra demander au visiteur un numéro de réservation pour confirmer le rendez-vous.
+                        </li>
+                        <li>
+                            Si le visiteur n'a pas de rendez-vous au moment de la création du compte, le système génère automatiquement un numéro de réservation.
+                        </li>
+                        <li>
+                            Les bénévoles géreront le nombre de personnes présentes (pas plus de 40) et n'ont pas besoin du système pour le faire.
+                        </li>
+                        <li>
+                            La modification et la suppression d'un compte de bénévole peuvent se faire sans la présence de ce bénévole.
+                        </li>
+                        <li>
+                            Les notifications et les rapports de vaccination doivent être envoyés manuellement.
+                        </li>
+                        <li>
+                            Le compte est connecté au profile des vaccins ainsi qu'au système de rendez-vous et les informations sont appelées automatiquement.
+                        </li>
+                        <li>
+                            Le numéro de réservation est un chiffre de 9.
+                        </li>
+                    </ul>
+
+
+                </p>
+            </section>
+
+                <section>
+                    <h2 id="progre" class="section-title">Notre progrès par semaine</h2>
+                    <p>
+    
+                        Au cours de la première semaine, nous nous sommes familiarisés avec 
+                        les exigences spécifiques de VaxTodo:re et nous avons eu une idée générale 
+                        de ce qu'était le projet. Nous avons ensuite établi un cadre général. 
+                        Sur la base du cadre général, nous avons étudié et recherché et analysé 
+                        les domaines de connaissance pertinents.<br/>
+                        <br>
+                        La semaine suivante, nous avions une rencontre avec le client Monsieur Lafontant. <br>
+                        Nous avons déclaré notre confusion: <br>
+                        1 : La fonctionnalité contrète demandée par "gestions des comptes, des bénévoles" dans l'énoncé du travail. <br>
+                        2 : Pourrait un bénévole manipuler le système? <br>
+                        3 : Notre système devrait être capable de controler le nombre de personne dans le local? <br>
+                        Durant cette semaine nous avons considérer les risques éventuelles et avons analysé les besoins non-fonctionnels. <br>
+                        Cette partie a été ajouter au rapport Par Yuchen Hui. <br>
+                        <br>
+                        Durant la troisème semaine, Wenhao Xu a commencé à rédigier le rapport(Organisation de PageWeb,etc.) <br>
+                        En même temps nous avions une deuxième rencontre avec le client pour déterminer le contenu concrète <br>
+                        de 'rapport de vaccination' indiqué dans l'énoncé. Après que l'exigence soit claire, nous avons extrait un glossaire. <br>
+                        Par la suite, nous avons cherché des cas d'utilisation et nous avons partagé le travail d'écriture des scénarios. <br>
+                        Finalement, après tout est préparé, Yuyang Xiong a désinné le diagramme de CU ainsi que le prototype de notre système.
+    
+                    
+                
+                        
+                         
+                        <br/>
+    
+                        <br/>
+                        Après de nombreuses rencontres et une familiarisation avec l'activité 
+                        VaxTodo, nous avons préparé un glossaire rassemblant les termes et 
+                        expressions clés caractérisant l'environnement.
+                    </p>
+                    <h2 id="domain" class="section-title">Compréhension du domaine</h2>
+                <h3>Glossaire</h3>
+                <dl class="glossary">
+                    <dt class="glossary-term">Campagne de vaccination</dt>
+                    <dd class="glossary-def">la campagne lancée par le gouvernement du Québec, avec le but de lutter contre la Pandémie de Covid-19, où tout les résident sont sugérés de se faire vacciner de quatre types de vaccins : Moderna, Pfizer, AstraZeneca, Janssen.</dd>
+                    <dt class="glossary-term">VaxTodo</dt>
+                    <dd class="glossary-def">Une initiative entreprise par l'organisme à but non lucratif (OBNL) GoodPeople qui permet à toute personne majeure agée de 18 ans et plus de prendre un rendez-vous avec GoodPeople pour se faire vacciner.</dd>
+                    <dt class="glossary-term">VaxTodo:re</dt>
+                    <dd class="glossary-def">Un système d'information qui sera manipulé uniquement par les employés, à implémenter par notre équipe de développement.</dd>
+                    <dt class="glossary-term">Local</dt>
+                    <dd class="glossary-def">Emplacement dédié à la vaccination, loué par l’organisme, où se déroule la campagne de vaccination. Pour respecter au mieux les règles sanitaires, la capacité du local se limite à 40 personnes, ne comptant pas l’équipe et les professionnels de la santé.</dd>
+                    <dt class="glossary-term">Service</dt>
+                    <dd class="glossary-def">Service de vaccination, y compris la pris de Rendez-vous, la vaccination et le suivi.</dd>
+                    <dt class="glossary-term">Visiteur</dt>
+                    <dd class="glossary-def">Personne majeure agée de 18 ans qui se présente au local pour se faire vacciner (Avec ou sans Rendez-vous).</dd>
+                    <dt class="glossary-term">Bénévole</dt>
+                    <dd class="glossary-def">Personel responsables d'accueillir une personne et les acheminer aux employés.</dd>
+                    <dt class="glossary-term">Employé</dt>
+                    <dd class="glossary-def">Personel qui font le traitement du dossier (visiteur,bénévole et lui-même) et le choix du vaccin avec le visiteur.</dd>
+                    <dt class="glossary-term">Équipe</dt>
+                    <dd class="glossary-def">Qui consiste des emplyés et des
+                        Professionnels de la santé : 
+                        personel : apportent tout l'équipement nécessaire pour la vaccination.
+                        </dd>
+                    <dt class="glossary-term">Type de dose</dt>
+                    <dd class="glossary-def">Première dose ou deuxième dose.</dd>
+                    <dt class="glossary-term">Rapport de vaccination</dt>
+                    <dd class="glossary-def">Une preuve de vaccination, soit un document PDF présentant son nom, sa date de naissance, un code QR et la liste des vaccins administrés.</dd>
+                    <dt class="glossary-term">Suivi</dt>
+                    <dd class="glossary-def">Service supplémentaire chargé par les employés traitant les changement de rendez-vous, Envoi des courriels et génération des rapport Etc..</dd>
+                    <dt class="glossary-term">Compte</dt>
+                    <dd class="glossary-def">Un compte dans le système VaxTode :re qui présentera les informations personnelles du visiteur. Il est lié au numéro de compte de douze chiffre et le courriel du visiteur. Créé par l’employé au moment de comfirmation de RDV.</dd>
+                    <dt class="glossary-term">Profil de vaccination</dt>
+                    <dd class="glossary-def">Un emsemble qui regroupe les informations liées aux vaccins reçus: type de dose, identification du vaccin, date et heure de vaccination. (pour chaque compte)</dd>
+                    <dt class="glossary-term">Calendrier de rendez-vous</dt>
+                    <dd class="glossary-def">un calendirer où sont enregistrées les heures et des dates des RDV prise.</dd>
+                    <dt class="glossary-term">Équipement</dt>
+                    <dd class="glossary-def">Outils utilités par le professionel pour la vaccination, tels que alcool, injecteur, etc.</dd>
+                    <dt class="glossary-term">Rendez-vous</dt>
+                    <dd class="glossary-def">Une intervalle de temps qu'une personne a réservé ou réservera pour se rencontrer avec un professionel.</dd>
+                    <dt class="glossary-term">Visite planifiée</dt>
+                    <dd class="glossary-def">Entrer dans le local pour se vacciner sans rendez-vous.</dd>
+                    <dt class="glossary-term">Visite spontanée</dt>
+                    <dd class="glossary-def">Entrer dans le local pour se vacciner avec rendez-vous.</dd>
+                    <dt class="glossary-term">Questionnaire</dt>
+                    <dd class="glossary-def">Formulaire qui demande au visiteur à remplir avec toutes ses informations nécessaires, telles que nom, prénom, si déjà reçu une première dose, etc.</dd>
+                    <dt class="glossary-term">Numéro de réservation</dt>
+                    <dd class="glossary-def">Quand un visiteur prend un rendez-vous la première fois, le système génère un string composé de neuf chiffres.</dd>
+                    <dt class="glossary-term">Code d'employé</dt>
+                    <dd class="glossary-def">Un code composé de neuf chiffres, avec lequel l'employé pourait log in dans le système. </dd>
+                    <dt class="glossary-term">Mot de pass</dt>
+                    <dd class="glossary-def"> Une chaine de caractère contenant au moins 1 chiffre, 1 majuscule, 1 minuscule et 1 caractère spécial. Il sera utilisé avec le code d'employé pour log in dans le système.  </dd>
+                </dl>
+            </section>
+
+            <section>
+                <h2 id="model" class="section-title">Modélisation du domaine</h2>
+                <h3>Cas d'utilisation</h3>
+                <a href="CU/">
+                    <img src="images/Capture d’écran 2021-10-10 à 9.37.26 PM.png" width="1000" alt="">
+                </a>
+                <h4>Cas d'utilisation 1</h4>
+                <ul>
+                    <li>
+                        <b>Nom:</b>Créer un compte
+                    </li>
+                    <li>
+                        <b>But:</b>Créer un compte des visiteur lorsque le première visite.
+                    </li>
+                    <li>
+                        <b>Précondition:</b>
+                        Le visiteur a une carte d'assurance.
+                    </li>
+                    <li>
+                        <b>Acteur:</b>Employé(principal), visiteur
+                    </li>
+                </ul>
+                <br>
+
+            <li>
+                <b>Scénario principal:</b>
+            </li>
+            <li>
+                1. Le visiteur arrive au guichet.
+            </li>
+            <li>
+                2. L'employé utilise le cas d'utilisation "Accédez au système".
+            </li>
+            <li>
+                3. L'employé a demandé au visiteur de fournir son nom et son numéro de réservation.
+            </li>
+            <b></b>
+                --------------------------------------
+                Données à collecter
+                --------------------------------------
+            </b>
+            <ul>
+                <li>
+                    Nom de famille et prénom du visiteur
+                </li>
+                <li>
+                    Numéro de réservation
+                </li>
+            </ul>
+            <b>
+                -------------------------------------------------------------------------------------
+            </b>
+            <li>
+                4. L'employé choisit sur le menu "Créer un nouveau compte".
+            </li>
+            <li>
+                5. L'employé saisit le numéro de réservation pour vérifier le statut de réservation du visiteur.
+            </li>
+            <li>
+                6. La vérification est réussie et choisit sur le menu "Créer".
+            </li>
+            <li>
+                7. Le système appelle les informations relatives à la réservation et remplit automatiquement les informations pertinentes.
+                L'employé continue à recueillir des informations supplémentaires sur le compte.
+            </li>
+            </li><b></b>
+                --------------------------------------
+                Données à collecter
+                --------------------------------------
+            </b>
+            <ul>
+                <li>
+                    Date de naissance
+                </li>
+                <li>
+                    Address
+                </li>
+                <li>
+                    Numéro de téléphone
+                </li>
+                <li>
+                    Type de dose(1,2)
+                </li>
+                <li>
+                    Identification du vaccin
+                </li>
+            </ul>
+            <b>
+                -------------------------------------------------------------------------------------
+            </b>           
+            <li>
+                8. L'employé entre les informations dans le système.
+            </li>
+            <li>
+                9. L'employé confirme avec le visiteur que les informations saisies sont correctes.
+            </li>
+            <li>
+                10. La création est effectuée.
+            </li>
+            <li>
+                11. Le systèm  crée un numéro unique à douze chiffres qui sera rattaché à une adresse courriel unique.
+            </li>
+            <br>
+            <li><b>Scénarios alternatifs:</b></li>
+            <li>
+                3a. L'agent clique sur "Mettre à jour un membre"
+            </li>
+            <ul>
+                <li>
+                    3a.1. Le visiteur n'a pas pris de rendez-vous à l'avance et l'employé saisit "Pas de rendez-vous" dans le système.
+                </li>
+                <li>
+                    3a.2.L'employé a demandé des informations au visiteur.
+                </li>
+                
+                <b>
+                    --------------------------------------
+                    Données à collecter
+                    --------------------------------------
+                </b>
+                <ul>
+                    <li>
+                        Nom de famille et prénom du visiteur
+                    </li>
+                    <li>
+                        Date de naissance
+                    </li>
+                    <li>
+                        Date de la visite (YYYY-MM-DD);Heure de la visite (HH:MM)
+                    </li>
+                    <li>
+                        Address
+                    </li>
+                    <li>
+                        Numéro de téléphone
+                    </li>
+                    <li>
+                        Email
+                    </li>
+                    <li>
+                        Type de dose(1,2)
+                    </li>
+                    <li>
+                        Identification du vaccin
+                    </li>
+                </ul>
+                <b>
+                    -------------------------------------------------------------------------------------
+                </b>   
+                
+                <li>
+                    3a.3. L'employé entre les informations dans le système.
+                </li>
+                <li>
+                    3a.4. L'employé confirme avec le visiteur que les informations saisies sont correctes.
+                </li>
+                <li>
+                    3a.5. La création est effectuée.
+                </li>
+                <li>
+                    3a.6. Le systèm crée un numéro de réservation et un numéro unique à douze chiffres qui sera rattaché à une adresse courriel unique.
+                </li>
+            </ul>
+            
+            <li>
+                <b>Postconditions:</b>
+                <ul>
+                    <li>
+                        Le système stocke des informations sur les comptes créés.
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+
+        <h4>Cas d'utilisation 2</h4>
+                <ul>
+                    <li>
+                        <b>Nom:</b>Modifier un compte
+                    </li>
+                    <li>
+                        <b>But:</b>Mettre à jour un compte invité lorsque des informations doivent être actualisées.
+                    </li>
+                    <li>
+                        <b>Précondition:</b>
+                        Le visiteur a déjà un compte.
+                    </li>
+                    <li>
+                        <b>Acteur:</b>Employé(principal), visiteur
+                    </li>
+                </ul>
+                <br>
+
+            <li>
+                <b>Scénario principal:</b>
+            </li>
+            <li>
+                1. Le visiteur arrive à le guichet.
+            </li>
+            <li>
+                2. L'employé utilise le cas d'utilisation "Accédez au système".
+            </li>
+            <li>
+                3. Le visiteur a demandé à l'employé de mettre à jour ses informations de compte.
+            </li>
+            <li>
+                4. L'employé a demandé au visiteur de fournir son nom.
+            </li>
+            <b></b>
+                --------------------------------------
+                Données à collecter
+                --------------------------------------
+            </b>
+            <ul>
+                <li>
+                    Nom de famille et prénom du visiteur
+                </li>
+                <li>
+                    Date de naissance
+                </li>
+                <li>
+                    Numéro unique à douze chiffres qui sera rattaché à une adresse courriel unique
+                </li>
+            </ul>
+            <b>
+                -------------------------------------------------------------------------------------
+            </b>         
+            <li>
+                5. L'employé choisit sur le menu "Mise à jour un nouveau compte".
+            </li>
+            <li>
+                6. L'employé a accédé au compte du visiteur en saisissant les informations.
+            </li>
+            <li>
+                7. L'employé demande aux visiteurs de fournir des informations qui doivent être mises à jour.
+            </li>        
+            <li>
+                8. L'employé entre les informations dans le système.
+            </li>
+            <li>
+                9. L'employé confirme avec le visiteur que les informations saisies sont correctes.
+            </li>
+            <li>
+                10. La mise à jour est effectuée.
+            </li>
+            <br>
+            
+            <li>
+                <b>Postconditions:</b>
+                <ul>
+                    <li>
+                        Le système enregistre les informations relatives au compte modifié
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+
+
+
+        <h4>Cas d'utilisation 3</h4>
+                <ul>
+                    <li>
+                        <b>Nom:</b>Supprimer un compte
+                    </li>
+                    <li>
+                        <b>But:</b>Dans certains cas, l'employé devra supprimer un compte invité.
+                    </li>
+                    <li>
+                        <b>Précondition:</b>
+                        Le visiteur a déjà un compte. Quand la suppression d'un compte est nécessaire.
+                    </li>
+                    <li>
+                        <b>Acteur:</b>Employé(principal)
+                    </li>
+                </ul>
+                <br>
+
+            <li>
+                <b>Scénario principal:</b>
+            </li>
+            <li>
+                1. L'employé utilise le cas d'utilisation "Accédez au système".
+            </li>     
+            <li>
+                2. L'employé choisit sur le menu "Supprimer un nouveau compte".
+            </li>      
+            <li>
+                3. L'employé entre le nom du visiteur dont le compte dans le système.
+            </li>
+            <li>
+                4. L'interface affiche une liste des comptes portant ce nom.
+            </li>
+            <li>
+                5. L'employé a sélectionné le bon compte à supprimer.
+            </li>
+            <li>
+                6. L'employé a sélectionné "Confirmer la suppression".
+            </li>
+            <li>
+                7. La mise à jour est effectuée.
+            </li>
+            <br>
+            
+            <li>
+                <b>Postconditions:</b>
+                <ul>
+                    <li>
+                        Le système supprime les informations du compte.
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+
+
+
+        <h4>Cas d'utilisation 4</h4>
+                <ul>
+                    <li>
+                        <b>Nom:</b> Ajouter des rendez-vous
+                    </li>
+                    <li>
+                        <b>But:</b> Une visiteur veut fixer des rendez-vous pour la vaccination.
+                    </li>
+                    <li>
+                        <b>Précondition:</b> Le visiteur est âgé de 18 ans et le nombre de personnes pour lesquelles il veut prendre un rendez-vous est inférieur ou égal à 2.
+                    </li>
+                    <li>
+                        <b>Acteur:</b> Employé(principal)， Visiteur(secondaire)
+                    </li>
+                </ul>
+                
+                <li>
+                    <b>Scénario principal:</b>
+                </li>
+                
+                    <li>1.Le visiteur appelle au GoodPeople.</li>
+                    <li>2.L'employé se connecte au VaxTodo:re.</li>
+                    <li>3.L'employé clique sur la fonctionnalité "Créer un RDV".</li>
+                    <li>4.Le système montre le calendirer sur l'ecran.</li>
+                    <li>5.L'employé lui demande le temps du rendez-vous.</li>
+                    <li>6.L'employé choisit un temps.</li>
+                    <li>7.L'employé lui demande son prénom, nom, courriel et le type de dose.</li>
+                    <li>8.L'employé entre ces informations dans le système.</li>
+                    <li>9.L'employé clique sur le bouton "Soumettre" pour confirmer le rendez-vous.</li>
+                    <li>10.Le système produit un numéro de réservation unique à l'écran.</li>
+                    <li>11.Le système envoie le numéro de réservation, prénom du visiteur, nom du visiteur, date de la visite, heure de la visite et type de dose au visiteur.</li>
+                
+                    <br>
+                
+                    <li>
+                        <b>Postcondition:</b> 
+                        <ul>
+                            <li>Le système a enregistré les informations suivantes: numéro de réservation, prénom du visiteur, nom du visiteur, date de la visite, heure de la visite et type de dose.</li>
+                        </ul>
+                        
+                    </li>
+                
+
+                <br>
+
+
+
+
+                <h4>Cas d'utilisation 5</h4>
+                <ul>
+                    <li>
+                        <b>Nom:</b> Supprimer un rendez-vous
+                    </li>
+                    <li>
+                        <b>But:</b> Un visiteur veut annuler son rendez-vous.
+                    </li>
+                    <li>
+                        <b>Précondition:</b> Un employé a reçu un appel d'un visiteur qui demande d'annuler son rendez-vous.
+                    </li>
+                    <li>
+                        <b>Acteur:</b> Employé(principal), Visiteur(secondaire)
+                    </li>
+                </ul>
+
+                <li>
+                    <b>Scénario principal:</b>
+                </li>
+                
+                    <li>1.Le visiteur appelle au GoodPeople.</li>
+                    <li>2.L'employé se connecte au VaxTodo:re.</li>
+                    <li>3.L'employé clique sur la fonctionnalité "Supprimer un RDV".</li>
+                    <li>4.Le système montre une page qui inclut une case demandant le numéro de réservation.</li>
+                    <li>5.L'employé lui demande son numéro de réservation.</li>
+                    <li>6.L'employé entre le numéro de réservation dans la case.</li>
+                    <li>7.Le système vérifie que le numéro existe.</li>
+                    <li>8.Le système montre le rendez-vous correspondant à ce numéro de réservation.</li>
+                    <li>9.L'employé choisit ce rendez-vous.</li>
+                    <li>10.L'employé clique sur le bouton "Supprimer".</li>
+                    <li>11.Le système signale à l'employé la confirmation de la suppression.</li>
+                    <li>12.L'employé clique sur le bouton "Confirmer".</li>
+                    <li>13.Le système retourne un message "RDV supprimé".</li>
+
+                <li><b>Scénario alternatif:</b></li>
+                <ol>
+                    8a. Le numéro de réservation entré n'existe pas<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;8a.1. Le système n'a pas trouvé ce numéro de réservation.<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;8a.2. Le système affiche "Numéro non valide" à l'écran.<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;8a.3. Le scénario reprend à l'étape 4.<br>
+                    8a. Le rendez-vous correspondant à ce numéro de réservation a été déjà annulé.<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;7a.1. Le système indique que ce rendez-vous a été déjà annulé.<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;7a.2. Le scénario se termine.
+                </ol>
+
+                <br>
+                
+                    <li>
+                        <b>Postcondition:</b> 
+                        <ul>
+                            <li>Le système a enlevé toutes les informations du rendez-vous supprimé. Une position de rendez-vous s'est libéréé dans le calendrier.</li>
+                        </ul>
+                    </li>
+                
+
+                <br>
+
+
+
+
+                <h4>Cas d'utilisation 6</h4>
+                <ul>
+                    <li>
+                        <b>Nom:</b> Envoyer des notifications
+                    </li>
+                    <li>
+                        <b>But:</b> Employé rappelle des visiteurs leur rendez-vous prochain.
+                    </li>
+                    <li>
+                        <b>Précondition:</b> Il y a des visites qui sont prévues pour les prochaines 48 heures.
+                    </li>
+                    <li>
+                        <b>Acteur:</b> Employé(principal)
+                    </li>
+                </ul>
+
+                <li>
+                    <b>Scénario principal:</b>
+                </li>
+                
+                
+                    <li>1.L'employé se connecte au VaxTodo:re.</li>
+                    <li>2.L'employé clique sur la fonctionnalité "Envoyer des notifications".</li>
+                    <li>3.Le système montre une page, où il y a tous les rendez-vous qui se passeront dans les prochaines 48 heures et aux quels l'employé n'a pas encore envoyé la notification.</li>
+                    <li>4.L'employé coche les rendez-vous qu'il veut cocher ou clique sur le bouton "Cocher tous".</li>
+                    <li>5.L'employé clique sur le bouton "Confirmer l'envoi".</li>
+                    <li>6.Le système indique sur l'écran un message "Envoyé".</li>
+                
+
+                <li><b>Scénario alternatif:</b></li>
+                <ol>
+                    3a. Il n'y aura aucun rendez-vous dans les prochaines 48 heures<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;3a.1. Le système montre une page vide.<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;3a.2. Le scénario se termine.
+                </ol>
+                
+                    <li>
+                        <b>Postcondition:</b> 
+                        <ul>
+                            <li>Le système a marqué tous les rendez-vous aux quels l'employé avait envoyé la notification.</li>
+                        </ul>
+                    </li>
+                
+
+                <br>
+
+                <h4>Cas d'utilisation 7</h4>
+                <ul>
+                    <li>
+                        <b>Nom:</b> Produire et envoyer des rapports de vaccination
+                    </li>
+                    <li>
+                        <b>But:</b> Un visiteur veut recevoir son rapport de vaccination.
+                    </li>
+                    <li>
+                        <b>Précondition:</b> Le visiteur s'est vacciné au GoodPeople.
+                    </li>
+                    <li>
+                        <b>Acteur:</b> Employé(principal), Visiteur(secondaire)
+                    </li>
+                </ul>
+
+                <li>
+                    <b>Scénario principal:</b>
+                </li>
+                
+                    <li>1.Le visiteur appelle à l'employé pour demander son rapport.</li>
+                    <li>2.L'employé se connecte au VaxTodo:re.</li>
+                    <li>3.L'employé ouvre la fonctionnalité "Produire et envoyer des rapports".</li>
+                    <li>4.Le système affiche une page incluant une case qui demande un numéro de compte.</li>
+                    <li>5.L'employé demande au visiteur son numéro de compte.</li>
+                    <li>6.L'employé entre le numéro au système.</li>
+                    <li>7.Le système affiche le compte correspondant à ce numéro.</li>
+                    <li>8.L'employé clique sur le bouton "Produire rapport".</li>
+                    <li>9.Le système affiche un rapport produit.</li>
+                    <li>10.L'employé clique sur le bouton "Envoyer rapport".</li>
+
+                <li><b>Scénario alternatif:</b></li>
+                <ol>
+                    5a. Le numéro de compte n'existe pas<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;5a.1. Le système n'a pas trouvé ce numéro de compte.<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;5a.2. Le système affiche "Numéro non valide" à l'écran.<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;5a.3. Le scénario reprend à l'étape 4.<br>
+                    8a. Le rapport a été déjà produit<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;8a.1. Un rapport se trouve déjà dans le compte.<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;8a.2. Le scénario saute à l'étape 10.
+                </ol>
+                
+                    <li>
+                        <b>Postcondition:</b> 
+                        <ul>
+                            <li>Le système a marqué le bouton "Produire rapport" comme "Produit déjà".</li>
+                        </ul>
+                    </li>
+                
+            
+
+
+                <h4>Cas d'utilisation 8</h4>
+                
+                <ul>
+                    <li>
+                        <b>Nom:</b> Créer des bénévoles
+                    </li>
+                    <li>
+                        <b>But:</b> l'équipe voudrait ajouter son information personel dans le système 
+                    </li>
+                    <li>
+                        <b>Précondition:</b> l'équipe recrute un vouveau bébévole.
+                        
+                    </li>
+                    <li>
+                        <b>Acteur:</b>Employé(principal), bénévole(secondaire).
+                    </li>
+                </ul>
+
+                <li><b>Scénario principal:</b></li>
+                <li>
+                    1. Un employé fait appel au cas d'utilisation "accéder au système".
+                </li>
+                <li>
+                    2. L'employé choisit "créer des bénévoles".
+                </li>
+                <li>
+                    3. L'employé demande au bénévole de fournir ses informations et les saisit dans le système:
+                    <ul>
+                        <li>
+                         som nom, prénom, adresse, numéro de téléphone et adresse courriel
+                        </li>
+                        <li>
+                         liste de jours où il est disponible pour venir au local
+                        </li>
+                    </ul> 
+                </li>
+                <li>
+                    3. Le bénébole donne ces informations à l'employé. 
+                </li>
+                <li>
+                    4. L'employé entre ces informations dans le système.
+                </li>
+                <li>
+                    5. Le système ajoute ces information dans la liste des bénévoles. 
+                </li>
+
+                <br>
+
+                <li><b>Postcondition : </b></li> 
+                <ul>
+                    <li>Des informations de ce bénévole sont disponibles dans le système.</li>
+                </ul>
+
+
+                <h4>Cas d'utilisation 9 </h4>
+                
+                <ul>
+                    <li>
+                        <b>Nom:</b> supprimer des bénévoles
+                    </li>
+                    <li>
+                        <b>But:</b> supprimer les informations d'un bénévole du système. 
+                    </li>
+                    <li>
+                        <b>Précondition:</b> Un bénévole ne fait plus partie de l'équipe.
+                        
+                    </li>
+                    <li>
+                        <b>Acteur:</b>Employé. 
+                    </li>
+                </ul>
+
+                <li><b>Scénario principal:</b></li>
+                <li>
+                    1. Un employé fait appel au cas d'utilisation "accéder au système".
+                </li>
+                <li>
+                    2. L'employé choisit 'supprimer des bénévoles'.
+                </li>
+                <li>
+                    3. L'employé entre le nom du bénévole à supprimer. 
+                    <ul>
+                        <li>
+                            3.1 le système vérifie que le nom existe.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    4. Le système affiche le (les) bénévole(s) cherché(s);
+                </li>
+                <li>
+                    5. l'employé comfirme son choix de bénévole à supprimer.
+                </li>
+                <li>
+                    6. Le système supprime le bénévole de la liste des bénévole et affiche réussi. 
+                </li>
+
+                <li><b>Scénario alternatif:</b></li>
+                <li>
+                    3a. Le nom n'est pas dans le système.
+                    <ul>
+                    <li>
+                        3a.1. Le système invite l'employé à resaisir le nom. 
+                    </li>
+                    <li>
+                        3a.2. L'employé resaisit le nom du bénévole à supprimer. 
+                    </li>
+                    <li>
+                        3a.3  Le scénario reprend à l’étape 4 
+                    </li>
+                    </ul>
+                </li> 
+                <li><b>Postcondition : </b></li> 
+                <ul>
+                    <li>Des informations de ce bénévole ne sont disponibles dans le système.</li>
+                </ul>
+
+
+                <h4>Cas d'utilisation 10</h4>
+                
+                <ul>
+                    <li>
+                        <b>Nom:</b> modifier des bénévoles.
+                    </li>
+                    <li>
+                        <b>But:</b> modifier les informations d'un bénévole dans le système. 
+                    </li>
+                    <li>
+                        <b>Précondition:</b> Quand une modification sur des informations des bénévoles est nécessaire. 
+                    </li>
+                    <li>
+                        <b>Acteur:</b>Employé. 
+                    </li>
+                </ul>
+
+                <li><b>Scénario principal:</b></li>
+                <li>
+                    1. Un employé fait appel au cas d'utilisation "accéder au système".
+                </li>
+                <li>
+                    2. L'employé choisit "modifier des bénévoles".
+                </li>
+                <li>
+                    3. L'employé entre le nom du bénévole.
+                </li>
+                <li>
+                    4. Le système affiche le (les) bénévole(s) cherché(s);
+                </li>
+                <li>
+                    5. l'employé comfirme son choix de bénévole à modifier.
+                </li>
+                <li>
+                    6. Le système invite l'employé à choisir les information à modifier. 
+                </li>
+                <li>
+                    7. L'employé chosit et entre les informations.
+                </li>
+                <li>
+                    8. Le système affiche réussi. 
+                </li>
+
+                <li><b>Scénario alternatif:</b></li>
+                <li>
+                    3a. Le nom n'est pas dans le système.
+                    <ul>
+                    <li>
+                        3a.1. Le système invite l'employé à resaisir le nom. 
+                    </li>
+                    <li>
+                        3a.2. L'employé resaisit le nom du bénévole à supprimer. 
+                    </li>
+                    <li>
+                        3a.3  Le scénario reprend à l’étape 4 
+                    </li>
+
+                    </ul>
+                </li>
+                <li><b>Postcondition : </b></li> 
+                <ul>
+                    <li>Des informations de ce bénévole sont modifiées. </li>
+                </ul>
+
+
+                <h4>Cas d'utilisation 11</h4>
+                
+                <ul>
+                    <li>
+                        <b>Nom:</b> Accéder au système. 
+                    </li>
+                    <li>
+                        <b>But:</b> Un employé log in dans le système pour des gestions 
+                    </li>
+                    <li>
+                        <b>Précondition:</b> L'employé procède son code d'employé valide et son mot de pass.
+                    </li>
+                </ul>
+
+                <li><b>Scénario principal:</b></li>
+                <li>
+                    1. L'employé choisit "accéder au système ".
+                </li>
+                <li>
+                    2. L'employé entre le code d'employé et son mot de pass.
+                </li>
+                <li>
+                    3. Le système lui affiche réussi. 
+                </li>
+                
+
+                <li><b>Scénario alternatif:</b></li>
+                <li>
+                    2a. Le code ou le mot de pass n'est pas valide.
+                    <ul>
+                    <li>
+                        2a.1. Le système invite l'employé à resaisir le code et le mot de pass. 
+                    </li>
+                    <li>
+                        2a.2. L'employé resaisit le code et le mot de pass. 
+                    </li>
+                    <li>
+                        2a.3  Le scénario reprend à l’étape 3 
+                    </li>
+
+                    </ul>
+                </li>
+                <li><b>Postcondition : </b></li> 
+                <ul>
+                    <li>L'employé est permit de gérer les informations dans le système. </li>
+                </ul>
+
+                <br><br>
+            </section>
+
+            <section>
+                <h2 id="analysis" class="section-title">Analyse</h2>
+                <p>Notre analyse préliminaire nous a permis d'extraitre les risques et les exigences non-fonctionelles</p>
+                <div>
+                    <h3>Risques</h3>
+                    <ol class="risks">
+                        <li>Risques sévère : 
+                            <ul>
+                                <li>
+                                    Les données personnelles des visiteur est sous menace de divulgation
+                                </li>
+                                <li>
+                                    La fonctionnalité du système dépend du réseaux local.
+                                </li>
+                            </ul>
+                            
+                        <li>Risques importante:  
+                            <ul>
+                                <li>
+                                    L'exigence est sujete à changer dans le future.
+                                </li>
+                                <li>
+                                    Le fond non adéquat pour pour le développement, du fait que l'organisme est non-lucatif.
+                                </li>
+                            </ul>
+                            
+                            
+                        </li>
+                        <li>Risques éloignées : <br>
+                            <ul>
+                                <li>
+                                 Les programmeurs manque des compétences techniques nécessaires à satisfaire l'exigence
+                                </li>
+                                <li>
+                                 Distribution irraisonnable des tâches entre les programmeurs.
+                                </li>
+                            </ul>
+                        </li> 
+                        <li>Obstacle Mineur :
+                            <ul>
+                                <li>
+                                  Des étudiants dans l'équipe de développement est trop chargé par des devoirs dans l'université. <br>
+                                </li>
+                                <li>
+                                  La pandémie Covid-19 affecte la communication entre nous.
+                                </li>
+                            </ul>
+
+                        </li>
+                    </ol>
+                </div>
+                <div>
+                    <h3>Exigences non-fonctionnelles</h3>
+                    <ul class="nf-requirements">
+                        <li>Plateforme : Le logiciel doit s'adapter au système Windows</li>
+                        <li>Interface utilisateur : sous forme de commande de ligne et éventuellement GUI dans l'avenir</li>
+                        <li>Sécurité : Les données sont censées d'être protégées des divulgations.</li>
+                        <li>Communication avec d'autres système : Vaxtodo:re doit permet des transferts de données dans le réseax local</li>
+                        <li>Fiabilité : Durant la journée (8-18h), les pannes ne seront pas tolérées.</li>
+                        <li>Données et format de stockage:  les enregistrements seront stockés sur disque en fichier texte.</li>
+                        <li>performance: Réponse rapide aux demandes énormes en même temps </li>
+
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2 id="prototype" class="section-title">Prototype</h2>
+                <ul class="bare-list previews">
+                    <li class="preview">
+                        <img class="preview-img" src="images/1" alt="">
+                    </li>
+                    <li class="preview">
+                        <img class="preview-img" src="images/2" alt="">
+                    </li>
+                    <li class="preview">
+                        <img class="preview-img" src="images/3" alt="">
+                    </li>
+                    <p>La photo suivante correspond au cas d'utilisation 'Créer un RDV':</p>
+                    <li class="preview">
+                        <img class="preview-img" src="images/4" alt="">
+                    </li>
+                    <li class="preview">
+                        <img class="preview-img" src="images/5" alt="">
+                    </li>
+                    <li class="preview">
+                        <img class="preview-img" src="images/6" alt="">
+                    </li>
+                    <li class="preview">
+                        <img class="preview-img" src="images/7" alt="">
+                    </li>
+                </li>
+            </section>
+        </div>
+    </main>
+    <footer id="annex" class="report-footer">
+        <p>
+            <a class="link report-footer__link" href="https://github.com/YuyangX/DM1.git"> Lien vers compte Github</a></p>
+        <p>
+           <a class="link report-footer__link" href="CU/">Lien vers ressource externe (fichiers VPP)</a></p>
+    </footer>
+</body>
+
+</html>
