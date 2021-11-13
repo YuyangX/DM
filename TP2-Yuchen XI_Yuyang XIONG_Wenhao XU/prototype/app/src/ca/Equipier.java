@@ -11,6 +11,23 @@ public abstract class Equipier {
 	private String adresseCourriel;
 	private String numeroDeTelephone;
 
+	public Equipier() {}
+
+	public Equipier(String numeroDeCompte, String nom, String prenom, String motDePasse,
+					String codeIdentification, String adresse, String codePostal, String ville,
+					String adresseCourriel, String numeroDeTelephone) {
+		this.numeroDeCompte = numeroDeCompte;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.motDePasse = motDePasse;
+		this.codeIdentification = codeIdentification;
+		this.adresse = adresse;
+		this.codePostal = codePostal;
+		this.ville = ville;
+		this.adresseCourriel = adresseCourriel;
+		this.numeroDeTelephone = numeroDeTelephone;
+	}
+
 	public String getNumeroDeCompte() {
 		return this.numeroDeCompte;
 	}

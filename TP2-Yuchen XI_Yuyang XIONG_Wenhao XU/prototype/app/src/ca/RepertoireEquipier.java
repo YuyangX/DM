@@ -1,7 +1,9 @@
+import java.util.ArrayList;
+
 public class RepertoireEquipier {
 
-	private Employe[] employes;
-	private Benevole[] benevoles;
+	private ArrayList<Employe> employes = new ArrayList<>();
+	private ArrayList<Benevole> benevoles = new ArrayList<>();
 	private int index;
 
 	/**
@@ -10,25 +12,31 @@ public class RepertoireEquipier {
 	 */
 	public Boolean supprimerBenevole(String code) {
 		// TODO - implement RepertoireEquipier.supprimerBenevole
-		throw new UnsupportedOperationException();
+		Benevole benevoleTrouve = getBenevole(code);
+		if (benevoleTrouve == null) {
+			return false;
+		} else {
+			benevoles.remove(benevoleTrouve);
+			return true;
+		}
 	}
 
 	/**
 	 * 
 	 * @param benevole
 	 */
-	public Boolean ajouterBenevole(Benevole benevole) {
+	public void ajouterBenevole(Benevole benevole) {
 		// TODO - implement RepertoireEquipier.ajouterBenevole
-		throw new UnsupportedOperationException();
+		this.benevoles.add(benevole);
 	}
 
 	/**
 	 * 
 	 * @param employe
 	 */
-	public Boolean ajouterEmploye(Employe employe) {
+	public void ajouterEmploye(Employe employe) {
 		// TODO - implement RepertoireEquipier.ajouterEmploye
-		throw new UnsupportedOperationException();
+		this.employes.add(employe);
 	}
 
 	/**
@@ -37,7 +45,32 @@ public class RepertoireEquipier {
 	 */
 	public Benevole getBenevole(String codeIdentification) {
 		// TODO - implement RepertoireEquipier.getBenevole
-		throw new UnsupportedOperationException();
+		int i = 0;
+		while (i < benevoles.size()) {
+			if (benevoles.get(i).getCodeIdentification().equals(codeIdentification)) {
+				index = i;
+				return benevoles.get(i);
+			}
+			i++;
+		}
+		return null;
+	}
+
+	/**
+	 *
+	 * @param codeIdentification
+	 */
+	public Employe getEmploye(String codeIdentification) {
+		// TODO - implement RepertoireEquipier.getBenevole
+		int i = 0;
+		while (i < employes.size()) {
+			if (employes.get(i).getCodeIdentification().equals(codeIdentification)) {
+				index = i;
+				return employes.get(i);
+			}
+			i++;
+		}
+		return null;
 	}
 
 	/**

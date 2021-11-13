@@ -9,7 +9,7 @@ public class ControlleurCompte implements Controller {
 	 * @param infos
 	 */
 	public Boolean creerCompte(String[] infos) {
-
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -17,7 +17,7 @@ public class ControlleurCompte implements Controller {
 	 * @param infos
 	 */
 	public Boolean modifierCompte(String[] infos) {
-
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -76,7 +76,15 @@ public class ControlleurCompte implements Controller {
 	 * @param infos
 	 */
 	public Boolean modifierProfil(String[] infos) {
-
+		throw new UnsupportedOperationException();
 	}
 
+	/**
+	 *
+	 * @param info
+	 */
+	@Override
+	public Boolean isValid(String[] info) {
+		return null;
+	}
 }

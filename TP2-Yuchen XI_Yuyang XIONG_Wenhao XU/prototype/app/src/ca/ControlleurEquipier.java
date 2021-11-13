@@ -8,7 +8,7 @@ public class ControlleurEquipier implements Controller {
 	 * @param infos
 	 */
 	public Boolean ajouterBenevole(String[] infos) {
-
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -25,7 +25,7 @@ public class ControlleurEquipier implements Controller {
 	 * @param infos
 	 */
 	public Boolean modifierBenevole(String[] infos) {
-
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -47,4 +47,20 @@ public class ControlleurEquipier implements Controller {
 		throw new UnsupportedOperationException();
 	}
 
+	public RepertoireEquipier getRepertoire() {
+		return repertoire;
+	}
+
+	public void setRepertoire(RepertoireEquipier repertoire) {
+		this.repertoire = repertoire;
+	}
+
+	/**
+	 *
+	 * @param info
+	 */
+	@Override
+	public Boolean isValid(String[] info) {
+		return null;
+	}
 }

@@ -7,7 +7,7 @@ public class ControlleurVisiteur implements Controller {
 	 * @param infos
 	 */
 	public Boolean createRDV(String[] infos) {
-
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -15,7 +15,7 @@ public class ControlleurVisiteur implements Controller {
 	 * @param infos
 	 */
 	public Boolean addWalkin(String[] infos) {
-
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -51,4 +51,12 @@ public class ControlleurVisiteur implements Controller {
 		throw new UnsupportedOperationException();
 	}
 
+	/**
+	 *
+	 * @param info
+	 */
+	@Override
+	public Boolean isValid(String[] info) {
+		return null;
+	}
 }
