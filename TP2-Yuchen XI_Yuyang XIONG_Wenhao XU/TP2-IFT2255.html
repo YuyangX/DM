@@ -350,6 +350,21 @@
                         </tr>
                     </tbody>
                 </table>
+                <h4>Changement depuis Livrable1 :</h4>
+                <ul>
+                    <li>Vu que l'énoncé a été changé depuis DM2, nous avons redéterminé les exigences tout en changeant <br>
+                        le digramme de CU et les scénario. Concrètement, nous avons ajouté le bénévole comme l'acteur <br>
+                        principal et aussi les CUs correspondants ; Nous avons aussi ajouter quelques CU et scénarios <br>
+                        pour l'acteur employé. 
+                    </li>
+                    <li>
+                        Nous avons ajouté les diagrammes de Classe, les diagrammes d'activité et les diagrammes de séquence. <br>
+                    </li>
+                    <li>
+                        Nous avons raffiné la section en ajoutant la deuxième itération d'analyse dans la seciton «Analyse».
+                    </li>
+                        
+                </ul>
 
                 <h3>Hypothèses</h3>
                 <p>
@@ -1521,9 +1536,10 @@
 
             <section>
                 <h2 id="analysis" class="section-title">Analyse</h2>
+                <h3>Première itération (DM1)</h3>
                 <p>Notre analyse préliminaire nous a permis d'extraitre les risques et les exigences non-fonctionelles</p>
                 <div>
-                    <h3>Risques</h3>
+                    <h4>Risques</h4>
                     <ol class="risks">
                         <li>Risques sévère : 
                             <ul>
@@ -1571,7 +1587,7 @@
                     </ol>
                 </div>
                 <div>
-                    <h3>Exigences non-fonctionnelles</h3>
+                    <h4>Exigences non-fonctionnelles</h4>
                     <ul class="nf-requirements">
                         <li>Plateforme : Le logiciel doit s'adapter au système Windows</li>
                         <li>Interface utilisateur : sous forme de commande de ligne et éventuellement GUI dans l'avenir</li>
@@ -1583,6 +1599,44 @@
 
                     </ul>
                 </div>
+                <h3>Deuxième itération (DM2)</h3>
+                <ul>
+                    
+                    <li>
+                        1. Besoin matériels : Sur ce qui concerne la partie à informatiser, nous avons décidé d'informatiser toutes les parties <br>
+                        qui servent à conserver les informations : Le compte des visiteur, le compte des équipiers (Employé + bénévole), <br>
+                        le profile de vaccination, le formulaire, le RDV.... La méthode adoptée est de créer des classes dont les attributs stockent <br>
+                        ce que nous voulons puis assembler les classes élémentaires (RDV,employé,bénévole,profile,formulaire..) en les regroupant dans une <br>
+                        classe du genre «répertoire» <br>
+                        <br>
+                        En termes des matériles nécessiares, nous pensons que les disques dures suffiront pour le stokage local mais si nous voulons communiquer <br>
+                        entre les ordinateur, nous devons procéder des équipement pour soutenir un petit réseau local. <br>
+                        De plus, nous avons des imprimantes pour imprimer les formulaires. <br>
+                        <br>
+                        Solution de stokage : Nous allons tirer profil de la fonctionnalité de sérialisation fournie par Java pour <br>
+                        stocker les structures de donnée complexes (répertoire, par exemple) sous forme des suites de byes dans un fichier <br>
+                        que nous pourrons éventuellement stocker dans un disque dur. La prochaine fois qu'on lance notre programme, les fichier <br>
+                        seront désérialisés et comme cela l'utilisateur retient les informations qui sont changées dans le dernier lancement du programme <br>
+                    </li>
+                    <li>
+                     2. Langage de programmation : Nous avons choisit Java. Java est un langage compilé, donc plus efficace que langage interprété <br>
+                     (e.g. Python). En plus , nous sommes tous familiarisés avec l'utilisation de Java. Java est aussi un langage très puissant  <br>
+                     qui supporte les fonctionnalités vaiantes et les structures de donnée éfficaces. Finalment il supporte le paradigme de programmation <br>
+                     objet brienté, qui est favorable pour la modélisation.
+                    </li>
+                    <li>
+                        3. Conception: Nous avons choisit l'architecture MVC, qui nous premet de séparer les logiques, vusualisatioins et le stockage de donnée. <br>
+                        Nous n'avons que des expériences de développement en MVC, nous pouvons le considérer comme une contraite conceptuelle.
+                    </li>
+                    <li>
+                        contrainte physique : Nous n'avons que 12 ordinateurs windows, et nous ne savons pas si l'internet est supporté dans le local <br>
+                        Donc nous ne savons pas s'il y aura des équipements adéquats qui permet la communication entre les ordinateurs.
+                    </li>
+                    <li>
+                        4. Mode d'interaction : Probablement nous avons utiliser un ordinateur comme le serveur et la communication et interaction sera <br>
+                        par le réseau interne local qui permet la sécurité des données. (Comme le mentionné plus haut, cela dépend des contrainte physique...)
+                    </li>
+                </ul>
             </section>
 
             <section>
