@@ -129,7 +129,7 @@
             <p class="report-summary">
                 Notre équipe a développé un système pour gérer les rendez-vous de vaccination. 
                 Après plusieurs séries de réunions avec le client pour définir les exigences spécifiques, 
-                la deuxième version du système a été livré.
+                la première version du système a été livré.
             </p>
         </div>
 
@@ -178,15 +178,6 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-item__link" href="#model">Modélisation du domaine</a> 
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-item__link" href="#DA">Diagramme des activités</a> 
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-item__link" href="#DC">Diagramme de classe</a> 
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-item__link" href="#DS">Diagramme de séquence</a> 
                     </li>
                     <li class="nav-item">
                         <a class="nav-item__link" href="#analysis">Analyse</a> 
@@ -488,9 +479,9 @@
                 <h2 id="model" class="section-title">Modélisation du domaine</h2>
                 <h3>Cas d'utilisation</h3>
                 <a href="VPP/CU/">
-                    <img src="images/CU.png" width="1000" alt="CU">
+                    <img src="images/Capture d’écran 2021-10-10 à 9.37.26 PM.png" width="1000" alt="CU">
                 </a>
-                <h3 id="DA">Diagramme des activités</h3>
+                <h3>Diagramme des activités</h3>
                 <h6>Tous les diagrammes des activités sont dans le même file 'DM2-DA.vpp'. Sélectionnez dans la barre de navigation 'View/Project Browser'</h6>
                 <a href="VPP/DA/">
                     <img src="images/DA/DA-menu.png" width="1000" alt="menu">
@@ -504,18 +495,8 @@
                     <img src="images/DA/DA-rappel.png" width="1000" alt="">
                     <img src="images/DA/DA-verifier.png" width="1000" alt="">
                 </a>
-                <h3 id="DC">Diagramme de classe</h3>
-                <a href="VPP/DC/">
-                    <img src="images/DC.png" width="1000" alt="">
-                </a>
-                <h3 id="DS">Diagramme de séquence</h3>
-                <h6>Tous les diagrammes des activités sont dans le même file 'DM2-DS.vpp'. Sélectionnez dans la barre de navigation 'View/Project Browser'</h6>
-                <a href="VPP/DS/">
-                    <img src="images/DS/DS-Ajouter Compte.png" width="1000" alt="">
-                    <img src="images/DS/DS-Ajouter RDV.png" width="1000" alt="">
-                    <img src="images/DS/DS-Modifier Compte(avec Mise à jour du profile).png" width="1000" alt="">
-                    <img src="images/DS/DS-Supprimer Compte.png" width="1000" alt="">
-                </a>
+                <h3>Diagramme de classe</h3>
+                <h3>Diagramme de séquence</h3>
                 <h3>Scénario</h3>
                 <h4>Cas d'utilisation 1</h4>
                 <ul>
@@ -1393,87 +1374,6 @@
                 </li>
                 <br>
 
-                <h4>Cas d'utilisation 14</h4>
-                
-                <ul>
-                    <li>
-                        <b>Nom:</b> Remplir et imprimer formulaire
-                    </li>
-                    <li>
-                        <b>But:</b> Remplir et imprimer le questionnaire de vaccination pour éventuellement remplir le profile de vaccination
-                    </li>
-                    <li>
-                        <b>Précondition:</b> Le visiteur procède d'une carte d'assurance valide et un compte.
-                    </li>
-                    <li>
-                        <b>auteurs</b> Employé (secondaire) et visiteur (principal). 
-                    </li>
-                    
-                </ul>
-
-                <li><b>Scénario principal:</b></li>
-                <li>
-                    1. L'employé utilise le cas d'utilisation «accéder au système» pour log in
-                </li>
-                <li>
-                    2. L'employé demande au visiteur s'il procède d'un numéro de compte
-                </li>
-                <li>
-                    3. Le visiteur dit qu'il procède bien d'un numéro du compte
-                </li>
-                <li>
-                    4. L'employé choisit «Remplir et imprimer le formulaire» et lui demande le numéro de compte du visiteur.
-                </li>
-                <li>
-                    5. Le visiteur se rappelle bien son numéro de compte et l'employé saisit le numéro.
-                </li>
-                <li>
-                    6. Le système préremplit une partie du questionnaire selon les information du compte. 
-                </li>
-                <li>
-                    7. L'employé saisit avec le visiteur le reste du questionnaire.
-                </li>
-                <li>
-                    8. L'employé choisit «sauvegarger et imprimer»
-                </li>
-                <li>
-                    9. Le système affiche «succèes» et imprime le formulaire (questionnaire).
-                </li>
-                
-
-                <li><b>Scénario alternatif:</b></li>
-                <li>
-                    2a. Le visiteur est nouveau et n'a pas de numéro de compte
-                    <ul>
-                    <li>
-                        2a.1. L'employé choisit utilise le cas d'utilisation «créer un compte».  
-                    </li>
-                    
-                    <li>
-                        2a.2  Le scénario reprend à l’étape 4.
-                    </li>
-
-                    </ul>
-                </li>
-                <li>
-                    5a. Le visiteur ne rappelle plus son numéro de compte 
-                    <ul>
-                        <li>
-                            5a.1 L'employé clique sur «retrouver son numéro de compte» et lui demande son nom et son adresse courriel. 
-                        </li>
-                        <li>
-                            5a.2 L'employé saisit le nom et l'adresse courriel.
-                        </li>
-                        <li>
-                            5a.3 Le systèm retourne le numéro de compte.
-                        </li>
-                        <li>5a.4 Le scénario reprend à l'étape 6. </li>
-                    </ul>
-                </li>
-                <li><b>Postcondition : </b></li> 
-                <ul>
-                    <li>Le visiteur obtient son formulaire à poursuivre le processus. </li>
-                </ul>
                 <h4>Cas d'utilisation 15</h4>
                 <ul>
                     <li>
