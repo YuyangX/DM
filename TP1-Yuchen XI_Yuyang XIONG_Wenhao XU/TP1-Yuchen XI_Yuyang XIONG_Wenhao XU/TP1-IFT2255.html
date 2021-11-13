@@ -398,7 +398,7 @@
                     <dt class="glossary-term">Profil de vaccination</dt>
                     <dd class="glossary-def">Un emsemble qui regroupe les informations liées aux vaccins reçus: type de dose, identification du vaccin, date et heure de vaccination. (pour chaque compte)</dd>
                     <dt class="glossary-term">Calendrier de rendez-vous</dt>
-                    <dd class="glossary-def">un calendrier où sont enregistrées les heures et des dates des RDV prise.</dd>
+                    <dd class="glossary-def">un calendirer où sont enregistrées les heures et des dates des RDV prise.</dd>
                     <dt class="glossary-term">Équipement</dt>
                     <dd class="glossary-def">Outils utilités par le professionel pour la vaccination, tels que alcool, injecteur, etc.</dd>
                     <dt class="glossary-term">Rendez-vous</dt>
@@ -521,16 +521,16 @@
                 11. Le systèm  crée un numéro unique à douze chiffres qui sera rattaché à une adresse courriel unique.
             </li>
             <br>
-            <li><b>scénarios alternatifs:</b></li>
+            <li><b>Scénarios alternatifs:</b></li>
             <li>
-                3a. l'agent clique sur "mettre à jour un membre"
+                3a. L'agent clique sur "Mettre à jour un membre"
             </li>
             <ul>
                 <li>
-                    3a.1. le visiteur n'a pas pris de rendez-vous à l'avance et l'employé saisit "pas de rendez-vous" dans le système.
+                    3a.1. Le visiteur n'a pas pris de rendez-vous à l'avance et l'employé saisit "Pas de rendez-vous" dans le système.
                 </li>
                 <li>
-                    3a.2.l'employé a demandé des informations au visiteur.
+                    3a.2.L'employé a demandé des informations au visiteur.
                 </li>
                 
                 <b>
@@ -599,11 +599,11 @@
                         <b>Nom:</b>Modifier un compte
                     </li>
                     <li>
-                        <b>But:</b>Mettre à jour un compte de visiteur lorsque des informations doivent être actualisées.
+                        <b>But:</b>Mettre à jour un compte invité lorsque des informations doivent être actualisées.
                     </li>
                     <li>
                         <b>Précondition:</b>
-                        Le visiteur a déjà un compte ou employé a besoin de actualiser le profil de vaccination.
+                        Le visiteur a déjà un compte.
                     </li>
                     <li>
                         <b>Acteur:</b>Employé(principal), visiteur
@@ -661,23 +661,10 @@
                 9. L'employé confirme avec le visiteur que les informations saisies sont correctes.
             </li>
             <li>
-                10. La mise à jour est effectuée et le système affiche «succès».
+                10. La mise à jour est effectuée.
             </li>
             <br>
-           
-            <li><b>scénarios alternatifs:</b></li>
-            <li>
-                1a. L'employé voudrait remplir ou revouveler un profile de vaccination
-            </li>
-            <ul>
-               <li>1a.1. L'employé utilise le cas d'utilisation "Accédez au système".</li> 
-               <li>1a.2. L'employé choisit modifier un compte.</li> 
-               <li>1a.3. L'employé entre le numéro du compte à modifier.</li>
-               <li>1a.4. L'employé choisit le profile de vaccination.</li>
-               <li>1a.5. L'employé entre les infomations dans le formulaire correspondant.</li>
-               <li>1a.6. Le scénario reprend à l'étape 10</li>
-            </ul>
-
+            
             <li>
                 <b>Postconditions:</b>
                 <ul>
@@ -697,7 +684,7 @@
                         <b>Nom:</b>Supprimer un compte
                     </li>
                     <li>
-                        <b>But:</b>Dans certains cas, l'employé devra supprimer un compte d'un visiteur.
+                        <b>But:</b>Dans certains cas, l'employé devra supprimer un compte invité.
                     </li>
                     <li>
                         <b>Précondition:</b>
@@ -751,7 +738,7 @@
         <h4>Cas d'utilisation 4</h4>
                 <ul>
                     <li>
-                        <b>Nom:</b> Ajouter un rendez-vous
+                        <b>Nom:</b> Ajouter des rendez-vous
                     </li>
                     <li>
                         <b>But:</b> Une visiteur veut fixer des rendez-vous pour la vaccination.
@@ -771,7 +758,7 @@
                     <li>1.Le visiteur appelle au GoodPeople.</li>
                     <li>2.L'employé se connecte au VaxTodo:re.</li>
                     <li>3.L'employé clique sur la fonctionnalité "Créer un RDV".</li>
-                    <li>4.Le système montre le calendrier sur l'ecran.</li>
+                    <li>4.Le système montre le calendirer sur l'ecran.</li>
                     <li>5.L'employé lui demande le temps du rendez-vous.</li>
                     <li>6.L'employé choisit un temps.</li>
                     <li>7.L'employé lui demande son prénom, nom, courriel et le type de dose.</li>
@@ -859,7 +846,7 @@
                 <h4>Cas d'utilisation 6</h4>
                 <ul>
                     <li>
-                        <b>Nom:</b> Envoyer des notifications de rappel.
+                        <b>Nom:</b> Envoyer des notifications
                     </li>
                     <li>
                         <b>But:</b> Employé rappelle des visiteurs leur rendez-vous prochain.
@@ -877,21 +864,27 @@
                 </li>
                 
                 
-                    <li>1.L'employé se connecte au VaxTodo:re en utilisant le cas d'utilisation «accéder au système».</li>
+                    <li>1.L'employé se connecte au VaxTodo:re.</li>
                     <li>2.L'employé clique sur la fonctionnalité "Envoyer des notifications".</li>
-                    <li>3.L'employé clique sur le bouton "Confirmer l'envoi".</li>
-                    <li>4.Le système indique sur l'écran un message "Envoyé".</li>
+                    <li>3.Le système montre une page, où il y a tous les rendez-vous qui se passeront dans les prochaines 48 heures et aux quels l'employé n'a pas encore envoyé la notification.</li>
+                    <li>4.L'employé coche les rendez-vous qu'il veut cocher ou clique sur le bouton "Cocher tous".</li>
+                    <li>5.L'employé clique sur le bouton "Confirmer l'envoi".</li>
+                    <li>6.Le système indique sur l'écran un message "Envoyé".</li>
                 
 
-                <li>
-               
+                <li><b>Scénario alternatif:</b></li>
+                <ol>
+                    3a. Il n'y aura aucun rendez-vous dans les prochaines 48 heures<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;3a.1. Le système montre une page vide.<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;3a.2. Le scénario se termine.
+                </ol>
                 
-                <li>
-                    <b>Postcondition:</b> 
-                    <ul>
-                        <li>Le système a marqué tous les rendez-vous aux quels l'employé avait envoyé la notification.</li>
-                    </ul>
-                </li>
+                    <li>
+                        <b>Postcondition:</b> 
+                        <ul>
+                            <li>Le système a marqué tous les rendez-vous aux quels l'employé avait envoyé la notification.</li>
+                        </ul>
+                    </li>
                 
 
                 <br>
@@ -899,16 +892,16 @@
                 <h4>Cas d'utilisation 7</h4>
                 <ul>
                     <li>
-                        <b>Nom:</b> Envoyer des preuves de vaccination 
+                        <b>Nom:</b> Produire et envoyer des rapports de vaccination
                     </li>
                     <li>
-                        <b>But:</b> Envoie par courriel les preuves de vaccination aux visiteurs qui sont vaccinés à la fin d'une journée 
+                        <b>But:</b> Un visiteur veut recevoir son rapport de vaccination.
                     </li>
                     <li>
-                        <b>Précondition:</b> L'employé a rempli ou renouvelé tous les profils de vaccination à la fin de la journée.
+                        <b>Précondition:</b> Le visiteur s'est vacciné au GoodPeople.
                     </li>
                     <li>
-                        <b>Acteur:</b> Employé(principal) 
+                        <b>Acteur:</b> Employé(principal), Visiteur(secondaire)
                     </li>
                 </ul>
 
@@ -916,28 +909,43 @@
                     <b>Scénario principal:</b>
                 </li>
                 
-                <li>1.L'employé se connecte au VaxTodo:re.</li>
-                <li>2.L'employé ouvre la fonctionnalité "envoyer la preuve de vaccination".</li>
-                <li>3.Le système cherche les preuves de vaccination à envoyer et envoie automatiquement</li>
-                <li>4.Système affiche «envoyé».</li>
+                    <li>1.Le visiteur appelle à l'employé pour demander son rapport.</li>
+                    <li>2.L'employé se connecte au VaxTodo:re.</li>
+                    <li>3.L'employé ouvre la fonctionnalité "Produire et envoyer des rapports".</li>
+                    <li>4.Le système affiche une page incluant une case qui demande un numéro de compte.</li>
+                    <li>5.L'employé demande au visiteur son numéro de compte.</li>
+                    <li>6.L'employé entre le numéro au système.</li>
+                    <li>7.Le système affiche le compte correspondant à ce numéro.</li>
+                    <li>8.L'employé clique sur le bouton "Produire rapport".</li>
+                    <li>9.Le système affiche un rapport produit.</li>
+                    <li>10.L'employé clique sur le bouton "Envoyer rapport".</li>
 
+                <li><b>Scénario alternatif:</b></li>
+                <ol>
+                    5a. Le numéro de compte n'existe pas<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;5a.1. Le système n'a pas trouvé ce numéro de compte.<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;5a.2. Le système affiche "Numéro non valide" à l'écran.<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;5a.3. Le scénario reprend à l'étape 4.<br>
+                    8a. Le rapport a été déjà produit<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;8a.1. Un rapport se trouve déjà dans le compte.<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;8a.2. Le scénario saute à l'étape 10.
+                </ol>
+                
+                    <li>
+                        <b>Postcondition:</b> 
+                        <ul>
+                            <li>Le système a marqué le bouton "Produire rapport" comme "Produit déjà".</li>
+                        </ul>
+                    </li>
+                
             
-            
-                <li>
-                    <b>Postcondition:</b> 
-                    <ul>
-                        <li>Le système a marqué le bouton "Produire rapport" comme "Produit déjà".</li>
-                    </ul>
-                </li>
-            
-        
 
 
                 <h4>Cas d'utilisation 8</h4>
                 
                 <ul>
                     <li>
-                        <b>Nom:</b> Ajouter bénévole
+                        <b>Nom:</b> Créer des bénévoles
                     </li>
                     <li>
                         <b>But:</b> l'équipe voudrait ajouter son information personel dans le système 
@@ -991,7 +999,7 @@
                 
                 <ul>
                     <li>
-                        <b>Nom:</b> Supprimer Bénévole
+                        <b>Nom:</b> supprimer des bénévoles
                     </li>
                     <li>
                         <b>But:</b> supprimer les informations d'un bénévole du système. 
@@ -1055,7 +1063,7 @@
                 
                 <ul>
                     <li>
-                        <b>Nom:</b> Modifier Bénévole.
+                        <b>Nom:</b> modifier des bénévoles.
                     </li>
                     <li>
                         <b>But:</b> modifier les informations d'un bénévole dans le système. 
@@ -1123,23 +1131,19 @@
                         <b>Nom:</b> Accéder au système. 
                     </li>
                     <li>
-                        <b>But:</b> Un équipier (employé ou bénévole) log in dans le système pour des gestions 
+                        <b>But:</b> Un employé log in dans le système pour des gestions 
                     </li>
                     <li>
-                        <b>Précondition:</b> L'équipier procède son code d'identification valide et son mot de pass.
+                        <b>Précondition:</b> L'employé procède son code d'employé valide et son mot de pass.
                     </li>
-                    <li>
-                        <b>auteurs</b> équipier (employé ou bénévole)
-                    </li>
-                    
                 </ul>
 
                 <li><b>Scénario principal:</b></li>
                 <li>
-                    1. L'équipier choisit "accéder au système ".
+                    1. L'employé choisit "accéder au système ".
                 </li>
                 <li>
-                    2. L'équipier entre le code d'employé et son mot de pass.
+                    2. L'employé entre le code d'employé et son mot de pass.
                 </li>
                 <li>
                     3. Le système lui affiche réussi. 
@@ -1151,10 +1155,10 @@
                     2a. Le code ou le mot de pass n'est pas valide.
                     <ul>
                     <li>
-                        2a.1. Le système invite l'équipier à resaisir le code et le mot de pass. 
+                        2a.1. Le système invite l'employé à resaisir le code et le mot de pass. 
                     </li>
                     <li>
-                        2a.2. L'équipier resaisit le code et le mot de pass. 
+                        2a.2. L'employé resaisit le code et le mot de pass. 
                     </li>
                     <li>
                         2a.3  Le scénario reprend à l’étape 3 
@@ -1164,262 +1168,10 @@
                 </li>
                 <li><b>Postcondition : </b></li> 
                 <ul>
-                    <li>L'équipier est permit de gérer les informations dans le système. </li>
+                    <li>L'employé est permit de gérer les informations dans le système. </li>
                 </ul>
 
                 <br><br>
-
-            <h4>Cas d'utilisation 12</h4>
-            <ul>
-                <li>
-                    <b>Nom:</b>Confirmer visiteur
-                </li>
-                <li>
-                    <b>But:</b>L'employé confirme le visiteur.
-                </li>
-                <li>
-                    <b>Acteur:</b>Visiteur(principal), Employé(secondaire)
-                </li>
-            </ul>
-            <br>
-
-            <li>
-                <b>Scénario principal:</b>
-            </li>
-            <li>
-                1. L'employé demande au visiteur s'il est planifié ou spontané.
-            </li>
-            <li>
-                2. L'employé clique sur la fonctionnalité "Confirmer RDV".
-            </li>     
-            <li>
-                3. L'employé demande au visiteur son numéro de réservation.
-            </li>      
-            <li>
-                4. L'employé entre le numéro de réservation.
-            </li>
-            <li>
-                5. Le système valide le numéro de réservation.
-            </li>
-            <li>
-                6. Le systèm affiche sur l'écran "Validé".
-            </li>
-            <li>
-                7. Ce sénario se termine.
-            </li>
-
-            <li><b>Scénario alternatif:</b></li>
-                <li>
-                    2a. Le visiteur est spontané.
-                    <ul>
-                    <li>
-                        2a.1. L'employé ouvre le calendrier. 
-                    </li>
-                    <li>
-                        2a.2. L'employé demande au visiteur son nom et son numéro de téléphone. 
-                    </li>
-                    <li>
-                        2a.3  L'employé cherche ces informations sur le calendrier 
-                    </li>
-                    <li>
-                        2a.4  Ce sénario se termine. 
-                    </li>
-
-                    </ul>
-                </li>
-
-                <li>
-                    2a.3.a L'employé n'a pas trouvé ces informations.
-                    <ul>
-                    <li>
-                        2a.3.a.1 L'employé redemande au visiteur ses informations. 
-                    </li>
-                    <li>
-                        2a.2.a.2 Le scénario reprend à l’étape 2a.3.
-                    </li>
-                    </ul>
-                </li>
-
-                <li>
-                    6a. Le numéro de réservation entré n'est pas valide.
-                    <ul>
-                    <li>
-                        6a.1. Le systèm affiche sur l'écran "Numéro de réservation invalide". 
-                    </li>
-                    <li>
-                        6a.2  Le scénario reprend à l’étape 3.
-                    </li>
-
-                    </ul>
-                </li>
-            <br>
-
-            <h4>Cas d'utilisation 13</h4>
-                <ul>
-                    <li>
-                        <b>Nom:</b> Vérifier RDV
-                    </li>
-                    <li>
-                        <b>But:</b> Bénévole vérifie qu'un visiteur a pris un RDV. 
-                    </li>
-                    <li>
-                        <b>Acteur:</b>visiteur(principal), bénévole(secondaire).
-                    </li>
-                </ul>
-
-                <li><b>Scénario principal:</b></li>
-                <li>
-                    1. Le bénévole demande au visiteur son numéro de réservation, son nom et l'heure du RDV.
-                </li>
-                <li>
-                    2. L'employé entre ces informations dans le système.
-                </li>
-                <li>
-                    3. Le système valide ces informations.
-                </li>
-                <li>
-                    4. Le système affiche sur l'écran des informations par rapport à ce RDV.
-                </li>
-                <li>
-                    5. Le scénario se termine.
-                </li>
-                
-                <li><b>Scénario alternatif:</b></li>
-                <li>
-                    4a. Ces informations ne sont pas bonnes.
-                    <ul>
-                    <li>
-                        4a.1. Le système affiche "trouvé pas ce RDV". 
-                    </li>
-                    <li>
-                        4a.2. Le scénario reprend à l'étape 1. 
-                    </li>
-                    </ul>
-                </li>
-                <br>
-                <h4>Cas d'utilisation 14</h4>
-                
-                <ul>
-                    <li>
-                        <b>Nom:</b> Remplir et imprimer formulaire
-                    </li>
-                    <li>
-                        <b>But:</b> Remplir et imprimer le questionnaire de vaccination pour éventuellement remplir le profile de vaccination
-                    </li>
-                    <li>
-                        <b>Précondition:</b> Le visiteur procède d'une carte d'assurance valide et un compte.
-                    </li>
-                    <li>
-                        <b>auteurs</b> Employé (secondaire) et visiteur (principal). 
-                    </li>
-                    
-                </ul>
-
-                <li><b>Scénario principal:</b></li>
-                <li>
-                    1. L'employé utilise le cas d'utilisation «accéder au système» pour log in
-                </li>
-                <li>
-                    2. L'employé demande au visiteur s'il procède d'un numéro de compte
-                </li>
-                <li>
-                    3. Le visiteur dit qu'il procède bien d'un numéro du compte
-                </li>
-                <li>
-                    4. L'employé choisit «Remplir et imprimer le formulaire» et lui demande le numéro de compte du visiteur.
-                </li>
-                <li>
-                    5. Le visiteur se rappelle bien son numéro de compte et l'employé saisit le numéro.
-                </li>
-                <li>
-                    6. Le système préremplit une partie du questionnaire selon les information du compte. 
-                </li>
-                <li>
-                    7. L'employé saisit avec le visiteur le reste du questionnaire.
-                </li>
-                <li>
-                    8. L'employé choisit «sauvegarger et imprimer»
-                </li>
-                <li>
-                    9. Le système affiche «succèes» et imprime le formulaire (questionnaire).
-                </li>
-                
-
-                <li><b>Scénario alternatif:</b></li>
-                <li>
-                    2a. Le visiteur est nouveau et n'a pas de numéro de compte
-                    <ul>
-                    <li>
-                        2a.1. L'employé choisit utilise le cas d'utilisation «créer un compte».  
-                    </li>
-                    
-                    <li>
-                        2a.2  Le scénario reprend à l’étape 4.
-                    </li>
-
-                    </ul>
-                </li>
-                <li>
-                    5a. Le visiteur ne rappelle plus son numéro de compte 
-                    <ul>
-                        <li>
-                            5a.1 L'employé clique sur «retrouver son numéro de compte» et lui demande son nom et son adresse courriel. 
-                        </li>
-                        <li>
-                            5a.2 L'employé saisit le nom et l'adresse courriel.
-                        </li>
-                        <li>
-                            5a.3 Le systèm retourne le numéro de compte.
-                        </li>
-                        <li>5a.4 Le scénario reprend à l'étape 6. </li>
-                    </ul>
-                </li>
-                <li><b>Postcondition : </b></li> 
-                <ul>
-                    <li>Le visiteur obtient son formulaire à poursuivre le processus. </li>
-                </ul>
-                <h4>Cas d'utilisation 15</h4>
-                <ul>
-                    <li>
-                        <b>Nom:</b> Ajouter un visiteur spontané au calendrier
-                    </li>
-                    <li>
-                        <b>But:</b> Ajouter un visiteur spontané au calendrier. 
-                    </li>
-                    <li>
-                        <b>Acteur:</b> visiteur(principal), bénévole(secondaire).
-                    </li>
-                    <li>
-                        <b>Précondition:</b> Le visiteur n'a pas pris de RDV ou il est en retard de 15 min.
-                    </li>
-                </ul>
-
-                <li><b>Scénario principal:</b></li>
-                <li>
-                    1. Le bénévole clique sur la fonctionnalité "Ajouter un visiteur spontané au calendrier".
-                </li>
-                <li>
-                    2. Le système lui retourne un calendrier.
-                </li>
-                <li>
-                    3. Le bénévole confirme la période avec le visiteur.
-                </li>
-                <li>
-                    4. Le bénévole demande au visiteur son nom et son numéro de téléphone.
-                </li>
-                <li>
-                    5. Le bénévole entre ces information dans la période choisie.
-                </li>
-                <li>
-                    6. Le système affiche "Ajout réussi".
-                </li>
-                
-                <li>
-                    <b>Postcondition:</b> Le nombre de RDV disponible dans la période choisie diminue d'un.
-                </li>
-                <br>
- 
-
             </section>
 
             <section>
