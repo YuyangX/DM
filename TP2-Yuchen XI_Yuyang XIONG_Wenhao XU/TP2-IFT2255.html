@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IFT2255 | Rapport DM2</title>
+    <title>IFT2255 | Rapport DM1</title>
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/base.css">
@@ -125,11 +125,11 @@
 <body>
     <header class="report-header">
         <div class="title-section">
-            <h1 class="report-title">Rapport du livrable 2</h1>
+            <h1 class="report-title">Rapport du livrable 1</h1>
             <p class="report-summary">
                 Notre équipe a développé un système pour gérer les rendez-vous de vaccination. 
                 Après plusieurs séries de réunions avec le client pour définir les exigences spécifiques, 
-                la première version du système a été livré.
+                la deuxième version du système a été livré.
             </p>
         </div>
 
@@ -180,6 +180,15 @@
                         <a class="nav-item__link" href="#model">Modélisation du domaine</a> 
                     </li>
                     <li class="nav-item">
+                        <a class="nav-item__link" href="#DA">Diagramme des activités</a> 
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item__link" href="#DC">Diagramme de classe</a> 
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item__link" href="#DS">Diagramme de séquence</a> 
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-item__link" href="#analysis">Analyse</a> 
                     </li>
                     <li class="nav-item">
@@ -209,7 +218,6 @@
 
 
                 <h3>Distribution des taches</h3>
-                <h4>Livrable 1</h4>
                 <table cellpadding="7px">
                     <thead>
                         <tr>
@@ -285,62 +293,6 @@
                     </tbody>
                 </table>
 
-                <h4>Livrable 2</h4>
-                <table cellpadding="7px">
-                    <thead>
-                        <tr>
-                            <th class="first_col">Tâche</th>
-                            <th>Yuchen HUI</th>
-                            <th>Yuyang XIONG</th>
-                            <th>Wenhao XU</th>
-                        </tr>
-                    </thead>
-    
-                    <tbody>
-                        <tr>
-                            <td class="first_col">Analyse</td>
-                            <td>100%</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td class="first_col">Diagramme d'activités</td>
-                            <td></td>
-                            <td></td>
-                            <td>100%</td>
-                        </tr>
-                        <tr>
-                            <td class="first_col">Diagramme de classe</td>
-                            <td>100%</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td class="first_col">Diagramme de séquence</td>
-                            <td> </td>
-                            <td>100%</td>
-                            <td></td>
-                        </tr> 
-                        <tr>
-                            <td class="first_col">Prototype fonctionnel</td>
-                            <td></td>
-                            <td>100%</td>
-                            <td></td>
-                        </tr>                   
-                        <tr>
-                            <td class="first_col">Rapport</td>
-                            <td></td>
-                            <td></td>
-                            <td>100%</td>
-                        </tr>
-                        <tr>
-                            <td class="first_col">Git</td>
-                            <td>33%</td>
-                            <td>33%</td>
-                            <td>33%</td>
-                        </tr>
-                    </tbody>
-                </table>
 
                 <h3>Hypothèses</h3>
                 <p>
@@ -455,7 +407,7 @@
                     <dt class="glossary-term">Profil de vaccination</dt>
                     <dd class="glossary-def">Un emsemble qui regroupe les informations liées aux vaccins reçus: type de dose, identification du vaccin, date et heure de vaccination. (pour chaque compte)</dd>
                     <dt class="glossary-term">Calendrier de rendez-vous</dt>
-                    <dd class="glossary-def">un calendirer où sont enregistrées les heures et des dates des RDV prise.</dd>
+                    <dd class="glossary-def">un calendrier où sont enregistrées les heures et des dates des RDV prise.</dd>
                     <dt class="glossary-term">Équipement</dt>
                     <dd class="glossary-def">Outils utilités par le professionel pour la vaccination, tels que alcool, injecteur, etc.</dd>
                     <dt class="glossary-term">Rendez-vous</dt>
@@ -478,10 +430,15 @@
             <section>
                 <h2 id="model" class="section-title">Modélisation du domaine</h2>
                 <h3>Cas d'utilisation</h3>
-                <a href="VPP/CU/">
-                    <img src="images/Capture d’écran 2021-10-10 à 9.37.26 PM.png" width="1000" alt="CU">
+<<<<<<< HEAD
+                <a href="CU/">
+                    <img src="images/Capture d’écran 2021-10-10 à 9.37.26 PM.png" width="1000" alt="">
                 </a>
-                <h3>Diagramme des activités</h3>
+=======
+                <a href="VPP/CU/">
+                    <img src="images/CU.png" width="1000" alt="CU">
+                </a>
+                <h3 id="DA">Diagramme des activités</h3>
                 <h6>Tous les diagrammes des activités sont dans le même file 'DM2-DA.vpp'. Sélectionnez dans la barre de navigation 'View/Project Browser'</h6>
                 <a href="VPP/DA/">
                     <img src="images/DA/DA-menu.png" width="1000" alt="menu">
@@ -495,9 +452,20 @@
                     <img src="images/DA/DA-rappel.png" width="1000" alt="">
                     <img src="images/DA/DA-verifier.png" width="1000" alt="">
                 </a>
-                <h3>Diagramme de classe</h3>
-                <h3>Diagramme de séquence</h3>
+                <h3 id="DC">Diagramme de classe</h3>
+                <a href="VPP/DC/">
+                    <img src="images/DC.png" width="1000" alt="">
+                </a>
+                <h3 id="DS">Diagramme de séquence</h3>
+                <h6>Tous les diagrammes des activités sont dans le même file 'DM2-DS.vpp'. Sélectionnez dans la barre de navigation 'View/Project Browser'</h6>
+                <a href="VPP/DS/">
+                    <img src="images/DS/DS-Ajouter Compte.png" width="1000" alt="">
+                    <img src="images/DS/DS-Ajouter RDV.png" width="1000" alt="">
+                    <img src="images/DS/DS-Modifier Compte(avec Mise à jour du profile).png" width="1000" alt="">
+                    <img src="images/DS/DS-Supprimer Compte.png" width="1000" alt="">
+                </a>
                 <h3>Scénario</h3>
+>>>>>>> 7cc3331bad3f982a405e5a0cb831b1d7e56a06db
                 <h4>Cas d'utilisation 1</h4>
                 <ul>
                     <li>
@@ -511,7 +479,7 @@
                         Le visiteur a une carte d'assurance.
                     </li>
                     <li>
-                        <b>Acteur:</b>Employé, visiteur(principal)
+                        <b>Acteur:</b>Employé(principal), visiteur
                     </li>
                 </ul>
                 <br>
@@ -595,16 +563,16 @@
                 11. Le systèm  crée un numéro unique à douze chiffres qui sera rattaché à une adresse courriel unique.
             </li>
             <br>
-            <li><b>Scénarios alternatifs:</b></li>
+            <li><b>scénarios alternatifs:</b></li>
             <li>
-                3a. L'agent clique sur "Mettre à jour un membre"
+                3a. l'agent clique sur "mettre à jour un membre"
             </li>
             <ul>
                 <li>
-                    3a.1. Le visiteur n'a pas pris de rendez-vous à l'avance et l'employé saisit "Pas de rendez-vous" dans le système.
+                    3a.1. le visiteur n'a pas pris de rendez-vous à l'avance et l'employé saisit "pas de rendez-vous" dans le système.
                 </li>
                 <li>
-                    3a.2.L'employé a demandé des informations au visiteur.
+                    3a.2.l'employé a demandé des informations au visiteur.
                 </li>
                 
                 <b>
@@ -673,11 +641,11 @@
                         <b>Nom:</b>Modifier un compte
                     </li>
                     <li>
-                        <b>But:</b>Mettre à jour un compte invité lorsque des informations doivent être actualisées.
+                        <b>But:</b>Mettre à jour un compte de visiteur lorsque des informations doivent être actualisées.
                     </li>
                     <li>
                         <b>Précondition:</b>
-                        Le visiteur a déjà un compte.
+                        Le visiteur a déjà un compte ou employé a besoin de actualiser le profil de vaccination.
                     </li>
                     <li>
                         <b>Acteur:</b>Employé(principal), visiteur
@@ -735,10 +703,23 @@
                 9. L'employé confirme avec le visiteur que les informations saisies sont correctes.
             </li>
             <li>
-                10. La mise à jour est effectuée.
+                10. La mise à jour est effectuée et le système affiche «succès».
             </li>
             <br>
-            
+           
+            <li><b>scénarios alternatifs:</b></li>
+            <li>
+                1a. L'employé voudrait remplir ou revouveler un profile de vaccination
+            </li>
+            <ul>
+               <li>1a.1. L'employé utilise le cas d'utilisation "Accédez au système".</li> 
+               <li>1a.2. L'employé choisit modifier un compte.</li> 
+               <li>1a.3. L'employé entre le numéro du compte à modifier.</li>
+               <li>1a.4. L'employé choisit le profile de vaccination.</li>
+               <li>1a.5. L'employé entre les infomations dans le formulaire correspondant.</li>
+               <li>1a.6. Le scénario reprend à l'étape 10</li>
+            </ul>
+
             <li>
                 <b>Postconditions:</b>
                 <ul>
@@ -758,7 +739,7 @@
                         <b>Nom:</b>Supprimer un compte
                     </li>
                     <li>
-                        <b>But:</b>Dans certains cas, l'employé devra supprimer un compte invité.
+                        <b>But:</b>Dans certains cas, l'employé devra supprimer un compte d'un visiteur.
                     </li>
                     <li>
                         <b>Précondition:</b>
@@ -812,7 +793,7 @@
         <h4>Cas d'utilisation 4</h4>
                 <ul>
                     <li>
-                        <b>Nom:</b> Ajouter des rendez-vous
+                        <b>Nom:</b> Ajouter un rendez-vous
                     </li>
                     <li>
                         <b>But:</b> Une visiteur veut fixer des rendez-vous pour la vaccination.
@@ -832,7 +813,7 @@
                     <li>1.Le visiteur appelle au GoodPeople.</li>
                     <li>2.L'employé se connecte au VaxTodo:re.</li>
                     <li>3.L'employé clique sur la fonctionnalité "Créer un RDV".</li>
-                    <li>4.Le système montre le calendirer sur l'ecran.</li>
+                    <li>4.Le système montre le calendrier sur l'ecran.</li>
                     <li>5.L'employé lui demande le temps du rendez-vous.</li>
                     <li>6.L'employé choisit un temps.</li>
                     <li>7.L'employé lui demande son prénom, nom, courriel et le type de dose.</li>
@@ -920,7 +901,7 @@
                 <h4>Cas d'utilisation 6</h4>
                 <ul>
                     <li>
-                        <b>Nom:</b> Envoyer des notifications
+                        <b>Nom:</b> Envoyer des notifications de rappel.
                     </li>
                     <li>
                         <b>But:</b> Employé rappelle des visiteurs leur rendez-vous prochain.
@@ -938,27 +919,21 @@
                 </li>
                 
                 
-                    <li>1.L'employé se connecte au VaxTodo:re.</li>
+                    <li>1.L'employé se connecte au VaxTodo:re en utilisant le cas d'utilisation «accéder au système».</li>
                     <li>2.L'employé clique sur la fonctionnalité "Envoyer des notifications".</li>
-                    <li>3.Le système montre une page, où il y a tous les rendez-vous qui se passeront dans les prochaines 48 heures et aux quels l'employé n'a pas encore envoyé la notification.</li>
-                    <li>4.L'employé coche les rendez-vous qu'il veut cocher ou clique sur le bouton "Cocher tous".</li>
-                    <li>5.L'employé clique sur le bouton "Confirmer l'envoi".</li>
-                    <li>6.Le système indique sur l'écran un message "Envoyé".</li>
+                    <li>3.L'employé clique sur le bouton "Confirmer l'envoi".</li>
+                    <li>4.Le système indique sur l'écran un message "Envoyé".</li>
                 
 
-                <li><b>Scénario alternatif:</b></li>
-                <ol>
-                    3a. Il n'y aura aucun rendez-vous dans les prochaines 48 heures<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;3a.1. Le système montre une page vide.<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;3a.2. Le scénario se termine.
-                </ol>
+                <li>
+               
                 
-                    <li>
-                        <b>Postcondition:</b> 
-                        <ul>
-                            <li>Le système a marqué tous les rendez-vous aux quels l'employé avait envoyé la notification.</li>
-                        </ul>
-                    </li>
+                <li>
+                    <b>Postcondition:</b> 
+                    <ul>
+                        <li>Le système a marqué tous les rendez-vous aux quels l'employé avait envoyé la notification.</li>
+                    </ul>
+                </li>
                 
 
                 <br>
@@ -966,16 +941,16 @@
                 <h4>Cas d'utilisation 7</h4>
                 <ul>
                     <li>
-                        <b>Nom:</b> Produire et envoyer des rapports de vaccination
+                        <b>Nom:</b> Envoyer des preuves de vaccination 
                     </li>
                     <li>
-                        <b>But:</b> Un visiteur veut recevoir son rapport de vaccination.
+                        <b>But:</b> Envoie par courriel les preuves de vaccination aux visiteurs qui sont vaccinés à la fin d'une journée 
                     </li>
                     <li>
-                        <b>Précondition:</b> Le visiteur s'est vacciné au GoodPeople.
+                        <b>Précondition:</b> L'employé a rempli ou renouvelé tous les profils de vaccination à la fin de la journée.
                     </li>
                     <li>
-                        <b>Acteur:</b> Employé(principal), Visiteur(secondaire)
+                        <b>Acteur:</b> Employé(principal) 
                     </li>
                 </ul>
 
@@ -983,43 +958,28 @@
                     <b>Scénario principal:</b>
                 </li>
                 
-                    <li>1.Le visiteur appelle à l'employé pour demander son rapport.</li>
-                    <li>2.L'employé se connecte au VaxTodo:re.</li>
-                    <li>3.L'employé ouvre la fonctionnalité "Produire et envoyer des rapports".</li>
-                    <li>4.Le système affiche une page incluant une case qui demande un numéro de compte.</li>
-                    <li>5.L'employé demande au visiteur son numéro de compte.</li>
-                    <li>6.L'employé entre le numéro au système.</li>
-                    <li>7.Le système affiche le compte correspondant à ce numéro.</li>
-                    <li>8.L'employé clique sur le bouton "Produire rapport".</li>
-                    <li>9.Le système affiche un rapport produit.</li>
-                    <li>10.L'employé clique sur le bouton "Envoyer rapport".</li>
+                <li>1.L'employé se connecte au VaxTodo:re.</li>
+                <li>2.L'employé ouvre la fonctionnalité "envoyer la preuve de vaccination".</li>
+                <li>3.Le système cherche les preuves de vaccination à envoyer et envoie automatiquement</li>
+                <li>4.Système affiche «envoyé».</li>
 
-                <li><b>Scénario alternatif:</b></li>
-                <ol>
-                    5a. Le numéro de compte n'existe pas<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;5a.1. Le système n'a pas trouvé ce numéro de compte.<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;5a.2. Le système affiche "Numéro non valide" à l'écran.<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;5a.3. Le scénario reprend à l'étape 4.<br>
-                    8a. Le rapport a été déjà produit<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;8a.1. Un rapport se trouve déjà dans le compte.<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;8a.2. Le scénario saute à l'étape 10.
-                </ol>
-                
-                    <li>
-                        <b>Postcondition:</b> 
-                        <ul>
-                            <li>Le système a marqué le bouton "Produire rapport" comme "Produit déjà".</li>
-                        </ul>
-                    </li>
-                
             
+            
+                <li>
+                    <b>Postcondition:</b> 
+                    <ul>
+                        <li>Le système a marqué le bouton "Produire rapport" comme "Produit déjà".</li>
+                    </ul>
+                </li>
+            
+        
 
 
                 <h4>Cas d'utilisation 8</h4>
                 
                 <ul>
                     <li>
-                        <b>Nom:</b> Créer des bénévoles
+                        <b>Nom:</b> Ajouter bénévole
                     </li>
                     <li>
                         <b>But:</b> l'équipe voudrait ajouter son information personel dans le système 
@@ -1073,7 +1033,7 @@
                 
                 <ul>
                     <li>
-                        <b>Nom:</b> supprimer des bénévoles
+                        <b>Nom:</b> Supprimer Bénévole
                     </li>
                     <li>
                         <b>But:</b> supprimer les informations d'un bénévole du système. 
@@ -1137,7 +1097,7 @@
                 
                 <ul>
                     <li>
-                        <b>Nom:</b> modifier des bénévoles.
+                        <b>Nom:</b> Modifier Bénévole.
                     </li>
                     <li>
                         <b>But:</b> modifier les informations d'un bénévole dans le système. 
@@ -1205,19 +1165,23 @@
                         <b>Nom:</b> Accéder au système. 
                     </li>
                     <li>
-                        <b>But:</b> Un employé log in dans le système pour des gestions 
+                        <b>But:</b> Un équipier (employé ou bénévole) log in dans le système pour des gestions 
                     </li>
                     <li>
-                        <b>Précondition:</b> L'employé procède son code d'employé valide et son mot de pass.
+                        <b>Précondition:</b> L'équipier procède son code d'identification valide et son mot de pass.
                     </li>
+                    <li>
+                        <b>auteurs</b> équipier (employé ou bénévole)
+                    </li>
+                    
                 </ul>
 
                 <li><b>Scénario principal:</b></li>
                 <li>
-                    1. L'employé choisit "accéder au système ".
+                    1. L'équipier choisit "accéder au système ".
                 </li>
                 <li>
-                    2. L'employé entre le code d'employé et son mot de pass.
+                    2. L'équipier entre le code d'employé et son mot de pass.
                 </li>
                 <li>
                     3. Le système lui affiche réussi. 
@@ -1229,10 +1193,10 @@
                     2a. Le code ou le mot de pass n'est pas valide.
                     <ul>
                     <li>
-                        2a.1. Le système invite l'employé à resaisir le code et le mot de pass. 
+                        2a.1. Le système invite l'équipier à resaisir le code et le mot de pass. 
                     </li>
                     <li>
-                        2a.2. L'employé resaisit le code et le mot de pass. 
+                        2a.2. L'équipier resaisit le code et le mot de pass. 
                     </li>
                     <li>
                         2a.3  Le scénario reprend à l’étape 3 
@@ -1242,28 +1206,30 @@
                 </li>
                 <li><b>Postcondition : </b></li> 
                 <ul>
-                    <li>L'employé est permit de gérer les informations dans le système. </li>
+                    <li>L'équipier est permit de gérer les informations dans le système. </li>
                 </ul>
 
-                <h4>Cas d'utilisation 12</h4>
-                <ul>
-                    <li>
-                        <b>Nom:</b>Confirmer visiteur
-                    </li>
-                    <li>
-                        <b>But:</b>L'employé confirme le visiteur.
-                    </li>
-                    <li>
-                        <b>Acteur:</b>Visiteur(principal), Employé(secondaire)
-                    </li>
-                </ul>
-                <br>
+                <br><br>
+
+            <h4>Cas d'utilisation 12</h4>
+            <ul>
+                <li>
+                    <b>Nom:</b>Confirmer visiteur
+                </li>
+                <li>
+                    <b>But:</b>L'employé confirme le visiteur.
+                </li>
+                <li>
+                    <b>Acteur:</b>Visiteur(principal), Employé(secondaire)
+                </li>
+            </ul>
+            <br>
 
             <li>
                 <b>Scénario principal:</b>
             </li>
             <li>
-                1. L'employé demande au visiteur qu'il est planifié ou spontané.
+                1. L'employé demande au visiteur s'il est planifié ou spontané.
             </li>
             <li>
                 2. L'employé clique sur la fonctionnalité "Confirmer RDV".
@@ -1295,7 +1261,7 @@
                         2a.2. L'employé demande au visiteur son nom et son numéro de téléphone. 
                     </li>
                     <li>
-                        2a.3  L'employé cherche ces informations sur le calendirer. 
+                        2a.3  L'employé cherche ces informations sur le calendrier 
                     </li>
                     <li>
                         2a.4  Ce sénario se termine. 
@@ -1305,7 +1271,7 @@
                 </li>
 
                 <li>
-                    2a.3.a L'employé n'a pas cherché ces informations.
+                    2a.3.a L'employé n'a pas trouvé ces informations.
                     <ul>
                     <li>
                         2a.3.a.1 L'employé redemande au visiteur ses informations. 
@@ -1373,7 +1339,6 @@
                     </ul>
                 </li>
                 <br>
-
                 <h4>Cas d'utilisation 14</h4>
                 
                 <ul>
@@ -1495,9 +1460,8 @@
                     <b>Postcondition:</b> Le nombre de RDV disponible dans la période choisie diminue d'un.
                 </li>
                 <br>
-        </ul>
+ 
 
-                <br><br>
             </section>
 
             <section>
@@ -1599,7 +1563,7 @@
         <p>
             <a class="link report-footer__link" href="https://github.com/YuyangX/DM1.git"> Lien vers compte Github</a></p>
         <p>
-           <a class="link report-footer__link" href="VPP/">Lien vers ressource externe (fichiers VPP)</a></p>
+           <a class="link report-footer__link" href="CU/">Lien vers ressource externe (fichiers VPP)</a></p>
     </footer>
 </body>
 
