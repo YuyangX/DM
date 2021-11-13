@@ -1603,19 +1603,28 @@
                 <ul>
                     
                     <li>
-                        1. Besoin matériels : Sur ce qui concerne la partie à informatiser, nous avons décidé d'informatiser toutes les parties <br>
-                        qui servent à conserver les informations : Le compte des visiteur, le compte des équipiers (Employé + bénévole), <br>
-                        le profile de vaccination, le formulaire, le RDV.... La méthode adoptée est de créer des classes dont les attributs stockent <br>
-                        ce que nous voulons puis assembler les classes élémentaires (RDV,employé,bénévole,profile,formulaire..) en les regroupant dans une <br>
-                        classe du genre «répertoire» <br>
+                        1. Besoin matériels : Sur ce qui concerne la partie à informatiser, vu que l'on a que 12 ordinateurs sur place et le volume des visiteur <br>
+                        et des employé est relativement petit (à caise de la limite de 40 personne, on ne pourriat traiter qu'environ 50 visiteur par heure),  <br>
+                        on pourrait adopter le mode iteractif qui requiert intervention manuelle.
                         <br>
-                        En termes des matériles nécessiares, nous pensons que les disques dures suffiront pour le stokage local mais si nous voulons communiquer <br>
-                        entre les ordinateur, nous devons procéder des équipement pour soutenir un petit réseau local. <br>
+                        En termes des matériles nécessiares, nous pensons que les disques dures interne suffiront pour le stokage local mais si nous voulons <br> 
+                        communiquer entre les ordinateur, nous devons procéder des équipement pour soutenir un petit réseau local. <br>
                         De plus, nous avons des imprimantes pour imprimer les formulaires. <br>
+                        Mémoire : un mémoire de 16G suffira. <br>
+                        <br>
+                        Vu que le nombre de visiteur est petit, nous ne considérons pas la base de données utilisée. (aussi, on n'a pas encore suivi le cours de BD..)  <br>
+                        Le CPU et GPU n'est pas un facteur critique, parce que notre logiciel n'a pas besoin une puissance de calcul preformante. <br>
+                        Le classement des fichier à stocker est assez claire pour les placer sous un même répertoire(folder). <br> 
                         <br>
                         Solution de stokage : Nous allons tirer profil de la fonctionnalité de sérialisation fournie par Java pour <br>
                         stocker les structures de donnée complexes (répertoire, par exemple) sous forme des suites de byes dans un fichier <br>
-                        que nous pourrons éventuellement stocker dans un disque dur. La prochaine fois qu'on lance notre programme, les fichier <br>
+                        que nous pourrons éventuellement stocker dans un disque dur. <br>
+                        nous avons décidé d'informatiser toutes les parties <br>
+                        qui servent à conserver les informations : Le compte des visiteur, le compte des équipiers (Employé + bénévole), <br>
+                        le profile de vaccination, le formulaire, le RDV.... La méthode adoptée est de créer des classes dont les attributs stockent <br>
+                        ce que nous voulons puis assembler les classes élémentaires (RDV,employé,bénévole,profile,formulaire..) en les regroupant dans une <br>
+                        classe du genre «répertoire». Ses répertoires seront changés dynamiquement durant l'execution et sérialisés une fois une modification est faite. <br>
+                        La prochaine fois qu'on lance notre programme, les fichier <br>
                         seront désérialisés et comme cela l'utilisateur retient les informations qui sont changées dans le dernier lancement du programme <br>
                     </li>
                     <li>
@@ -1625,15 +1634,19 @@
                      objet brienté, qui est favorable pour la modélisation.
                     </li>
                     <li>
-                        3. Conception: Nous avons choisit l'architecture MVC, qui nous premet de séparer les logiques, vusualisatioins et le stockage de donnée. <br>
+                    3.Exigence conceptuelle : jusqu'à 4 MB nécessiare pour le logiciel.
+                    </li>
+                    <li>
+                        4. Architecture: Nous avons choisi l'architecture MVC, qui nous premet de séparer les logiques, vusualisatioins et le stockage de donnée. <br>
                         Nous n'avons que des expériences de développement en MVC, nous pouvons le considérer comme une contraite conceptuelle.
                     </li>
                     <li>
-                        contrainte physique : Nous n'avons que 12 ordinateurs windows, et nous ne savons pas si l'internet est supporté dans le local <br>
-                        Donc nous ne savons pas s'il y aura des équipements adéquats qui permet la communication entre les ordinateurs.
+                        Contrainte physique : Nous n'avons que 12 ordinateurs windows, et nous ne savons pas si l'internet est supporté dans le local <br>
+                        Donc nous ne savons pas s'il y aura des équipements adéquats qui permet la communication entre les ordinateurs.  <br>
+                        Nous vous recommendons fortement de les acheter par avant.
                     </li>
                     <li>
-                        4. Mode d'interaction : Probablement nous avons utiliser un ordinateur comme le serveur et la communication et interaction sera <br>
+                        5. Mode d'interaction : Probablement nous avons utiliser un ordinateur comme le serveur et la communication et interaction sera <br>
                         par le réseau interne local qui permet la sécurité des données. (Comme le mentionné plus haut, cela dépend des contrainte physique...)
                     </li>
                 </ul>
