@@ -9,7 +9,7 @@
 
     <property name =  "message" value = "PVS+A"/>
     <property name = "classes" value  = "${build}/classes"/>
-    <property name = "main-class" value = "ca.Project"/>
+    <property name = "main-class" value = "ca.VaxTodore"/>
     <property name = "jar" value  = "${build}/jar"/>
 
     
