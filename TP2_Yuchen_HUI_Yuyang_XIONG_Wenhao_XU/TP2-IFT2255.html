@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IFT2255 | Rapport DM1</title>
+    <title>IFT2255 | Rapport DM2</title>
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/base.css">
@@ -125,11 +125,11 @@
 <body>
     <header class="report-header">
         <div class="title-section">
-            <h1 class="report-title">Rapport du livrable 1</h1>
+            <h1 class="report-title">Rapport du livrable 2</h1>
             <p class="report-summary">
                 Notre équipe a développé un système pour gérer les rendez-vous de vaccination. 
                 Après plusieurs séries de réunions avec le client pour définir les exigences spécifiques, 
-                la première version du système a été livré.
+                la deuxième version du système a été livré.
             </p>
         </div>
 
@@ -180,6 +180,15 @@
                         <a class="nav-item__link" href="#model">Modélisation du domaine</a> 
                     </li>
                     <li class="nav-item">
+                        <a class="nav-item__link" href="#DA">Diagramme des activités</a> 
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item__link" href="#DC">Diagramme de classe</a> 
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item__link" href="#DS">Diagramme de séquence</a> 
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-item__link" href="#analysis">Analyse</a> 
                     </li>
                     <li class="nav-item">
@@ -209,6 +218,7 @@
 
 
                 <h3>Distribution des taches</h3>
+                <h4>Livrable 1</h4>
                 <table cellpadding="7px">
                     <thead>
                         <tr>
@@ -284,6 +294,77 @@
                     </tbody>
                 </table>
 
+                <h4>Livrable 2</h4>
+                <table cellpadding="7px">
+                    <thead>
+                        <tr>
+                            <th class="first_col">Tâche</th>
+                            <th>Yuchen HUI</th>
+                            <th>Yuyang XIONG</th>
+                            <th>Wenhao XU</th>
+                        </tr>
+                    </thead>
+    
+                    <tbody>
+                        <tr>
+                            <td class="first_col">Analyse</td>
+                            <td>100%</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="first_col">Diagramme d'activités</td>
+                            <td></td>
+                            <td></td>
+                            <td>100%</td>
+                        </tr>
+                        <tr>
+                            <td class="first_col">Diagramme de classe</td>
+                            <td>100%</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="first_col">Diagramme de séquence</td>
+                            <td> </td>
+                            <td>100%</td>
+                            <td></td>
+                        </tr> 
+                        <tr>
+                            <td class="first_col">Prototype fonctionnel</td>
+                            <td></td>
+                            <td>100%</td>
+                            <td></td>
+                        </tr>                   
+                        <tr>
+                            <td class="first_col">Rapport</td>
+                            <td></td>
+                            <td></td>
+                            <td>100%</td>
+                        </tr>
+                        <tr>
+                            <td class="first_col">Git</td>
+                            <td>33%</td>
+                            <td>33%</td>
+                            <td>33%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h4>Changement depuis Livrable1 :</h4>
+                <ul>
+                    <li>Vu que l'énoncé a été changé depuis DM2, nous avons redéterminé les exigences tout en changeant <br>
+                        le digramme de CU et les scénario. Concrètement, nous avons ajouté le bénévole comme l'acteur <br>
+                        principal et aussi les CUs correspondants ; Nous avons aussi ajouter quelques CU et scénarios <br>
+                        pour l'acteur employé. 
+                    </li>
+                    <li>
+                        Nous avons ajouté les diagrammes de Classe, les diagrammes d'activité et les diagrammes de séquence. <br>
+                    </li>
+                    <li>
+                        Nous avons raffiné la section en ajoutant la deuxième itération d'analyse dans la seciton «Analyse».
+                    </li>
+                        
+                </ul>
 
                 <h3>Hypothèses</h3>
                 <p>
@@ -398,7 +479,7 @@
                     <dt class="glossary-term">Profil de vaccination</dt>
                     <dd class="glossary-def">Un emsemble qui regroupe les informations liées aux vaccins reçus: type de dose, identification du vaccin, date et heure de vaccination. (pour chaque compte)</dd>
                     <dt class="glossary-term">Calendrier de rendez-vous</dt>
-                    <dd class="glossary-def">un calendrier où sont enregistrées les heures et des dates des RDV prise.</dd>
+                    <dd class="glossary-def">un calendirer où sont enregistrées les heures et des dates des RDV prise.</dd>
                     <dt class="glossary-term">Équipement</dt>
                     <dd class="glossary-def">Outils utilités par le professionel pour la vaccination, tels que alcool, injecteur, etc.</dd>
                     <dt class="glossary-term">Rendez-vous</dt>
@@ -421,9 +502,36 @@
             <section>
                 <h2 id="model" class="section-title">Modélisation du domaine</h2>
                 <h3>Cas d'utilisation</h3>
-                <a href="CU/">
-                    <img src="images/Capture d’écran 2021-10-10 à 9.37.26 PM.png" width="1000" alt="">
+                <a href="VPP/CU/">
+                    <img src="images/CU.png" width="1000" alt="CU">
                 </a>
+                <h3 id="DA">Diagramme des activités</h3>
+                <h6>Tous les diagrammes des activités sont dans le même file 'DM2-DA.vpp'. Sélectionnez dans la barre de navigation 'View/Project Browser'</h6>
+                <a href="VPP/DA/">
+                    <img src="images/DA/DA-menu.png" width="1000" alt="menu">
+                    <img src="images/DA/DA-bénévole.png" width="1000" alt="">
+                    <img src="images/DA/DA-visiteur.png" width="1000" alt="">
+                    <img src="images/DA/DA-RDV.png" width="1000" alt="">
+                    <img src="images/DA/DA-calendrier.png" width="1000" alt="">
+                    <img src="images/DA/DA-comfirm visiteur.png" width="1000" alt="">
+                    <img src="images/DA/DA-formulaire.png" width="1000" alt="">
+                    <img src="images/DA/DA-preuve.png" width="1000" alt="">
+                    <img src="images/DA/DA-rappel.png" width="1000" alt="">
+                    <img src="images/DA/DA-verifier.png" width="1000" alt="">
+                </a>
+                <h3 id="DC">Diagramme de classe</h3>
+                <a href="VPP/DC/">
+                    <img src="images/DC.png" width="1000" alt="">
+                </a>
+                <h3 id="DS">Diagramme de séquence</h3>
+                <h6>Tous les diagrammes des activités sont dans le même file 'DM2-DS.vpp'. Sélectionnez dans la barre de navigation 'View/Project Browser'</h6>
+                <a href="VPP/DS/">
+                    <img src="images/DS/DS-Ajouter Compte.png" width="1000" alt="">
+                    <img src="images/DS/DS-Ajouter RDV.png" width="1000" alt="">
+                    <img src="images/DS/DS-Modifier Compte(avec Mise à jour du profile).png" width="1000" alt="">
+                    <img src="images/DS/DS-Supprimer Compte.png" width="1000" alt="">
+                </a>
+                <h3>Scénario</h3>
                 <h4>Cas d'utilisation 1</h4>
                 <ul>
                     <li>
@@ -1187,7 +1295,7 @@
                 <b>Scénario principal:</b>
             </li>
             <li>
-                1. L'employé demande au visiteur qu'il est planifié ou spontané.
+                1. L'employé demande au visiteur s'il est planifié ou spontané.
             </li>
             <li>
                 2. L'employé clique sur la fonctionnalité "Confirmer RDV".
@@ -1229,7 +1337,7 @@
                 </li>
 
                 <li>
-                    2a.3.a L'employé n'a pas cherché ces informations.
+                    2a.3.a L'employé n'a pas trouvé ces informations.
                     <ul>
                     <li>
                         2a.3.a.1 L'employé redemande au visiteur ses informations. 
@@ -1419,14 +1527,14 @@
                 </li>
                 <br>
  
-
             </section>
 
             <section>
                 <h2 id="analysis" class="section-title">Analyse</h2>
+                <h3>Première itération (DM1)</h3>
                 <p>Notre analyse préliminaire nous a permis d'extraitre les risques et les exigences non-fonctionelles</p>
                 <div>
-                    <h3>Risques</h3>
+                    <h4>Risques</h4>
                     <ol class="risks">
                         <li>Risques sévère : 
                             <ul>
@@ -1474,7 +1582,7 @@
                     </ol>
                 </div>
                 <div>
-                    <h3>Exigences non-fonctionnelles</h3>
+                    <h4>Exigences non-fonctionnelles</h4>
                     <ul class="nf-requirements">
                         <li>Plateforme : Le logiciel doit s'adapter au système Windows</li>
                         <li>Interface utilisateur : sous forme de commande de ligne et éventuellement GUI dans l'avenir</li>
@@ -1486,6 +1594,57 @@
 
                     </ul>
                 </div>
+                <h3>Deuxième itération (DM2)</h3>
+                <ul>
+                    
+                    <li>
+                        1. Besoin matériels : Sur ce qui concerne la partie à informatiser, vu que l'on a que 12 ordinateurs sur place et le volume des visiteur <br>
+                        et des employés est relativement petit (à cause de la limite de 40 personne, on ne pourriat traiter qu'environ 50 visiteur par heure),  <br>
+                        on pourrait adopter le mode iteractif qui requiert intervention manuelle.
+                        <br>
+                        En termes des matériels nécessiares, nous pensons que les disques dures internes suffiront pour le stokage local mais si nous voulons <br> 
+                        communiquer entre les ordinateur, nous devons procéder des équipements pour soutenir un petit réseau local. <br>
+                        De plus, nous avons besoin des imprimantes pour imprimer les formulaires. <br>
+                       
+                        <br>
+                        Vu que le nombre de visiteur est petit, nous ne considérons pas la base de données utilisée. (aussi, on n'a pas encore suivi le cours de BD..)  <br>
+                        Le CPU et GPU n'est pas un facteur critique, parce que notre logiciel ne requiert une puissance de calcule performante. <br>
+                        Le classement des fichier à stocker est assez claire pour les placer sous un même répertoire(folder). <br> 
+                        <br>
+                        Solution de stokage : Nous allons tirer profil de la fonctionnalité de sérialisation fournie par Java pour <br>
+                        stocker les structures de donnée complexes (répertoire, par exemple) sous forme des suites de bytes dans un fichier <br>
+                        que nous pourrons éventuellement stocker dans un disque dur. <br>
+                        nous avons décidé d'informatiser toutes les parties <br>
+                        qui servent à conserver les informations : Le compte des visiteur, le compte des équipiers (Employé + bénévole), <br>
+                        le profile de vaccination, le formulaire, le RDV.... La méthode adoptée est de créer des classes dont les attributs stockent <br>
+                        ce que nous voulons puis assembler les classes élémentaires (RDV,employé,bénévole,profile,formulaire..) en les regroupant dans une <br>
+                        classe du genre «répertoire». Ses répertoires seront changés dynamiquement durant l'execution et sérialisés une fois une modification est faite. <br>
+                        La prochaine fois qu'on lance notre programme, les fichiers <br> 
+                        seront désérialisés et comme cela l'utilisateur retient les informations qui sont changées dans le dernier lancement du programme <br>
+                    </li>
+                    <li>
+                     2. Langage de programmation : Nous avons choisi Java. Java est un langage compilé, donc plus efficace que langage interprété <br>
+                     (e.g. Python). En plus , nous sommes tous familiarisés avec l'utilisation de Java. Java est aussi un langage très puissant  <br>
+                     qui supporte les fonctionnalités vaiantes et les structures de donnée éfficaces. Finalement il supporte le paradigme de programmation <br>
+                     objet orienté, qui est favorable pour la modélisation.
+                    </li>
+                    <li>
+                    3.Exigence conceptuelle : jusqu'à 4 MB nécessiare pour le logiciel.
+                    </li>
+                    <li>
+                        4. Architecture: Nous avons choisi l'architecture MVC, qui nous premet de séparer les logiques, vusualisatioins et le stockage de donnée. <br>
+                        Nous n'avons que des expériences de développement en MVC, nous pouvons le considérer comme une contraite conceptuelle.
+                    </li>
+                    <li>
+                        Contrainte physique : Nous n'avons que 12 ordinateurs windows, et nous ne savons pas si l'internet est supporté dans le local <br>
+                        Donc nous ne savons pas s'il y aura des équipements adéquats qui permet la communication entre les ordinateurs.  <br>
+                        Nous vous recommendons fortement de les acheter par avant.
+                    </li>
+                    <li>
+                        5. Mode d'interaction : Probablement nous allons utiliser un ordinateur comme le serveur et la communication et interaction sera <br>
+                        par le réseau interne local qui permet la sécurité des données. (Comme le mentionné plus haut, cela dépend des contraintes physiques...)
+                    </li>
+                </ul>
             </section>
 
             <section>
@@ -1521,7 +1680,7 @@
         <p>
             <a class="link report-footer__link" href="https://github.com/YuyangX/DM1.git"> Lien vers compte Github</a></p>
         <p>
-           <a class="link report-footer__link" href="CU/">Lien vers ressource externe (fichiers VPP)</a></p>
+           <a class="link report-footer__link" href="VPP/">Lien vers ressource externe (fichiers VPP)</a></p>
     </footer>
 </body>
 
