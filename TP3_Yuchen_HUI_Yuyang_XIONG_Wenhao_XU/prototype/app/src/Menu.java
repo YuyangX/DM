@@ -7,12 +7,12 @@ public class Menu implements Serializable{
 	public static final long serialVersionUID = 8490729875L;
 	private int loggedUser;
 	private Boolean isEmploye;
-	private ControlleurEquipier controleurEquipier;
-	private Controller controleurCompte;
-	private Controller controleurVisiteur;
+	private ControlleurEquipier controlleurEquipier ;
+	private ControlleurCompte controleurCompte;
+	private ControlleurVisiteur controleurVisiteur;
 
-	public Menu(ControlleurEquipier controleurEquipier, Controller controleurCompte, Controller controleurVisiteur) {
-		this.controleurEquipier = controleurEquipier;
+	public Menu(ControlleurEquipier controleurEquipier, ControlleurCompte controleurCompte, ControlleurVisiteur controleurVisiteur) {
+		this.controlleurEquipier = controleurEquipier;
 		this.controleurCompte = controleurCompte;
 		this.controleurVisiteur = controleurVisiteur;
 	}
@@ -73,11 +73,11 @@ public class Menu implements Serializable{
 			String codeIdentification = scan1.nextLine();
 			if (!codeIdentification.isEmpty()) {
 				if (codeIdentification.substring(0,1).equals("b")) {
-					benevoleTrouve = controleurEquipier.getRepertoire().getBenevole(codeIdentification);
+					benevoleTrouve = controlleurEquipier.getRepertoire().getBenevole(codeIdentification);
 					isEmploye = false;
 					break;
 				} else if (codeIdentification.substring(0,1).equals("e")) {
-					employeTrouve = controleurEquipier.getRepertoire().getEmploye(codeIdentification);
+					employeTrouve = controlleurEquipier.getRepertoire().getEmploye(codeIdentification);
 					isEmploye = true;
 					break;
 				} else {
