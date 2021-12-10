@@ -13,8 +13,7 @@ public class Benevole extends Equipier {
 	}
 
 	public Date[] getList() {
-		// TODO - implement Benevole.getList
-		throw new UnsupportedOperationException();
+		return listDispo;
 	}
 
 }

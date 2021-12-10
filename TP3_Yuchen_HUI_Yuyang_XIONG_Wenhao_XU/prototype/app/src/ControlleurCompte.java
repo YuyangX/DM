@@ -1,4 +1,4 @@
-public class ControlleurCompte implements Controller {
+public class ControlleurCompte extends Controller {
 
 	private RepertoireCompte repertoire;
 	private String[] infosPreremplies;
@@ -79,12 +79,4 @@ public class ControlleurCompte implements Controller {
 		throw new UnsupportedOperationException();
 	}
 
-	/**
-	 *
-	 * @param info
-	 */
-	@Override
-	public Boolean isValid(String[] info) {
-		return null;
-	}
 }

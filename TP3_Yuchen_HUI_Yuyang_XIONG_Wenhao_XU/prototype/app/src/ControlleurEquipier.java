@@ -1,4 +1,6 @@
-public class ControlleurEquipier implements Controller {
+import java.util.HashMap;
+
+public class ControlleurEquipier extends Controller {
 
 	private RepertoireEquipier repertoire;
 	private Benevole benevolAModifier;
@@ -43,8 +45,12 @@ public class ControlleurEquipier implements Controller {
 	 * @param code
 	 */
 	public int chercherBenevole(String code) {
-		// TODO - implement ControlleurEquipier.chercherBenevole
-		throw new UnsupportedOperationException();
+		for (int i=0;i < repertoire.benevoles.size();i++) {
+			if (repertoire.benevoles.get(i).getCodeIdentification().equals(code)) {
+				return 1;
+			}
+		}
+		return -1;
 	}
 
 	public RepertoireEquipier getRepertoire() {
@@ -55,12 +61,4 @@ public class ControlleurEquipier implements Controller {
 		this.repertoire = repertoire;
 	}
 
-	/**
-	 *
-	 * @param info
-	 */
-	@Override
-	public Boolean isValid(String[] info) {
-		return null;
-	}
 }

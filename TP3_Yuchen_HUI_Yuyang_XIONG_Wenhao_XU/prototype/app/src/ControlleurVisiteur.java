@@ -1,4 +1,4 @@
-public class ControlleurVisiteur implements Controller {
+public class ControlleurVisiteur extends Controller {
 
 	private RepertoireVisiteur repertoire;
 
@@ -49,14 +49,5 @@ public class ControlleurVisiteur implements Controller {
 	public String[] confirmerWalkin(String nom, String tel) {
 		// TODO - implement ControlleurVisiteur.confirmerWalkin
 		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 *
-	 * @param info
-	 */
-	@Override
-	public Boolean isValid(String[] info) {
-		return null;
 	}
 }

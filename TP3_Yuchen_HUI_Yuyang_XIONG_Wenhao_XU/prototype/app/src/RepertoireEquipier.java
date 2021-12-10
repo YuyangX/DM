@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
-public class RepertoireEquipier {
+public class RepertoireEquipier{
 
-	private ArrayList<Employe> employes = new ArrayList<>();
-	private ArrayList<Benevole> benevoles = new ArrayList<>();
+	public ArrayList<Employe> employes = new ArrayList<>();
+	public ArrayList<Benevole> benevoles = new ArrayList<>();
 	private int index;
 
 	/**
@@ -11,7 +11,6 @@ public class RepertoireEquipier {
 	 * @param code
 	 */
 	public Boolean supprimerBenevole(String code) {
-		// TODO - implement RepertoireEquipier.supprimerBenevole
 		Benevole benevoleTrouve = getBenevole(code);
 		if (benevoleTrouve == null) {
 			return false;
@@ -26,7 +25,6 @@ public class RepertoireEquipier {
 	 * @param benevole
 	 */
 	public void ajouterBenevole(Benevole benevole) {
-		// TODO - implement RepertoireEquipier.ajouterBenevole
 		this.benevoles.add(benevole);
 	}
 
@@ -35,7 +33,6 @@ public class RepertoireEquipier {
 	 * @param employe
 	 */
 	public void ajouterEmploye(Employe employe) {
-		// TODO - implement RepertoireEquipier.ajouterEmploye
 		this.employes.add(employe);
 	}
 
@@ -44,7 +41,6 @@ public class RepertoireEquipier {
 	 * @param codeIdentification
 	 */
 	public Benevole getBenevole(String codeIdentification) {
-		// TODO - implement RepertoireEquipier.getBenevole
 		int i = 0;
 		while (i < benevoles.size()) {
 			if (benevoles.get(i).getCodeIdentification().equals(codeIdentification)) {
@@ -56,12 +52,12 @@ public class RepertoireEquipier {
 		return null;
 	}
 
+
 	/**
 	 *
 	 * @param codeIdentification
 	 */
 	public Employe getEmploye(String codeIdentification) {
-		// TODO - implement RepertoireEquipier.getBenevole
 		int i = 0;
 		while (i < employes.size()) {
 			if (employes.get(i).getCodeIdentification().equals(codeIdentification)) {
@@ -78,7 +74,8 @@ public class RepertoireEquipier {
 	 * @param benevole
 	 */
 	public void modifierBenevole(Benevole benevole) {
-
+		benevoles.remove(index);
+		benevoles.add(index,benevole);
 	}
 
 }
