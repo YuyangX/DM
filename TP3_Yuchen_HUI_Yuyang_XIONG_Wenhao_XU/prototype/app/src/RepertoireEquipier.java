@@ -1,7 +1,10 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class RepertoireEquipier{
+public class RepertoireEquipier implements Serializable{
 
+    
+	public static final long serialVersionUID = 0523652003275L;
 	public ArrayList<Employe> employes = new ArrayList<>();
 	public ArrayList<Benevole> benevoles = new ArrayList<>();
 	private int index;

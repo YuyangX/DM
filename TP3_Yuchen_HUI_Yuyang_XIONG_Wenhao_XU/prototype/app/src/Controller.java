@@ -1,3 +1,4 @@
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -6,8 +7,9 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public abstract class Controller {
+public abstract class Controller implements Serializable{
 
+	public static final long serialVersionUID = 83257823L;
 	/**
 	 * @param key
 	 * @param value

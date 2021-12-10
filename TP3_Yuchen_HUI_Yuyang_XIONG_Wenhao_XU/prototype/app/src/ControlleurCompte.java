@@ -1,5 +1,8 @@
-public class ControlleurCompte extends Controller {
+import java.io.Serializable;
 
+public class ControlleurCompte extends Controller implements Serializable{
+
+	public static final long serialVersionUID = 8437L;
 	private RepertoireCompte repertoire;
 	private String[] infosPreremplies;
 	private Compte compteAModifier;

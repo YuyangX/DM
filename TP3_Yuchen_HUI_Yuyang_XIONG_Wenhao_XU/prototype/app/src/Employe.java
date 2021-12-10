@@ -1,5 +1,8 @@
-public class Employe extends Equipier {
+import java.io.Serializable;
 
+public class Employe extends Equipier implements Serializable{
+
+	public static final long serialVersionUID = 9983257923L;
     public Employe() {
     }
 

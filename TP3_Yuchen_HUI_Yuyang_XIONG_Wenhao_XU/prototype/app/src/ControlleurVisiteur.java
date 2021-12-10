@@ -1,5 +1,9 @@
-public class ControlleurVisiteur implements Controller {
+import java.io.Serializable;
 
+public class ControlleurVisiteur extends Controller implements Serializable{
+
+    
+	public static final long serialVersionUID = 1523452003275L;
 	private RepertoireVisiteur repertoire;
 
 	/**
@@ -55,8 +59,4 @@ public class ControlleurVisiteur implements Controller {
 	 *
 	 * @param info
 	 */
-	@Override
-	public Boolean isValid(String[] info) {
-		return null;
-	}
 }

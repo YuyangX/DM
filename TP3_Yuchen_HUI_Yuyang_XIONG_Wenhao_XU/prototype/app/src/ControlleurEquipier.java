@@ -1,7 +1,9 @@
+import java.io.Serializable;
 import java.util.HashMap;
 
-public class ControlleurEquipier extends Controller {
+public class ControlleurEquipier extends Controller implements Serializable{
 
+	public static final long serialVersionUID = 0523452003275L;
 	private RepertoireEquipier repertoire;
 	private Benevole benevolAModifier;
 
