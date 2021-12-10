@@ -1,5 +1,7 @@
-public class Compte {
+import java.io.Serializable;
 
+public class Compte implements Serializable{
+	public static final long serialVersionUID = 83257923L;
 	private String numeroDeCompte;
 	private String nom;
 	private String prenom;

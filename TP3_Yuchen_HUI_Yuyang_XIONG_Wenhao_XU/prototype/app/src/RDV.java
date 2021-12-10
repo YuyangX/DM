@@ -1,5 +1,8 @@
-public class RDV {
+import java.io.Serializable;
 
+public class RDV implements Serializable{
+
+	public static final long serialVersionUID = 8475293847598439L;
 	private String numeroDeReservation;
 	private String nom;
 	private String prenom;

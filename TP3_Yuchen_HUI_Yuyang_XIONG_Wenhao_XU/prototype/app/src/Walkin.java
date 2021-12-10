@@ -1,5 +1,8 @@
-public class Walkin {
+import java.io.Serializable;
 
+public class Walkin implements Serializable{
+
+	public static final long serialVersionUID = 48484529835837L;
 	private String nom;
 	private String prenom;
 	private String heure;

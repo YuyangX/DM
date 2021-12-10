@@ -1,7 +1,10 @@
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class Menu {
+public class Menu implements Serializable{
 
+
+	public static final long serialVersionUID = 8490729875L;
 	private int loggedUser;
 	private Boolean isEmploye;
 	private ControlleurEquipier controleurEquipier;

@@ -1,5 +1,8 @@
-public class Benevole extends Equipier {
+import java.io.Serializable;
 
+public class Benevole extends Equipier implements Serializable{
+
+	public static final long serialVersionUID = 1234L;
 	private Date[] listDispo;
 
 	public Benevole() {
