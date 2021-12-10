@@ -1,9 +1,4 @@
-import java.io.Serializable;
-
-public abstract class Equipier implements Serializable{
-
-	public static final long serialVersionUID = 875092L;
-
+public abstract class Equipier {
 
 	private String numeroDeCompte;
 	private String nom;
