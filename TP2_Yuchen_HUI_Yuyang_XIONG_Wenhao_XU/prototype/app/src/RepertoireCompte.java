@@ -1,5 +1,8 @@
-public class RepertoireCompte {
+import java.io.Serializable;
 
+public class RepertoireCompte implements Serializable{
+
+	public static final long serialVersionUID = 438752983740958L;
 	private Compte[] comptes;
 	private int index;
 

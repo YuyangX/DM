@@ -1,5 +1,8 @@
-public class ProfilVaccination {
+import java.io.Serializable;
 
+public class ProfilVaccination implements Serializable{
+
+	public static final long serialVersionUID = 4736598324795L;
 	private String numeroDeCompte;
 	private Date dateDeNaissance;
 	private Type typeDeDose;

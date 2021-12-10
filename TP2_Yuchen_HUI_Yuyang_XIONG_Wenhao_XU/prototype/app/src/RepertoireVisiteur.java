@@ -1,5 +1,8 @@
-public class RepertoireVisiteur {
+import java.io.Serializable;
 
+public class RepertoireVisiteur implements Serializable{
+
+	public static final long serialVersionUID = 50238740529835837L;
 	private RDV[] listeRDV;
 	private Walkin[] listeVisiteur;
 	private int indexRDV;
