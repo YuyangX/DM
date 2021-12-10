@@ -7,7 +7,7 @@ public class Compte implements Serializable{
 	private String prenom;
 	private String dateDeNaissance;
 	private String adresseCourriel;
-	private int numeroDeTelephone;
+	private String numeroDeTelephone;
 	private ProfilVaccination[] listeProfil;
 
 	public String getNumeroDeCompte() {
@@ -70,7 +70,7 @@ public class Compte implements Serializable{
 		this.adresseCourriel = adresseCourriel;
 	}
 
-	public int getNumeroDeTelephone() {
+	public String getNumeroDeTelephone() {
 		return this.numeroDeTelephone;
 	}
 
@@ -78,7 +78,7 @@ public class Compte implements Serializable{
 	 * 
 	 * @param numeroDeTelephone
 	 */
-	public void setNumeroDeTelephone(int numeroDeTelephone) {
+	public void setNumeroDeTelephone(String numeroDeTelephone) {
 		this.numeroDeTelephone = numeroDeTelephone;
 	}
 
