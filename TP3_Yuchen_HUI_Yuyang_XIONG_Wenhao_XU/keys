@@ -1,0 +1,31 @@
+numReserve          (6 chiffre) : numero de reservaiton
+prenom              (limite de 50 caractere)
+nom                 (limite de 50 caractere)
+dateVisite          (format : YYYY-MM-DD) : date de la dateVisite
+heureVisite         (HH:mm)     : heure de la visite
+typeDose            (reponse accepte : 1,2)
+numCompte           (12 chiffres) numero de compte
+dateNa              (format : YYYY-MM-DD) : date de naissance
+numAssurMal         (sans espace)  : numero carte assurance maladie 确实只写了sans espace的要求。
+recu1Dose           (reponse accepte : oui,non)  avez-vous deja recu une 1er dose
+contracteCovid      (réponse accepte : oui,non)  avez-vous deja contracte la COVID
+allergie            (reponse accepte : oui,non) avez-vous des allergies
+vaccinVoulu         ( Choix: Moderna, Pfizer, AstraZeneca, Janssen) Quel vaccin souhaitez-vous recevoir?
+symtomeCovid        (reponse accepte : oui,non) avez-vous des symptomes de la covid?
+procederVaccin      (reponse accepte : oui,non) Avez-vous procédé à la vaccination?
+vaccinType          (Choix: Moderna, Pfizer, AstraZeneca, Janssen)
+vaccinCode          (Limite de 24 caractères) code du vaccin
+codeIden            (9 chiffres) code d'identification
+motDePasse          (Composé d'au moins 8 caractères contenant au moins 1 chiffre, 1 majuscule, 1 minuscule et 1 caractère spécial.)
+numTele             (10 chiffres) numero de telephone
+adresse             (format : (numero,rue) 100 caracteres max)
+email               (????????)
+codePost            (6 chiffres)
+ville               (50 characteres max)
+
+
+
+
+
+
+
