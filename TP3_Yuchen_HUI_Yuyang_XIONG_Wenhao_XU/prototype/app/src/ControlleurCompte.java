@@ -2,15 +2,20 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
+
+/**
+ * @author Yuchen hui
+ */
 public class ControlleurCompte extends Controller implements Serializable{
 
+	// pour qu'il soit serializable
 	public static final long serialVersionUID = 8437L;
 	private RepertoireCompte repertoire;
 	private String[] infosPreremplies;
 	private Compte compteAModifier;
 
 	/**
-	 * generate a count number and creat a count to
+	 * Generate a count number and creat a count to
 	 * add in repository.
 	 * @param infos informations entered by user.
 	 */
@@ -27,7 +32,7 @@ public class ControlleurCompte extends Controller implements Serializable{
 	}
 
 	/**
-	 * modify a objet of type Compte using informations offered
+	 * Modify a objet of type Compte using informations offered
 	 * by HashMap "infos" passed by arguments
 	 * @param infos
 	 */
@@ -41,12 +46,13 @@ public class ControlleurCompte extends Controller implements Serializable{
 	}
 
 	/**
-	 * 
-	 * @param numeroDeCompte
+	 * Delete a count by its countnumber. If not found return false,
+	 * otherwise return true.
+	 * @param numeroDeCompte pas besoin de commentaire, le nom d'identifiant est
+	 * déjà clair!
 	 */
-	public int supprimerCompte(int numeroDeCompte) {
-		// TODO - implement ControlleurCompte.supprimerCompte
-		throw new UnsupportedOperationException();
+	public boolean supprimerCompte(String numeroDeCompte) {
+		return this.repertoire.supprimerCompte(numeroDeCompte);
 	}
 
 	public void envoyerPreuve() {
@@ -73,23 +79,32 @@ public class ControlleurCompte extends Controller implements Serializable{
 	}
 
 	/**
-	 * 
-	 * @param email
-	 * @param dateDeNaissance
+	 * Look for a count in repository by email and birthday.
+	 * If not found return false, otherwise return true.
+	 * It will also store the object found in attribute
+	 * "CompteAModifier"
+	 * @param email email
+	 * @param dateDeNaissance birthday
 	 */
-	public String retrouverCompte(String email, String dateDeNaissance) {
-		// TODO - implement ControlleurCompte.retrouverCompte
-		throw new UnsupportedOperationException();
+	public boolean retrouverCompte(String email, String dateDeNaissance) {
+		Compte compte = repertoire.getCompteByEmailetBirth(email,dateDeNaissance);
+		if (compte == null){return true;}
+		this.compteAModifier = compte;
+		return true;
 	}
 
 	/**
-	 * 
-	 * @param numCompte
+	 * Look for a count in repository by countnumber. 
+	 * If not found return false, otherwise return true.
+	 * It will also store the object found in attribute
+	 * "CompteAModifier"
+	 * @param numCompte how can I explain more?
 	 */
-	public int chercherCompte(String numCompte) {
+	public boolean chercherCompte(String numCompte) {
 		Compte compte = repertoire.getCompte(numCompte);
-		if (compte == null){return -1;}
-		
+		if (compte == null){return true;}
+		this.compteAModifier = compte;
+		return true;
 	}
 
 	/**
@@ -99,11 +114,6 @@ public class ControlleurCompte extends Controller implements Serializable{
 	public Boolean modifierProfil(String[] infos) {
 		throw new UnsupportedOperationException();
 	}
-
-	/**
-	 *
-	 * @param info
-	 */
 
 /**
    Change attributes of a Compte type object by analysing entry

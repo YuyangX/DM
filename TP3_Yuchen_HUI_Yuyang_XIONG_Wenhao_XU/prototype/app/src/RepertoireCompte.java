@@ -4,13 +4,22 @@ import java.util.Random;
 
 import javax.swing.event.TableColumnModelListener;
 
+/**
+ * @author Yuchen Hui
+ * @version %I% %G%
+ */
 public class RepertoireCompte implements Serializable{
 
 	public static final long serialVersionUID = 438752983740958L;
 	private  ArrayList<Compte> comptes;
 	private int index;
 	private ArrayList<String> tousLesNumCompte;
-	
+
+
+	/**
+	 * generate a random count number never be used.
+	 * @return count number
+	 */
 	public String generateNumCompte(){
         String nouveau = generate12String();
 		if (tousLesNumCompte.indexOf(nouveau) == -1){
@@ -20,7 +29,10 @@ public class RepertoireCompte implements Serializable{
 			return generateNumCompte();
 		}
 	}
-	
+	/**
+	 * generate a random string presents a count of "12 chiffres"
+	 * @return
+	 */
 	private String generate12String (){
 		Random rand = new Random();
         String Numero =" ";
@@ -42,7 +54,7 @@ public class RepertoireCompte implements Serializable{
 	/**
 	 * cette fonction va chercher dans la liste des comptes
 	 * selon numero de compte et le supprimer s'il existe.
-	 * si non il va retourner false. Elle va aussi supprimer
+	 * Si non il va retourner false. Elle va aussi supprimer
 	 * le numero de Compte correspondant.
 	 * @param numCompte
 	 */
@@ -60,7 +72,7 @@ public class RepertoireCompte implements Serializable{
 	}
 
 	/**
-	 * search in the ArrayList comptes by countnumber. 
+	 * Search in the ArrayList comptes by countnumber. 
 	 * the function will also register the index of the count searched 
 	 * in attribute index, and retrun it.
 	 * @param numéroDeCompte
@@ -77,6 +89,27 @@ public class RepertoireCompte implements Serializable{
 		}
 		return null;
 
+	}
+    
+	/**
+	 * Retrouver numero de compte par email et date de naissance.
+	 * @param email tel quel.
+	 * @param birth date de naissance.
+	 * @return le compte trouve.
+	 */
+	public Compte getCompteByEmailetBirth(String email, String birth){
+	
+		int i = 0;
+		while (i < comptes.size()) {
+			if (( comptes.get(i).getDateDeNaissance().equals(new Date(birth)) )
+			 && comptes.get(i).getAdresseCourriel().equals(email)){
+				this.index = i;
+				return comptes.get(i);
+			}
+
+			i++;
+		}
+		return null;
 	}
 
 	/**

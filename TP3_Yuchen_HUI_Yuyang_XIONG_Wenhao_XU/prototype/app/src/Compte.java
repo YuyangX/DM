@@ -5,7 +5,7 @@ public class Compte implements Serializable{
 	private String numeroDeCompte;
 	private String nom;
 	private String prenom;
-	private String dateDeNaissance;
+	private Date dateDeNaissance;
 	private String adresseCourriel;
 	private String numeroDeTelephone;
 	private ProfilVaccination[] listeProfil;
@@ -46,7 +46,7 @@ public class Compte implements Serializable{
 		this.prenom = prenom;
 	}
 
-	public String getDateDeNaissance() {
+	public Date getDateDeNaissance() {
 		return this.dateDeNaissance;
 	}
 
@@ -55,7 +55,7 @@ public class Compte implements Serializable{
 	 * @param dateDeNaissance
 	 */
 	public void setDateDeNaissance(String dateDeNaissance) {
-		this.dateDeNaissance = dateDeNaissance;
+		this.dateDeNaissance = new Date(dateDeNaissance);
 	}
 
 	public String getAdresseCourriel() {
