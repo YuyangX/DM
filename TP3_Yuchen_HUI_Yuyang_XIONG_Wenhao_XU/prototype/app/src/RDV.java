@@ -7,7 +7,7 @@ public class RDV implements Serializable{
 	private String nom;
 	private String prenom;
 	private PlageHoraire plageHoraire;
-	private Type typeDeDose;
+	private String typeDeDose;
 	private String email;
 	private Boolean confirmation;
 
@@ -59,7 +59,7 @@ public class RDV implements Serializable{
 		this.plageHoraire = plageHoraire;
 	}
 
-	public Type getTypeDeDose() {
+	public String getTypeDeDose() {
 		return this.typeDeDose;
 	}
 
@@ -67,7 +67,7 @@ public class RDV implements Serializable{
 	 * 
 	 * @param typeDeDose
 	 */
-	public void setTypeDeDose(Type typeDeDose) {
+	public void setTypeDeDose(String typeDeDose) {
 		this.typeDeDose = typeDeDose;
 	}
 

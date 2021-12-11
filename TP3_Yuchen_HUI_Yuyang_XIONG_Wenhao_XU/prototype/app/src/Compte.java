@@ -1,4 +1,5 @@
 import java.io.Serializable;
+import java.lang.reflect.Constructor;
 
 public class Compte implements Serializable{
 	public static final long serialVersionUID = 83257923L;
@@ -8,8 +9,9 @@ public class Compte implements Serializable{
 	private Date dateDeNaissance;
 	private String adresseCourriel;
 	private String numeroDeTelephone;
-	private ProfilVaccination[] listeProfil;
+	private ProfilVaccination[] listeProfil = {null,null};
 
+	
 	public String getNumeroDeCompte() {
 		return this.numeroDeCompte;
 	}

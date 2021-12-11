@@ -15,9 +15,9 @@ public class Formulaire implements Serializable{
 	private Boolean contracterCOVID;
 	private Boolean symptome;
 	private Boolean allergie;
-	private Vaccin vaccin;
+	private String vaccinVoulu;
 	private Boolean procedeALaVaccination;
-	private Vaccin nomDuVaccin;
+	private String nomDuVaccin;
 	private String codeDuVaccin;
 	private String lotDuVaccin;
 
@@ -65,8 +65,8 @@ public class Formulaire implements Serializable{
 	 * 
 	 * @param dateDeNaissance
 	 */
-	public void setDateDeNaissance(Date dateDeNaissance) {
-		this.dateDeNaissance = dateDeNaissance;
+	public void setDateDeNaissance(String dateDeNaissance) {
+		this.dateDeNaissance = new Date(dateDeNaissance);
 	}
 
 	public String getNumeroDeCarteAssuranceMaladie() {
@@ -89,8 +89,8 @@ public class Formulaire implements Serializable{
 	 * 
 	 * @param dateDeVisite
 	 */
-	public void setDateDeVisite(Date dateDeVisite) {
-		this.dateDeVisite = dateDeVisite;
+	public void setDateDeVisite(String dateDeVisite) {
+		this.dateDeVisite = new Date(dateDeVisite) ;
 	}
 
 	public Boolean getPremiemeDoseRecu() {
@@ -101,8 +101,8 @@ public class Formulaire implements Serializable{
 	 * 
 	 * @param premiemeDoseRecu
 	 */
-	public void setPremiemeDoseRecu(Boolean premiemeDoseRecu) {
-		this.premiemeDoseRecu = premiemeDoseRecu;
+	public void setPremiemeDoseRecu(String yOrN) {
+		this.premiemeDoseRecu = (yOrN.equals("Oui")? true : false);
 	}
 
 	public Boolean getContracterCOVID() {
@@ -113,8 +113,8 @@ public class Formulaire implements Serializable{
 	 * 
 	 * @param contracterCOVID
 	 */
-	public void setContracterCOVID(Boolean contracterCOVID) {
-		this.contracterCOVID = contracterCOVID;
+	public void setContracterCOVID(String yOrN) {
+		this.contracterCOVID = (yOrN.equals("Oui")? true : false);
 	}
 
 	public Boolean getSymptome() {
@@ -125,8 +125,8 @@ public class Formulaire implements Serializable{
 	 * 
 	 * @param symptome
 	 */
-	public void setSymptome(Boolean symptome) {
-		this.symptome = symptome;
+	public void setSymptome(String yOrN) {
+		this.symptome = (yOrN.equals("Oui")? true : false);
 	}
 
 	public Boolean getAllergie() {
@@ -137,20 +137,20 @@ public class Formulaire implements Serializable{
 	 * 
 	 * @param allergie
 	 */
-	public void setAllergie(Boolean allergie) {
-		this.allergie = allergie;
+	public void setAllergie(String yOrN) {
+		this.allergie = (yOrN.equals("Oui")? true : false);
 	}
 
-	public Vaccin getVaccin() {
-		return this.vaccin;
+	public String getVaccinVoulu() {
+		return this.vaccinVoulu;
 	}
 
 	/**
 	 * 
 	 * @param vaccin
 	 */
-	public void setVaccin(Vaccin vaccin) {
-		this.vaccin = vaccin;
+	public void setVaccinVoulu(String vaccin) {
+		this.vaccinVoulu = vaccin;
 	}
 
 	public Boolean getProcedeALaVaccination() {
@@ -161,13 +161,12 @@ public class Formulaire implements Serializable{
 	 * 
 	 * @param procedeALaVaccination
 	 */
-	public void setProcedeALaVaccination(Boolean procedeALaVaccination) {
-		this.procedeALaVaccination = procedeALaVaccination;
+	public void setProcedeALaVaccination(String yOrN) {
+		this.procedeALaVaccination = (yOrN.equals("Oui")? true : false);
 	}
 
 	public String getNomDuVaccin() {
-		// TODO - implement Formulaire.getNomDuVaccin
-		throw new UnsupportedOperationException();
+		return this.nomDuVaccin;
 	}
 
 	/**
@@ -175,8 +174,7 @@ public class Formulaire implements Serializable{
 	 * @param nomDuVaccin
 	 */
 	public void setNomDuVaccin(String nomDuVaccin) {
-		// TODO - implement Formulaire.setNomDuVaccin
-		throw new UnsupportedOperationException();
+		this.nomDuVaccin = nomDuVaccin;
 	}
 
 	public String getCodeDuVaccin() {

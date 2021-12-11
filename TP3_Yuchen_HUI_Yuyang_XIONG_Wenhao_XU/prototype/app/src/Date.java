@@ -1,5 +1,4 @@
 import java.io.Serializable;
-
 public class Date implements Serializable{
 
 	public static final long serialVersionUID = 12345L;
@@ -49,7 +48,7 @@ public class Date implements Serializable{
 	public String getJour() {
 		return this.jour;
 	}
-
+    
 	/**
 	 * setter
 	 * @param Jour
@@ -64,5 +63,10 @@ public class Date implements Serializable{
 		return  ((this.annee.equals(date.annee)&&
 		this.mois.equals(date.mois)
 		&&this.jour.equals(date.jour)));
+	}
+	@Override
+	public String toString() {
+	    String result = this.annee + "-" + this.mois + "-" + this.jour;
+		return result;
 	}
 }

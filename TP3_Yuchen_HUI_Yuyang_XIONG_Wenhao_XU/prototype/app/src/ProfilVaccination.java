@@ -4,8 +4,8 @@ public class ProfilVaccination implements Serializable{
 
 	public static final long serialVersionUID = 4736598324795L;
 	private String numeroDeCompte;
-	private Date dateDeNaissance;
-	private Type typeDeDose;
+	private Date dateDeVaccination;
+	private String typeDeDose;
 	private String nomDuVaccin;
 	private String codeDuVaccin;
 	private String lotDuVaccin;
@@ -22,19 +22,19 @@ public class ProfilVaccination implements Serializable{
 		this.numeroDeCompte = numeroDeCompte;
 	}
 
-	public Date getDateDeNaissance() {
-		return this.dateDeNaissance;
+	public Date getDateDeVaccination() {
+		return this.dateDeVaccination;
 	}
 
 	/**
 	 * 
-	 * @param dateDeNaissance
+	 * @param dateDeVaccination
 	 */
-	public void setDateDeNaissance(Date dateDeNaissance) {
-		this.dateDeNaissance = dateDeNaissance;
+	public void setDateDeVaccination(String dateDeVaccination) {
+		this.dateDeVaccination = new Date(dateDeVaccination);
 	}
 
-	public Type getTypeDeDose() {
+	public String getTypeDeDose() {
 		return this.typeDeDose;
 	}
 
@@ -42,8 +42,8 @@ public class ProfilVaccination implements Serializable{
 	 * 
 	 * @param typeDeDose
 	 */
-	public void setTypeDeDose(Type typeDeDose) {
-		this.typeDeDose = typeDeDose;
+	public void setTypeDeDose(String yOrN) {
+		this.typeDeDose = (yOrN.equals("Oui")? "deux" : "un");
 	}
 
 	public String getNomDuVaccin() {

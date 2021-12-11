@@ -1,6 +1,6 @@
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
+import java.io.Serializable;
 
 import javax.swing.event.TableColumnModelListener;
 
@@ -17,8 +17,8 @@ public class RepertoireCompte implements Serializable{
 
 
 	/**
-	 * generate a random count number never be used.
-	 * @return count number
+	 * generate a random account number never be used.
+	 * @return account number
 	 */
 	public String generateNumCompte(){
         String nouveau = generate12String();
@@ -30,7 +30,7 @@ public class RepertoireCompte implements Serializable{
 		}
 	}
 	/**
-	 * generate a random string presents a count of "12 chiffres"
+	 * generate a random string presents a account of "12 chiffres"
 	 * @return
 	 */
 	private String generate12String (){
@@ -72,20 +72,20 @@ public class RepertoireCompte implements Serializable{
 	}
 
 	/**
-	 * Search in the ArrayList comptes by countnumber. 
-	 * the function will also register the index of the count searched 
+	 * Search in the ArrayList comptes by accountnumber. 
+	 * the function will also register the index of the account searched 
 	 * in attribute index, and retrun it.
 	 * @param numéroDeCompte
 	 */
 	public Compte getCompte(String numéroDeCompte) {
 		
-		int i = 0;
-		while (i < comptes.size()) {
+		int i = comptes.size()-1;
+		while (i >= 0) {
 			if (comptes.get(i).getNumeroDeCompte().equals(numéroDeCompte)) {
 				this.index = i;
 				return comptes.get(i);
 			}
-			i++;
+			i--;
 		}
 		return null;
 
@@ -121,19 +121,6 @@ public class RepertoireCompte implements Serializable{
 		this.comptes.set(this.index, compte);
 	}
 
-	public ProfilVaccination[] getProfilList() {
-		// TODO - implement Q.getProfilList
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param ProfilVaccination
-	 */
-	public void setProfilList(int[] ProfilVaccination) {
-		// TODO - implement Q.setProfilList
-		throw new UnsupportedOperationException();
-	}
     
     /**
 	 * setter for attribut index
