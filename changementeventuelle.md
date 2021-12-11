@@ -12,7 +12,16 @@
 10. 兄弟们不要忘记填表格之前可以通过生日和邮箱找回numero de compte
 11. retrouverCompte return type String -> Boolean
 12. creerCompte 由于numero de compte 自动生成，所以，需要将返回值改为String以告知employe与visiteur,方便接下来formulaire的填写。
-13. 填写formulaire分为两种情况，在IO中也应注意这个问题。第一种是没有账户的，创建账户后直接跳到Formulaire填写的界面，不需要再输入numero de compte。另一种是已经有账户的，这样就需要先输入账户号，再跳到填写的界面。
+13. 填写formulaire分为两种情况，在IO中也应注意这个问题。第一种是没有账户的，创建账户后直接跳到Formulaire填写的界面，不需要再输入numero de compte。另一种是已经有账户的，这样就需要先输入账户号，然后调用cherchercompte找到，再跳到填写的界面。（注意，formuaire
+14. 13可以。但是，我们发现需要修改creer un compte，使他也可以将compteAmodifier修改为刚刚创建的这个compte，同时还需要修改repertoire里的加入compte的methode，让他加入的时候将index修改为最后一个，也就是刚刚加入的那个。否则填表的时候不知道填的是哪个。
+15. 14的一个alternative是，io中返回string后，直接用chercherCompte找，然后把getcompte改成从最后找起，哈哈哈哈哈哈，这样代价就是o（1）了！最终采用了这种。
+16. 删除所有枚举类。注意，profiledevaccination的第一针第二针问题。由于在formulaire中问题是你是否接种了第一针。我们的infoscanner（后来改名成info2profile）必须和info2formulaire中的key recu1Dose一样，所以 non -》 第一针， oui-》第二针。那么这样，一天结束时employecompleter的时候我们就会问他是否是 等等。不用了。当我没说！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！1
+17. 
+
+
+
+
+
 3, 
 4,
 5,
