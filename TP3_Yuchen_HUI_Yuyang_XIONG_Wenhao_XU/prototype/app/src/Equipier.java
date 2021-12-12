@@ -14,12 +14,13 @@ public abstract class Equipier implements Serializable{
 	private String ville;
 	private String adresseCourriel;
 	private String numeroDeTelephone;
+	private String dateDeNaissance;
 
 	public Equipier() {}
 
 	public Equipier(String numeroDeCompte, String nom, String prenom, String motDePasse,
 					String codeIdentification, String adresse, String codePostal, String ville,
-					String adresseCourriel, String numeroDeTelephone) {
+					String adresseCourriel, String numeroDeTelephone, String dateDeNaissance) {
 		this.numeroDeCompte = numeroDeCompte;
 		this.nom = nom;
 		this.prenom = prenom;
@@ -30,6 +31,7 @@ public abstract class Equipier implements Serializable{
 		this.ville = ville;
 		this.adresseCourriel = adresseCourriel;
 		this.numeroDeTelephone = numeroDeTelephone;
+		this.dateDeNaissance = dateDeNaissance;
 	}
 
 	public String getNumeroDeCompte() {
@@ -76,9 +78,8 @@ public abstract class Equipier implements Serializable{
 	 * 
 	 * @param motDePasse
 	 */
-	public void setMotDePasse(int motDePasse) {
-		// TODO - implement Equipier.setMotDePasse
-		throw new UnsupportedOperationException();
+	public void setMotDePasse(String motDePasse) {
+		this.motDePasse = motDePasse;
 	}
 
 	public String getCodeIdentification() {
@@ -93,18 +94,16 @@ public abstract class Equipier implements Serializable{
 		this.codeIdentification = codeIdentification;
 	}
 
-	public void getAdresse() {
-		// TODO - implement Equipier.getAdresse
-		throw new UnsupportedOperationException();
+	public String getAdresse() {
+		return this.adresse;
 	}
 
 	/**
 	 * 
-	 * @param Adresse
+	 * @param adresse
 	 */
-	public void setAdresse(int Adresse) {
-		// TODO - implement Equipier.setAdresse
-		throw new UnsupportedOperationException();
+	public void setAdresse(String adresse) {
+		this.nom = adresse;
 	}
 
 	public String getCodePostal() {
@@ -155,18 +154,14 @@ public abstract class Equipier implements Serializable{
 		this.numeroDeTelephone = numeroDeTelephone;
 	}
 
-	public void getAttribute() {
-		// TODO - implement Equipier.getAttribute
-		throw new UnsupportedOperationException();
+	public String getDateDeNaissance() {
+		return dateDeNaissance;
 	}
 
 	/**
-	 * 
-	 * @param attribute
+	 * @param dateDeNaissance
 	 */
-	public void setAttribute(int attribute) {
-		// TODO - implement Equipier.setAttribute
-		throw new UnsupportedOperationException();
+	public void setDateDeNaissance(String dateDeNaissance) {
+		this.dateDeNaissance = dateDeNaissance;
 	}
-
 }
