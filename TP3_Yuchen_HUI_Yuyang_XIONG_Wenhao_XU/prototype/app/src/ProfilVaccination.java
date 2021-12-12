@@ -82,4 +82,19 @@ public class ProfilVaccination implements Serializable{
 		this.lotDuVaccin = lotDuVaccin;
 	}
 
+	@Override
+	public String toString() {
+		String result = "";
+		result += "    -Numéro de compte : " + this.numeroDeCompte + "\n"
+		+ "    -Date de vaccination : " + this.dateDeVaccination + "\n"
+		+ "    -Type de dose : " + 
+		(this.typeDeDose.equals("deux")? "Dexième dose" : "Première dose")+ "\n" 
+		+ "    -Nom du vaccin : " + this.nomDuVaccin +"\n"
+		+ "    -Code du vaccin : " + this.codeDuVaccin + "\n"
+		+ "    -Lot du vaccin : " + this.lotDuVaccin + "\n";
+		return result;
+		
+		
+	}
+
 }

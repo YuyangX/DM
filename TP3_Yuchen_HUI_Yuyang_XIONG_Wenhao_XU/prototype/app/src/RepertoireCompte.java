@@ -1,8 +1,7 @@
 import java.util.ArrayList;
 import java.util.Random;
 import java.io.Serializable;
-
-import javax.swing.event.TableColumnModelListener;
+import java.util.Date;
 
 /**
  * @author Yuchen Hui
@@ -15,6 +14,12 @@ public class RepertoireCompte implements Serializable{
 	private int index;
 	private ArrayList<String> tousLesNumCompte;
 
+
+	public RepertoireCompte(){
+		this.comptes = new ArrayList<>();
+		this.tousLesNumCompte = new ArrayList<>();
+		this.index = 0;
+	}
 
 	/**
 	 * generate a random account number never be used.
@@ -35,7 +40,7 @@ public class RepertoireCompte implements Serializable{
 	 */
 	private String generate12String (){
 		Random rand = new Random();
-        String Numero =" ";
+        String Numero ="";
         for(int a = 0;a < 12; a++){
         Numero += rand.nextInt(10);
         }
@@ -129,6 +134,22 @@ public class RepertoireCompte implements Serializable{
 	public void setIndex(int index) {
 		this.index = index;
 		
+	}
+
+	public ArrayList<Compte> CompteAujourDhui(){
+		Date date = new Date(); // java.util.Date
+		String[] dateArray = date.toString().split(" ");
+		ArrayList<Compte> listcompteToday = new ArrayList<>();
+		for (Compte compte : comptes) {
+			if(compte.getProfilNewest().getDateDeVaccination().getAnnee().equals(dateArray[5])
+			&&compte.getProfilNewest().getDateDeVaccination().getMois().equals(dateArray[1])
+			&&compte.getProfilNewest().getDateDeVaccination().getJour().equals(dateArray[2])){
+				listcompteToday.add(compte);
+			}
+			
+		}
+
+		return listcompteToday;
 	}
 
 }

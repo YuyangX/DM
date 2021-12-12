@@ -85,17 +85,26 @@ public class Compte implements Serializable{
 	}
 
 	/**
-	 * 
+	 * setter for attribute listeProfil
 	 * @param profil
 	 */
-	public void addProfil(ProfilVaccination profil) {
-		// TODO - implement Compte.addProfil
-		throw new UnsupportedOperationException();
+	public void setProfil(ProfilVaccination[] profils) {
+		this.listeProfil = profils;
 	}
 
 	public ProfilVaccination[] getProfil() {
-		// TODO - implement Compte.getProfil
-		throw new UnsupportedOperationException();
+		return this.listeProfil;
+	}
+	
+	public ProfilVaccination getProfilNewest(){
+		if (this.listeProfil[1] != null){
+			return this.listeProfil[1];
+		}else{
+			if (this.listeProfil[0] != null){
+				return this.listeProfil[0];
+			}
+		}
+		return null;
 	}
 
 }

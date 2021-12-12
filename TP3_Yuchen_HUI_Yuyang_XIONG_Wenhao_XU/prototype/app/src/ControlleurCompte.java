@@ -1,4 +1,5 @@
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -57,21 +58,122 @@ public class ControlleurCompte extends Controller implements Serializable{
 		return this.repertoire.supprimerCompte(numeroDeCompte);
 	}
 
+	/**
+	 * Simulation de l'envoie de preuve 
+	 */
 	public void envoyerPreuve() {
-		// TODO - implement ControlleurCompte.envoyerPreuve
-		throw new UnsupportedOperationException();
+		System.out.println(envoyerCourriel());		
 	}
 
-    public remplirFormulaire(HashMap<String,String> infos){
+	/**
+	 * Simulation de l'envoie de courriel
+	 * @return PDF virtuelle.
+	 */
+	private String envoyerCourriel(){
+		String PDF = generatePDF();
+		String result = PDF + 
+		"ENVOIE 0%.........\n";
+		result += "ENVOIE 23.333333%.........\n";
+		result += "ENVOIE 64%.........\n";
+		result += "ENVOIE 89%.........\n";
+		result += "ENVOIE 100%.........!\n";
+		result += "ENVOIE DE LA PREUVE A " + compteAModifier.getAdresseCourriel()
+		+" AVEC SUCCES! AU REVOIR! \n";
+		return result;
+
+	}
+
+	/**
+	 * Simulation de la generation de PDF.
+	 * @return PDF virtuelle.
+	 */
+	private String generatePDF(){
+
+		String result = "-------------------------------------------------\n";
+		result  +=      "--              Génération de PDF              --\n";
+		result  +=      "-------------------------------------------------\n";
+		String nom = "Nom : " +compteAModifier.getNom() + "\n";
+		String birthday = "Date de naissance : " + 
+		compteAModifier.getDateDeNaissance() + "\n";
+		String QRcode = generateQRCode();
+		String profile = "Profil(s) de Vaccination : \n";
+		ProfilVaccination[] plist = compteAModifier.getProfil();
+		if (plist[0] != null){
+			profile += "\n\nPremière dose : \n";
+			profile  += compteAModifier.getProfil()[0].toString();
+		}
+			
+		if (plist[1] != null){
+			profile += "\n\nDeuxième dose : \n";
+			profile  += compteAModifier.getProfil()[1].toString();
+		}
+		return result;
+
+	}
+	/**
+	 * Simulation de la generation de QR code.
+	 * @return QRCode virtuelle
+	 */
+	private String generateQRCode(){
+
+		String QRcode = "Code QR utilisé par VaxiCode : \n";
+		for (int i = 0; i < 20; i++) {
+			QRcode += "                xxxxxxxxxxxxxxxxxxxxxxxxx\n";
+		}
+		return QRcode;
+	}
+
+	/**
+	 * cette fonction a deux taches:
+	 * // 1, remplir le formulaire et l'imprimer
+	 * // 2, remplir la première fois profil de vaccination.
+	 * @param infos informations saisit par l'utilisateur.
+	 */
+    public void remplirFormulaire(HashMap<String,String> infos){
+		// two task :
+		// 1, remplir le formulaire et l'imprimer
+		// 2, remplir la première fois profil de vaccination.
 		Formulaire fToPrint = new Formulaire();
 		ProfilVaccination newProfile = new ProfilVaccination();
 	    info2Formulaire(infos, fToPrint);
 		info2Profile(infos, newProfile);
-		this.repertoire.;
+		ProfilVaccination[] list = this.compteAModifier.getProfil();
+
+		// which profil?
+		if (list[0] == null){
+			list[0] = newProfile;
+		}else if (list[1] == null){
+			list[1] = newProfile;
+		}else{
+			System.out.println("you can only be vaccinated two times");
+		}
+		this.compteAModifier.setProfil(list);
+		this.repertoire.modifierCompte(compteAModifier);
+		// imprimer le formulaire
+		imprimerFormulaire(fToPrint);
+
 	}
-	public completerProfil
 	/**
-	 * 
+	 * cette fonction sera utilisé à la fin d'une journée, quand l'employé
+	 * voudrait compléter les profile de vaccinations en ajoutant les
+	 * informations remplies par des professionnels.
+	 * @param infos information supplémentaire.
+	 */
+	public void completerProfile(HashMap<String,String> infos){
+		ProfilVaccination[] list = this.compteAModifier.getProfil();
+		if(!(list[1] == null)){
+			info2Profile(infos, list[1]);
+		}else if(list[0] != null){
+			info2Profile(infos, list[0]);
+		}
+		this.compteAModifier.setProfil(list);
+		this.repertoire.modifierCompte(compteAModifier);
+		// envoie de la preuve
+		envoyerPreuve();
+	}
+	/**
+	 * Simuler la fonctionnalité d'impression d'un formulaire
+	 * qui imprimera un formulaire à la console de terminal.
 	 * @param infosRestantes
 	 */
 	public void imprimerFormulaire(Formulaire fToPrint) {
