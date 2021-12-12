@@ -1,57 +1,177 @@
-import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Random;
+import java.util.concurrent.ConcurrentSkipListMap;
 
-public class RepertoireVisiteur implements Serializable{
+public class RepertoireVisiteur {
 
-	public static final long serialVersionUID = 50238740529835837L;
-	private RDV[] listeRDV;
-	private Walkin[] listeVisiteur;
+	private ArrayList<RDV> listeRDV = new ArrayList<>();
+	private ArrayList<Walkin> listeVisiteur = new ArrayList<>();
+	private ArrayList<String> tousLesNumReservation = new ArrayList<>();
 	private int indexRDV;
 
 	/**
-	 * 
-	 * @param rdv
+	 * Cette méthode ajoute un visiteur planifié dans notre répertoire de visiteurs
+	 * @param rdv un objet RDV qui va être ajouté dans notre répertoire de visiteurs
 	 */
-	public Boolean addRDV(RDV rdv) {
+	public void addRDV(RDV rdv) {
 		// TODO - implement RepertoireVisiteur.addRDV
-		throw new UnsupportedOperationException();
+		listeRDV.add(rdv);
 	}
 
 	/**
-	 * 
-	 * @param walkin
+	 * Cette méthode ajoute un visiteur spontané dans notre répertoire de visiteurs
+	 * @param walkin un objet Walkin qui va être ajouté dans notre répertoire de visiteurs
 	 */
-	public Boolean addWalkin(Walkin walkin) {
+	public void addWalkin(Walkin walkin) {
 		// TODO - implement RepertoireVisiteur.addWalkin
-		throw new UnsupportedOperationException();
-	}
-
-	public Boolean removeRDV() {
-		// TODO - implement RepertoireVisiteur.removeRDV
-		throw new UnsupportedOperationException();
+		listeVisiteur.add(walkin);
 	}
 
 	/**
-	 * 
-	 * @param numéroDeReservation
+	 * Cette méthode enlève un visiteur planifié dans notre répertoire de visiteurs
 	 */
-	public RDV getRDV(String numéroDeReservation) {
-		// TODO - implement RepertoireVisiteur.getRDV
-		throw new UnsupportedOperationException();
+	public void removeRDV() {
+		// TODO - implement RepertoireVisiteur.removeRDV
+		listeRDV.remove(indexRDV);
 	}
 
 	/**
-	 * 
-	 * @param nom
-	 * @param tel
+	 * Cette méthode cherche dans notre répertoire et retourne un RDV avec le numéro de
+	 * réservation passé en paramètre.
+	 * @param numeroDeReservation le numéro de réservation du RDV qu'on veut trouver
+	 * @return un RDV qu'on a trouvé avec le numéro de réservation, null s'il n'y a pas de RDV
+	 * correspondant à ce numéro de réservation.
+	 */
+	public RDV getRDV(String numeroDeReservation) {
+		// TODO - implement RepertoireVisiteur.getRDV
+		for (int i = 0; i < listeRDV.size(); i++) {
+			if (listeRDV.get(i).getNumeroDeReservation().equals(numeroDeReservation)) { // bien trouvé un RDV avec le même numéro de réservation
+				this.indexRDV = i;
+				return listeRDV.get(i);
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * Cette méthode cherche dans notre répertoire et retourne un visiteur spontané avec le nom
+	 * et le numéro de téléphone passés en paramètre.
+	 * @param nom le nom du visiteur spontané qu'on veut trouver
+	 * @param tel le numéro de téléphone du visiteur spontané qu'on veut trouver
+	 * @return un visiteur spontané qu'on a trouvé avec le nom et le numéro de téléphone, null
+	 * s'il n'y a pas de visiteur spontané correspondant à ce nom ou ce numéro de téléphone.
 	 */
 	public Walkin getWalkin(String nom, String tel) {
 		// TODO - implement RepertoireVisiteur.getWalkin
-		throw new UnsupportedOperationException();
+		for (Walkin walkin : listeVisiteur) {
+			if (walkin.getNom().equals(nom) && walkin.getTel().equals(tel)) { // bien trouvé un visiteur avec le même nom et numéro de téléphone
+				return walkin;
+			}
+		}
+		return null;
 	}
 
-	public RDV[] getRappel() {
+	/**
+	 * Cette méthode nous aide à procurer tous les RDV qui vont avoir lieu dans moins de 2 jours.
+	 * @return une liste de RDV qui vont avoir lieu dans moins de 2 jours
+	 */
+	public ArrayList<RDV> getRappel() {
 		// TODO - implement RepertoireVisiteur.getRappel
-		throw new UnsupportedOperationException();
+		Date date = new Date(); // java.util.Date
+		String[] dateArray = date.toString().split(" ");
+		int annee = Integer.parseInt(dateArray[5]);
+		int mois = transformerMois(dateArray[1]); // transformer de l'anglais en nombre
+		int jour = Integer.parseInt(dateArray[2]);
+		int[] dateActuelle = {annee, mois, jour};
+		ArrayList<RDV> buffer = new ArrayList<>();
+		for (RDV rdv : listeRDV) {
+			PlageHoraire horaireRDV = rdv.getPlageHoraire();
+			int[] dateRDV = {Integer.parseInt(horaireRDV.getAnnee()), Integer.parseInt(horaireRDV.getMois()), Integer.parseInt(horaireRDV.getJour())};
+			if (compareDate(dateActuelle, dateRDV)) buffer.add(rdv); // si la date de RDV est dans moins de 2 jours d'ici, on ajoute ce RDV
+		}
+		return buffer;
 	}
+
+	/**
+	 * Cette méthode auxiliaire nous aide à transforme le mois de forme anglais en forme nombre.
+	 * @param mois mois qu'on veut transformer en nombre
+	 * @return un nombre correspondant au mois en paramètre
+	 */
+	private int transformerMois(String mois) {
+		switch (mois) {
+			case "Jan": return 1;
+			case "Feb": return 2;
+			case "Mar": return 3;
+			case "Apr": return 4;
+			case "May": return 5;
+			case "Jun": return 6;
+			case "Jul": return 7;
+			case "Aug": return 8;
+			case "Sept": return 9;
+			case "Oct": return 10;
+			case "Nov": return 11;
+			default: return 12;
+		}
+	}
+
+	/**
+	 * Cette méthode auxiliaire nous aide à décide si un RDV doit être ajouté à la liste de rappel
+	 * @param dateActuel la date où l'utilisateur utilise cette app
+	 * @param dateRDV la date du RDV qu'on considère si ajouter à la liste ou non
+	 * @return une valeur booléan, true représente l'ajouter à la liste, false représente l'ajouter pas
+	 */
+	private boolean compareDate(int[] dateActuel, int[] dateRDV) {
+		int nombreJour1 = dateActuel[0] * 365 + (dateActuel[1] - 1) * 30 + dateActuel[2];
+		int nombreJour2 = dateRDV[0] * 365 + (dateRDV[1] - 1) * 30 + dateRDV[2];
+		return (nombreJour2 - nombreJour1) <= 2 && (nombreJour2 - nombreJour1) > 0;
+	}
+
+	/**
+	 * generate a random reservation number never be used.
+	 * @return reservation number
+	 */
+	public String generateNumReservation(){
+		String nouveau = generate6String();
+		if (tousLesNumReservation.indexOf(nouveau) == -1){
+			this.tousLesNumReservation.add(nouveau);
+			return nouveau;
+		}else{
+			return generateNumReservation();
+		}
+	}
+
+	/**
+	 * generate a random string presents a account of "6 chiffres"
+	 * @return
+	 */
+	private String generate6String (){
+		Random rand = new Random();
+		String Numero ="";
+		for(int a = 0;a < 6; a++){
+			Numero += rand.nextInt(10);
+		}
+		return Numero;
+	}
+
+	/**
+	 * generate a calendar containing everyday quantity of reservations from the RDV list
+	 * @return calendar
+	 */
+	public ConcurrentSkipListMap<Integer, Integer> getCalendar() {
+		ConcurrentSkipListMap<Integer, Integer> calendar = new ConcurrentSkipListMap<>();
+		for (RDV rdv : listeRDV) {
+			int date = Integer.parseInt(rdv.getPlageHoraire().getAnnee() +
+					rdv.getPlageHoraire().getMois() + rdv.getPlageHoraire().getJour());
+			// s'il n'y a pas de RDV à ce jour dans le calendrier, ajoute un RDV à ce jour
+			if (!calendar.containsKey(date)) calendar.put(date, 0);
+			int numRDV = calendar.get(date);
+			numRDV += 1;
+			calendar.replace(date, numRDV);
+		}
+		return calendar;
+	}
+
 
 }

@@ -1,24 +1,37 @@
-import java.io.Serializable;
+import java.util.HashMap;
+import java.util.concurrent.ConcurrentSkipListMap;
 
-public class ControlleurVisiteur extends Controller implements Serializable{
+public class ControlleurVisiteur implements Controller {
 
-    
-	public static final long serialVersionUID = 1523452003275L;
 	private RepertoireVisiteur repertoire;
 
-	/**
-	 * 
-	 * @param infos
-	 */
-	public Boolean createRDV(String[] infos) {
-		throw new UnsupportedOperationException();
+	public ControlleurVisiteur() {}
+
+
+	public ConcurrentSkipListMap<Integer, Integer> getCalendar() {
+		return repertoire.getCalendar();
 	}
 
 	/**
 	 * 
 	 * @param infos
 	 */
-	public Boolean addWalkin(String[] infos) {
+	public String createRDV(HashMap<String, String> infos) {
+		String heureVisite = infos.get("heureVisite");
+		String dateVisite = infos.get("dateVisite");
+		PlageHoraire plageHoraire = new PlageHoraire(heureVisite, dateVisite);
+		String numReservation = repertoire.generateNumReservation();
+		repertoire.addRDV(new RDV(numReservation, infos.get("nom"), infos.get("prenom"),
+				plageHoraire, infos.get("typeDeDose"), infos.get("email"), false));
+		return numReservation;
+	}
+
+	/**
+	 * 
+	 * @param infos
+	 */
+	public Boolean addWalkin(HashMap<String, String> infos)
+	{
 		throw new UnsupportedOperationException();
 	}
 
@@ -59,4 +72,16 @@ public class ControlleurVisiteur extends Controller implements Serializable{
 	 *
 	 * @param info
 	 */
+	@Override
+	public Boolean isValid(String[] info) {
+		return null;
+	}
+
+	public RepertoireVisiteur getRepertoire() {
+		return repertoire;
+	}
+
+	public void setRepertoire(RepertoireVisiteur repertoire) {
+		this.repertoire = repertoire;
+	}
 }
