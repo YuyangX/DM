@@ -7,8 +7,8 @@ public class RepertoireEquipier{
 	private int index;
 
 	/**
-	 * 
-	 * @param code
+	 * Supprimer un benevole
+	 * @param code  code identification
 	 */
 	public Boolean supprimerBenevole(String code) {
 		Benevole benevoleTrouve = getBenevole(code);
@@ -21,24 +21,24 @@ public class RepertoireEquipier{
 	}
 
 	/**
-	 * 
-	 * @param benevole
+	 * Ajouter un benevole
+	 * @param benevole benevole
 	 */
 	public void ajouterBenevole(Benevole benevole) {
 		this.benevoles.add(benevole);
 	}
 
 	/**
-	 * 
-	 * @param employe
+	 * Ajouter un employe
+	 * @param employe employe
 	 */
 	public void ajouterEmploye(Employe employe) {
 		this.employes.add(employe);
 	}
 
 	/**
-	 * 
-	 * @param codeIdentification
+	 * Get a benevole by code identification
+	 * @param codeIdentification code identification
 	 */
 	public Benevole getBenevole(String codeIdentification) {
 		int i = 0;
@@ -54,8 +54,8 @@ public class RepertoireEquipier{
 
 
 	/**
-	 *
-	 * @param codeIdentification
+	 * Get a employe code identification
+	 * @param codeIdentification code identification
 	 */
 	public Employe getEmploye(String codeIdentification) {
 		int i = 0;
@@ -70,12 +70,11 @@ public class RepertoireEquipier{
 	}
 
 	/**
-	 * 
-	 * @param benevole
+	 * Modify a benevole
+	 * @param benevole benevole
 	 */
 	public void modifierBenevole(Benevole benevole) {
-		benevoles.remove(index);
-		benevoles.add(index,benevole);
+		benevoles.set(index,benevole);
 	}
 
 }

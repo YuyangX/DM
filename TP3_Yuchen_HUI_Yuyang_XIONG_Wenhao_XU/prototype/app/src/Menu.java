@@ -1,3 +1,4 @@
+import javax.sound.midi.ControllerEventListener;
 import java.util.Scanner;
 
 public class Menu {
@@ -5,10 +6,12 @@ public class Menu {
 	private int loggedUser;
 	private Boolean isEmploye;
 	private ControlleurEquipier controleurEquipier;
-	private Controller controleurCompte;
-	private Controller controleurVisiteur;
+	private ControlleurCompte controleurCompte;
+	private ControlleurVisiteur controleurVisiteur;
 
-	public Menu(ControlleurEquipier controleurEquipier, Controller controleurCompte, Controller controleurVisiteur) {
+	public Menu(ControlleurEquipier controleurEquipier,
+				ControlleurCompte controleurCompte,
+				ControlleurVisiteur controleurVisiteur) {
 		this.controleurEquipier = controleurEquipier;
 		this.controleurCompte = controleurCompte;
 		this.controleurVisiteur = controleurVisiteur;
@@ -28,7 +31,8 @@ public class Menu {
 
 	public void printBenevoleMenu() {
 		// TODO - implement Menu.printBenevoleMenu
-		System.out.println("************ Menu Bénévole************\n"+
+		System.out.println(
+				"************ Menu Bénévole ***********\n"+
 				"1.Vérifier RDV\n"+
 				"2.Ajouter un visiteur spontané au calendrier\n"+
 				"Veuillez saisir le numéro du service que vous voulez faire:");
@@ -37,7 +41,7 @@ public class Menu {
 	public void printEmployeMenu() {
 		// TODO - implement Menu.printEmployeMenu
 		System.out.println(
-				"************ Menu Employé************\n"+
+				"************ Menu Employé ************\n"+
 						"Gestion Bénévole:\n" +
 						"1. Créer un bénévole\n" +
 						"2. Modifier un bénévole\n" +
@@ -60,8 +64,10 @@ public class Menu {
 						"Veuillez saisir le numéro du service que vous voulez faire:");
 	}
 
+	/**
+	 * Login the account before access to menu
+	 */
 	public void loginMenu() {
-		// TODO - implement Menu.loginMenu
 		System.out.println("Veuillez entrer votre code d'identification:");
 		Scanner scan1 = new Scanner(System.in);
 		Benevole benevoleTrouve = new Benevole();
@@ -69,15 +75,28 @@ public class Menu {
 		while (scan1.hasNextLine()) {
 			String codeIdentification = scan1.nextLine();
 			if (!codeIdentification.isEmpty()) {
-				if (codeIdentification.substring(0,1).equals("b")) {
-					benevoleTrouve = controleurEquipier.getRepertoire().getBenevole(codeIdentification);
-					isEmploye = false;
+//				if (codeIdentification.substring(0,1).equals("b")) {
+//					benevoleTrouve = controleurEquipier.getRepertoire().getBenevole(codeIdentification);
+//					isEmploye = false;
+//					break;
+//				} else if (codeIdentification.substring(0,1).equals("e")) {
+//					employeTrouve = controleurEquipier.getRepertoire().getEmploye(codeIdentification);
+//					isEmploye = true;
+//					break;
+//				} else {
+//					System.out.println("Invalide. Ressayez SVP.");
+				int cherResult = controleurEquipier.chercherEquipier(codeIdentification);
+				if (cherResult == 0){
+//					benevoleTrouve = controleurEquipier.getBenevolAModifier();
+					loggedUser = 0;
+//					isEmploye = false;
 					break;
-				} else if (codeIdentification.substring(0,1).equals("e")) {
-					employeTrouve = controleurEquipier.getRepertoire().getEmploye(codeIdentification);
-					isEmploye = true;
+				}else if (cherResult == 1){
+//					employeTrouve = controleurEquipier.getEmployeLogin();
+					loggedUser = 1;
+//					isEmploye = true;
 					break;
-				} else {
+				}else {
 					System.out.println("Invalide. Ressayez SVP.");
 				}
 			}
@@ -87,16 +106,26 @@ public class Menu {
 		while (scan2.hasNextLine()) {
 			String motDePasse = scan2.nextLine();
 			if (!motDePasse.isEmpty()) {
-				if (isEmploye == true) {
-					if (employeTrouve.getMotDePasse().equals(motDePasse)) {
-						printEmployeMenu();
-						break;
-					}
-				} else {
-					if (benevoleTrouve.getMotDePasse().equals(motDePasse)) {
-						printBenevoleMenu();
-						break;
-					}
+//				if (isEmploye == true) {
+//					if (employeTrouve.getMotDePasse().equals(motDePasse)) {
+//						printEmployeMenu();
+//						break;
+//					}
+//				} else {
+//					if (benevoleTrouve.getMotDePasse().equals(motDePasse)) {
+//						printBenevoleMenu();
+//						break;
+//					}
+//				}
+				int loginResult = controleurEquipier.login(motDePasse,loggedUser);
+				if (loginResult==0){
+					printBenevoleMenu();
+					break;
+				}else if (loginResult==1){
+					printEmployeMenu();
+					break;
+				}else {
+					System.out.println("Mot de passe incorrect.");
 				}
 			}
 		}
