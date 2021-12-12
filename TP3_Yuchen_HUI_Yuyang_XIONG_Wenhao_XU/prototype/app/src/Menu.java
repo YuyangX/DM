@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 import java.io.Serializable;
-=======
 import javax.sound.midi.ControllerEventListener;
->>>>>>> Wenhao_XU
 import java.util.Scanner;
 
 public class Menu implements Serializable{
@@ -11,14 +8,6 @@ public class Menu implements Serializable{
 	public static final long serialVersionUID = 8490729875L;
 	private int loggedUser;
 	private Boolean isEmploye;
-<<<<<<< HEAD
-	private ControlleurEquipier controlleurEquipier ;
-	private ControlleurCompte controleurCompte;
-	private ControlleurVisiteur controleurVisiteur;
-
-	public Menu(ControlleurEquipier controleurEquipier, ControlleurCompte controleurCompte, ControlleurVisiteur controleurVisiteur) {
-		this.controlleurEquipier = controleurEquipier;
-=======
 	private ControlleurEquipier controleurEquipier;
 	private ControlleurCompte controleurCompte;
 	private ControlleurVisiteur controleurVisiteur;
@@ -27,7 +16,6 @@ public class Menu implements Serializable{
 				ControlleurCompte controleurCompte,
 				ControlleurVisiteur controleurVisiteur) {
 		this.controleurEquipier = controleurEquipier;
->>>>>>> Wenhao_XU
 		this.controleurCompte = controleurCompte;
 		this.controleurVisiteur = controleurVisiteur;
 	}
@@ -90,15 +78,6 @@ public class Menu implements Serializable{
 		while (scan1.hasNextLine()) {
 			String codeIdentification = scan1.nextLine();
 			if (!codeIdentification.isEmpty()) {
-<<<<<<< HEAD
-				if (codeIdentification.substring(0,1).equals("b")) {
-					benevoleTrouve = controlleurEquipier.getRepertoire().getBenevole(codeIdentification);
-					isEmploye = false;
-					break;
-				} else if (codeIdentification.substring(0,1).equals("e")) {
-					employeTrouve = controlleurEquipier.getRepertoire().getEmploye(codeIdentification);
-					isEmploye = true;
-=======
 //				if (codeIdentification.substring(0,1).equals("b")) {
 //					benevoleTrouve = controleurEquipier.getRepertoire().getBenevole(codeIdentification);
 //					isEmploye = false;
@@ -119,7 +98,6 @@ public class Menu implements Serializable{
 //					employeTrouve = controleurEquipier.getEmployeLogin();
 					loggedUser = 1;
 //					isEmploye = true;
->>>>>>> Wenhao_XU
 					break;
 				}else {
 					System.out.println("Invalide. Ressayez SVP.");

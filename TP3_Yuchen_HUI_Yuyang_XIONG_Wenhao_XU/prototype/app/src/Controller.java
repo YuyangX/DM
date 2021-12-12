@@ -139,8 +139,6 @@ public abstract class Controller implements Serializable{
 		}
 	}
 
-<<<<<<< HEAD
-=======
 	//chiffre
 	public static final String REG_NUMBER = ".*\\d+.*";
 	//majuscule
@@ -195,6 +193,5 @@ public abstract class Controller implements Serializable{
 			return true;
 		}
 	}
->>>>>>> Wenhao_XU
 
 }
