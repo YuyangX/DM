@@ -71,7 +71,7 @@ public class Menu implements Serializable{
 	 * Login the account before access to menu
 	 */
 	public void loginMenu() {
-		System.out.println("Veuillez entrer votre code d'identification:");
+		System.out.println("Veuillez entrer votre code d'identification, ou pressez 0 à quitter l'App:");
 		Scanner scan1 = new Scanner(System.in);
 		Benevole benevoleTrouve = new Benevole();
 		Employe employeTrouve = new Employe();
@@ -88,6 +88,9 @@ public class Menu implements Serializable{
 //					break;
 //				} else {
 //					System.out.println("Invalide. Ressayez SVP.");
+				if (codeIdentification.equals("0")) {
+					System.exit(0);
+				}
 				int cherResult = controleurEquipier.chercherEquipier(codeIdentification);
 				if (cherResult == 0){
 //					benevoleTrouve = controleurEquipier.getBenevolAModifier();
@@ -100,11 +103,11 @@ public class Menu implements Serializable{
 //					isEmploye = true;
 					break;
 				}else {
-					System.out.println("Invalide. Ressayez SVP.");
+					System.out.println("Invalide. Ressayez SVP. (Pressez 0 à quitter)");
 				}
 			}
 		}
-		System.out.println("Veuillez entrer votre mot de passe:");
+		System.out.println("Veuillez entrer votre mot de passe, ou pressez 0 à quitter:");
 		Scanner scan2 = new Scanner(System.in);
 		while (scan2.hasNextLine()) {
 			String motDePasse = scan2.nextLine();
@@ -120,6 +123,9 @@ public class Menu implements Serializable{
 //						break;
 //					}
 //				}
+				if (motDePasse.equals("0")) {
+					System.exit(0);
+				}
 				int loginResult = controleurEquipier.login(motDePasse,loggedUser);
 				if (loginResult==0){
 					printBenevoleMenu();
@@ -128,7 +134,7 @@ public class Menu implements Serializable{
 					printEmployeMenu();
 					break;
 				}else {
-					System.out.println("Mot de passe incorrect.");
+					System.out.println("Mot de passe incorrect. Ressayez SVP. (Pressez 0 à quitter)");
 				}
 			}
 		}

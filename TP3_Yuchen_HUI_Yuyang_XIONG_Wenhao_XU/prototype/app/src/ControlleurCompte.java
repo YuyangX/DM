@@ -283,7 +283,7 @@ public boolean info2Formulaire(HashMap<String,String> infos, Formulaire f){
    pairs stored in a hashmap which is used to register
    information entered by terminal.
  * @param infos  hashmap
- * @param f Profile to modify
+ * @param p Profile to modify
  * @return if all the keys in Hashmap match the pattern
  */
 public boolean info2Profile(HashMap<String,String> infos, ProfilVaccination p){
