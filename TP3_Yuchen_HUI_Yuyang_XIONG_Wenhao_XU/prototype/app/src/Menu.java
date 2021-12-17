@@ -70,11 +70,12 @@ public class Menu implements Serializable{
 	/**
 	 * Login the account before access to menu
 	 */
-	public void loginMenu() {
+	public int loginMenu() {
 		System.out.println("Veuillez entrer votre code d'identification:");
 		Scanner scan1 = new Scanner(System.in);
 		Benevole benevoleTrouve = new Benevole();
 		Employe employeTrouve = new Employe();
+		int loginResult = -1;
 		while (scan1.hasNextLine()) {
 			String codeIdentification = scan1.nextLine();
 			if (!codeIdentification.isEmpty()) {
@@ -120,7 +121,7 @@ public class Menu implements Serializable{
 //						break;
 //					}
 //				}
-				int loginResult = controleurEquipier.login(motDePasse,loggedUser);
+				loginResult = controleurEquipier.login(motDePasse,loggedUser);
 				if (loginResult==0){
 					printBenevoleMenu();
 					break;
@@ -129,6 +130,39 @@ public class Menu implements Serializable{
 					break;
 				}else {
 					System.out.println("Mot de passe incorrect.");
+				}
+			}
+		}
+		return loginResult;
+	}
+
+	public void benevoleMenu(){
+		Scanner myReader = new Scanner(System.in);
+		while (myReader.hasNextLine()) {
+			String order = myReader.nextLine();
+			if (!order.isEmpty()) {
+				switch (order) {
+					case "1":
+					case "2":
+					case "3":
+					case "4":
+					default:
+				}
+			}
+		}
+	}
+
+	public void employeMenu(){
+		Scanner myReader = new Scanner(System.in);
+		while (myReader.hasNextLine()) {
+			String order = myReader.nextLine();
+			if (!order.isEmpty()) {
+				switch (order) {
+					case "1":
+					case "2":
+					case "3":
+					case "4":
+					default:
 				}
 			}
 		}

@@ -16,7 +16,8 @@ public class VaxTodore {
 //		repertoireEquipier.ajouterEmploye(a1);
 
 		Menu menu = new Menu(controlleurEquipier, controlleurCompte, controlleurVisiteur);
-		menu.loginMenu();
+		int loginResult = menu.loginMenu();
+
 	}
 
 }
