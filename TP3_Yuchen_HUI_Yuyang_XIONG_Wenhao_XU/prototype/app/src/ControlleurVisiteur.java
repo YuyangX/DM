@@ -22,7 +22,7 @@ public class ControlleurVisiteur extends Controller {
 	 */
 	private String genererCourriel() {
 		RDV nouveauRDV = repertoire.getNouveauRDV();
-		return "--------- Notification envoyée à " + nouveauRDV.getEmail() + "---------\n"
+		return "\n--------- Notification envoyée à " + nouveauRDV.getEmail() + "---------\n"
 			 + "NUMERO DE RESERVATION: " + nouveauRDV.getNumeroDeReservation() + "\n"
 			 + "PRENOM: " + nouveauRDV.getPrenom() + "\n"
 			 + "NOM: " + nouveauRDV.getNom() + "\n"
@@ -103,9 +103,13 @@ public class ControlleurVisiteur extends Controller {
 	public void envoyerRappel() {
 		// TODO - implement ControlleurVisiteur.envoyerRappel
 		ArrayList<RDV> rdvsARappeler = repertoire.getRappel();
+		int compteur = 0;
+		System.out.println("\n*** Rappel de rdvs ***\n");
 		for (RDV rdvARappeler : rdvsARappeler) {
 			System.out.println(genererRappel(rdvARappeler));
+			compteur++;
 		}
+		if (compteur == 0) System.out.println("\n(Il n'y a pas de rdvs à rappeler.)\n");
 	}
 
 	/**
@@ -115,7 +119,7 @@ public class ControlleurVisiteur extends Controller {
 	 */
 	private String genererRappel(RDV rdvARappeler) {
 		return "--------- Rappel envoyé à " + rdvARappeler.getEmail() + "---------\n"
-			 + "Votre RDV: " + rdvARappeler.getNumeroDeReservation() + "," + "va bientôt se passer."
+			 + "Votre RDV, numéro de réservation: " + rdvARappeler.getNumeroDeReservation() + ", va bientôt se passer.\n"
 			 + "Temps: " + rdvARappeler.getPlageHoraire().getDate() + ", " + rdvARappeler.getPlageHoraire().getHeure();
 	}
 
