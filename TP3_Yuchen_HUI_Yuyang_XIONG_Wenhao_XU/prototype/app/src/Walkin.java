@@ -5,8 +5,15 @@ public class Walkin implements Serializable{
 	public static final long serialVersionUID = 48484529835837L;
 	private String nom;
 	private String prenom;
-	private String heure;
+	private PlageHoraire plageHoraire;
 	private String tel;
+
+	public Walkin(String nom, String prenom, PlageHoraire plageHoraire, String tel) {
+		this.nom = nom;
+		this.prenom = prenom;
+		this.plageHoraire = plageHoraire;
+		this.tel = tel;
+	}
 
 	public String getNom() {
 		return this.nom;
@@ -32,16 +39,16 @@ public class Walkin implements Serializable{
 		this.prenom = prenom;
 	}
 
-	public String getHeure() {
-		return this.heure;
+	public PlageHoraire getPlageHoraire() {
+		return plageHoraire;
 	}
 
 	/**
-	 * 
-	 * @param heure
+	 *
+	 * @param plageHoraire
 	 */
-	public void setHeure(String heure) {
-		this.heure = heure;
+	public void setPlageHoraire(PlageHoraire plageHoraire) {
+		this.plageHoraire = plageHoraire;
 	}
 
 	public String getTel() {

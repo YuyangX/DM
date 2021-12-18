@@ -1,5 +1,8 @@
+import com.sun.net.httpserver.Authenticator;
+
 import java.io.Serializable;
 import javax.sound.midi.ControllerEventListener;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Menu implements Serializable{
@@ -33,37 +36,25 @@ public class Menu implements Serializable{
 	}
 
 	public void printBenevoleMenu() {
-		// TODO - implement Menu.printBenevoleMenu
 		System.out.println(
 				"************ Menu Bénévole ***********\n"+
 				"1.Vérifier RDV\n"+
 				"2.Ajouter un visiteur spontané au calendrier\n"+
+				"0. EXIT\n"+
 				"Veuillez saisir le numéro du service que vous voulez faire:");
 	}
 
 	public void printEmployeMenu() {
-		// TODO - implement Menu.printEmployeMenu
 		System.out.println(
 				"************ Menu Employé ************\n"+
-						"Gestion Bénévole:\n" +
-						"1. Créer un bénévole\n" +
-						"2. Modifier un bénévole\n" +
-						"3. Supprimer un bénévole\n" +
-						"—————————————————————————————\n"+
-						"Gestion des comptes:\n" +
-						"4. Créer un compte\n" +
-						"5. Modifier un compte\n" +
-						"6. Supprimer un compte\n" +
-						"—————————————————————————————\n"+
-						"Gestion des RDVs:\n" +
-						"7. Créer un RDV\n" +
-						"8. Supprimer un RDV\n" +
-						"—————————————————————————————\n"+
-						"Autre actions:\n"+
-						"9. Envoyer des notifications\n" +
-						"10.Remplir et imprimer formulaire\n"+
-						"11.Envoyer preuve de vaccination\n" +
-						"10.Confirm visiteur\n"+
+						"1. Gestion Bénévole:\n" +
+						"2. Gestion des comptes:\n" +
+						"3. Gestion des RDVs:\n" +
+						"4. Envoyer des notifications\n" +
+						"5. Remplir et imprimer formulaire\n"+
+						"6. Envoyer preuve de vaccination\n" +
+						"7. Confirm visiteur\n"+
+						"0. EXIT\n"+
 						"Veuillez saisir le numéro du service que vous voulez faire:");
 	}
 
@@ -71,10 +62,10 @@ public class Menu implements Serializable{
 	 * Login the account before access to menu
 	 */
 	public int loginMenu() {
-		System.out.println("Veuillez entrer votre code d'identification:");
+		System.out.println("Veuillez entrer votre code d'identification, ou pressez 0 à quitter l'App:");
 		Scanner scan1 = new Scanner(System.in);
-		Benevole benevoleTrouve = new Benevole();
-		Employe employeTrouve = new Employe();
+//		Benevole benevoleTrouve = new Benevole();
+//		Employe employeTrouve = new Employe();
 		int loginResult = -1;
 		while (scan1.hasNextLine()) {
 			String codeIdentification = scan1.nextLine();
@@ -89,38 +80,33 @@ public class Menu implements Serializable{
 //					break;
 //				} else {
 //					System.out.println("Invalide. Ressayez SVP.");
+				if (codeIdentification.equals("0")) {
+					System.out.println("Exiting system...Exited!");
+					System.exit(0);
+				}
 				int cherResult = controleurEquipier.chercherEquipier(codeIdentification);
 				if (cherResult == 0){
 //					benevoleTrouve = controleurEquipier.getBenevolAModifier();
 					loggedUser = 0;
-//					isEmploye = false;
 					break;
 				}else if (cherResult == 1){
 //					employeTrouve = controleurEquipier.getEmployeLogin();
 					loggedUser = 1;
-//					isEmploye = true;
 					break;
 				}else {
-					System.out.println("Invalide. Ressayez SVP.");
+					System.out.println("Invalide. Ressayez SVP. (Pressez 0 à quitter)");
 				}
 			}
 		}
-		System.out.println("Veuillez entrer votre mot de passe:");
+		System.out.println("Veuillez entrer votre mot de passe, ou pressez 0 à quitter:");
 		Scanner scan2 = new Scanner(System.in);
 		while (scan2.hasNextLine()) {
 			String motDePasse = scan2.nextLine();
 			if (!motDePasse.isEmpty()) {
-//				if (isEmploye == true) {
-//					if (employeTrouve.getMotDePasse().equals(motDePasse)) {
-//						printEmployeMenu();
-//						break;
-//					}
-//				} else {
-//					if (benevoleTrouve.getMotDePasse().equals(motDePasse)) {
-//						printBenevoleMenu();
-//						break;
-//					}
-//				}
+				if (motDePasse.equals("0")) {
+					System.out.println("Exiting system...Exited!");
+					System.exit(0);
+				}
 				loginResult = controleurEquipier.login(motDePasse,loggedUser);
 				if (loginResult==0){
 					printBenevoleMenu();
@@ -129,13 +115,12 @@ public class Menu implements Serializable{
 					printEmployeMenu();
 					break;
 				}else {
-					System.out.println("Mot de passe incorrect.");
+					System.out.println("Mot de passe incorrect. Ressayez SVP. (Pressez 0 à quitter)");
 				}
 			}
 		}
 		return loginResult;
 	}
-
 	public void benevoleMenu(){
 		Scanner myReader = new Scanner(System.in);
 		while (myReader.hasNextLine()) {
@@ -143,10 +128,20 @@ public class Menu implements Serializable{
 			if (!order.isEmpty()) {
 				switch (order) {
 					case "1":
+						verifier();
+						printBenevoleMenu();
+						break;
 					case "2":
-					case "3":
-					case "4":
+						sponCal();
+						printBenevoleMenu();
+						break;
+					case "0":
+						System.out.println("Exiting system...Exited!");
+						System.exit(0);
+						break;
 					default:
+						System.out.println("Sorry, enter invalide :( Please re-enter");
+						break;
 				}
 			}
 		}
@@ -159,10 +154,40 @@ public class Menu implements Serializable{
 			if (!order.isEmpty()) {
 				switch (order) {
 					case "1":
+						gererBene();
+						printEmployeMenu();
+						break;
 					case "2":
+						gererComte();
+						printEmployeMenu();
+						break;
 					case "3":
+						gererRDV();
+						printEmployeMenu();
+						break;
 					case "4":
+						rappel();
+						printEmployeMenu();
+						break;
+					case "5":
+						formulaire();
+						printEmployeMenu();
+						break;
+					case "6":
+						preuve();
+						printEmployeMenu();
+						break;
+					case "7":
+						confirmerRDV();
+						printEmployeMenu();
+						break;
+					case "0":
+						System.out.println("Exiting system...Exited!");
+						System.exit(0);
+						break;
 					default:
+						System.out.println("Sorry, enter invalide :( Please re-enter");
+						break;
 				}
 			}
 		}
@@ -178,19 +203,290 @@ public class Menu implements Serializable{
 		throw new UnsupportedOperationException();
 	}
 
-	public void gererBene() {
-		// TODO - implement Menu.gererBene
-		throw new UnsupportedOperationException();
+	public void printGestionMenu(int choix){
+		switch (choix){
+			case 1:
+				System.out.println(
+						"Gestion Bénévole:\n" +
+								"1. Créer un bénévole\n" +
+								"2. Modifier un bénévole\n" +
+								"3. Supprimer un bénévole\n"+
+								"0. EXIT\n"+
+								"Veuillez saisir le numéro du service que vous voulez faire:"
+				);
+				break;
+			case 2:
+				System.out.println(
+						"Gestion des comptes:\n" +
+								"1. Créer un compte\n" +
+								"2. Modifier un compte\n" +
+								"3. Supprimer un compte\n"+
+								"0. EXIT\n"+
+								"Veuillez saisir le numéro du service que vous voulez faire:"
+				);
+				break;
+			case 3:
+				System.out.println(
+						"Gestion des RDVs:\n" +
+								"1. Créer un RDV\n" +
+								"2. Supprimer un RDV\n"+
+								"0. EXIT\n"+
+								"Veuillez saisir le numéro du service que vous voulez faire:"
+				);
+				break;
+			default: System.out.println("ErrorMenu.");
+		}
 	}
 
-	public void gererVisi() {
-		// TODO - implement Menu.gererVisi
-		throw new UnsupportedOperationException();
+	public void gererBene() {
+		printGestionMenu(1);
+		String id = null;
+		Scanner myReader = new Scanner(System.in);
+		OUT:
+		while (myReader.hasNextLine()) {
+			String order = myReader.nextLine();
+			if (!order.isEmpty()) {
+				switch (order) {
+					case "1":
+						//需添加检测必要信息是否齐全的判断函数
+						controleurEquipier.ajouterBenevole(mapScanner());
+						break;
+					case "2":
+						System.out.println("Veuillez entrer le code d'identification " +
+								"de benevole que vous souhaitez modifier." +
+								"Entrez 0 pour revenir au niveau précédent du menu.");
+						Scanner codeReader1 = new Scanner(System.in);
+						while (codeReader1.hasNextLine()) {
+							String code = codeReader1.nextLine();
+							if (!code.isEmpty()) {
+								if (code.equals("0")){
+									printGestionMenu(1);
+									break OUT;
+								}
+								if (controleurEquipier.chercherBenevole(code)){
+									id = code;
+									break;
+								}else{
+									System.out.println("Benevole not found. Please re-enter." +
+											"Pressez 0 pour revenir au niveau précédent du menu.");
+								}
+							}
+						}
+						System.out.println("Prenom: "+controleurEquipier.getBenevolAModifier().getPrenom());
+						System.out.println("Nom: "+controleurEquipier.getBenevolAModifier().getNom());
+						System.out.println("Date de naissance: "+
+								controleurEquipier.getBenevolAModifier().getDateDeNaissance());
+						System.out.println("Confirm? 1-Confirm, 0-Exit.");
+						Scanner confirmReader1 = new Scanner(System.in);
+						while (confirmReader1.hasNextLine()) {
+							String confirm = confirmReader1.nextLine();
+							if (!confirm.isEmpty()) {
+								switch (confirm){
+									case "1" :
+										controleurEquipier.modifierBenevole(mapScanner());
+										break OUT;
+									case "0" :
+										break OUT;
+									default:
+										System.out.println("Sorry, enter invalide :( Please re-enter");
+										break;
+								}
+							}
+						}
+						break;
+					case "3":
+						System.out.println("Veuillez entrer le code d'identification " +
+								"de benevole que vous souhaitez supprimer." +
+								"Entrez 0 pour revenir au niveau précédent du menu.");
+						Scanner codeReader2 = new Scanner(System.in);
+						while (codeReader2.hasNextLine()) {
+							String code = codeReader2.nextLine();
+							if (!code.isEmpty()) {
+								if (code.equals("0")){
+									printGestionMenu(1);
+									break OUT;
+								}
+								if (controleurEquipier.chercherBenevole(code)){
+									id = code;
+									break;
+								}else{
+									System.out.println("Benevole not found. Please re-enter." +
+											"Entrez 0 pour revenir au niveau précédent du menu.");
+								}
+							}
+						}
+						System.out.println("Prenom: "+controleurEquipier.getBenevolAModifier().getPrenom());
+						System.out.println("Nom: "+controleurEquipier.getBenevolAModifier().getNom());
+						System.out.println("Date de naissance: "+
+								controleurEquipier.getBenevolAModifier().getDateDeNaissance());
+						System.out.println("Confirm? 1-Confirm, 0-Exit.");
+						Scanner confirmReader2 = new Scanner(System.in);
+						while (confirmReader2.hasNextLine()) {
+							String confirm = confirmReader2.nextLine();
+							if (!confirm.isEmpty()) {
+								switch (confirm){
+									case "1" :
+										controleurEquipier.supprimerBenevole(id);
+										System.out.println("Supprime avec success.");
+										break OUT;
+									case "0" :
+										break OUT;
+									default:
+										System.out.println("Sorry, enter invalide :( Please re-enter");
+										break;
+								}
+							}
+						}
+//						break;
+					case "0":
+						System.out.println("Exiting system...Exited!");
+						System.exit(0);
+						break;
+					default:
+						System.out.println("Sorry, enter invalide :( Please re-enter");
+						break;
+				}
+			}
+		}
+	}
+
+	public HashMap<String,String> mapScanner(){
+
+		//需添加检测必要信息是否齐全的判断函数
+
+		HashMap<String,String> hash = new HashMap<>();
+		System.out.println("Sélectionnez une entrée que vous décidez de faire：\n" +
+				"1. Prénom\n" +
+				"2. Nom\n" +
+				"3. Date de naissance\n" +
+				"4. Adresse courriel\n" +
+				"5. Numéro de télephone\n" +
+				"6. Adresse(numéro, rue)\n" +
+				"7. Code postal\n" +
+				"8. Ville\n" +
+				"——————————————————————————————————\n" +
+				"Visite:\n" +
+				"9. Numéro de réservation\n" +
+				"10. Date de la visite(yyyy-MM-dd)\n" +
+				"11. Heure de la visite(HH:mm)\n" +
+				"12. Type de dose\n" +
+				"——————————————————————————————————\n" +
+				"Formulaire:\n" +
+				"13. Numéro carte assurance maladie\n" +
+				"14. Avez-vous déjà reçu une première dose?\n" +
+				"15. Avez-vous déjà contracté la COVID?\n" +
+				"16. Avez-vous des symptômes de la COVID?\n" +
+				"17. Avez-vous des allergies?\n" +
+				"18. Quel vaccin souhaitez-vous recevoir?\n" +
+				"19. Avez-vous procédé à la vaccination?\n" +
+				"20. Nom du vaccin\n" +
+				"21. Code du vaccin\n" +
+				"——————————————————————————————————\n" +
+				"0. Finish and exit");
+
+		Scanner myReader = new Scanner(System.in);
+		LOOP:
+		while (myReader.hasNextLine()) {
+			String order = myReader.nextLine();
+			if (!order.isEmpty()) {
+				switch (order) {
+//					这里没有添加id之类的自动生成的数据，需手动添加方法
+					case "1":
+					case "2":
+					case "3":
+					case "4":
+					case "5":
+					case "6":
+					case "7":
+					case "8":
+					case "9":
+					case "10":
+					case "11":
+					case "12":
+					case "13":
+					case "14":
+					case "15":
+					case "16":
+					case "17":
+					case "18":
+					case "19":
+					case "20":
+					case "21":
+						System.out.println("Please enter:");
+						Scanner enterReader = new Scanner(System.in);
+						while (enterReader.hasNextLine()) {
+							String enter = enterReader.nextLine();
+							if (!enter.isEmpty()) {
+								switch (String.valueOf(enterVerify(order,enter))){
+									case "true":
+										hash.put(choix2Type(order),enter);
+										System.out.println("Success enter: "+enter);
+										break LOOP;
+									case "false":
+										System.out.println("Sorry, enter invalide :( Please re-enter");
+										break;
+								}
+//								if (enterVerify(order,enter)){
+//									hash.put(choix2Type(order),enter);
+//									System.out.println("Success modified: "+enter);
+//									break LOOP;
+//								}else {
+//									System.out.println("Sorry, enter invalide :( Please re-enter");
+//									break;
+//								}
+							}
+						}
+						break;
+					case "0":
+						System.out.println("Finishing...Finished!");
+						return hash;
+					default:
+						System.out.println("Sorry, wrong type :( Please re-enter");
+						break;
+				}
+			}
+		}
+		return hash;
+	}
+
+	public String choix2Type(String choix){
+		String type = null;
+		switch (choix){
+			case "1": type = "nom"; break;
+			case "2": type = "prenom"; break;
+			case "3": type = "dateNe"; break;
+			case "4": type = "email"; break;
+			case "5": type = "numTele"; break;
+			case "6": type = "adresse"; break;
+			case "7": type = "codePost"; break;
+			case "8": type = "ville"; break;
+			case "9": type = "numReserve"; break;
+			case "10": type = "dateVisite"; break;
+			case "11": type = "heureVisite"; break;
+			case "12": type = "typeDose"; break;
+			case "13": type = "numAssurMal"; break;
+			case "14": type = "recu1Dose"; break;
+			case "15": type = "contracteCovid"; break;
+			case "16": type = "symtomeCovid"; break;
+			case "17": type = "allergie"; break;
+			case "18": type = "vaccinVoulu"; break;
+			case "19": type = "procederVaccin"; break;
+			case "20": type = "vaccinType"; break;
+			case "21": type = "vaccinCode"; break;
+		}
+		return type;
+	}
+
+	public boolean enterVerify(String key, String value){
+		return Controller.isValid(choix2Type(key),value);
+	}
+
+	public void gererComte() {
+		printGestionMenu(2);
 	}
 
 	public void gererRDV() {
-		// TODO - implement Menu.gererRDV
-		throw new UnsupportedOperationException();
+		printGestionMenu(3);
 	}
 
 	public void rappel() {

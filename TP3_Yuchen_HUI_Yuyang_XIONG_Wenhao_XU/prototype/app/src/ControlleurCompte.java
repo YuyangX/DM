@@ -13,6 +13,7 @@ public class ControlleurCompte extends Controller implements Serializable{
 	public static final long serialVersionUID = 8437L;
 	private RepertoireCompte repertoire;
 	private Compte compteAModifier;
+	private Formulaire formulairePreremplie;
 
 	/**
 	 * Generate a account number and creat a account to
@@ -26,6 +27,7 @@ public class ControlleurCompte extends Controller implements Serializable{
 		String num = this.repertoire.generateNumCompte();
 		compte.setNumeroDeCompte(num);
 		boolean tf = info2Compte(infos, compte);
+		info2Formulaire(infos,formulairePreremplie);
 		if (tf == false){
 			System.out.println("pattern not matched in creer Compte");
 		}
@@ -133,9 +135,8 @@ public class ControlleurCompte extends Controller implements Serializable{
 		// two task :
 		// 1, remplir le formulaire et l'imprimer
 		// 2, remplir la première fois profil de vaccination.
-		Formulaire fToPrint = new Formulaire();
 		ProfilVaccination newProfile = new ProfilVaccination();
-	    info2Formulaire(infos, fToPrint);
+	    info2Formulaire(infos, formulairePreremplie);
 		info2Profile(infos, newProfile);
 		ProfilVaccination[] list = this.compteAModifier.getProfil();
 
@@ -150,7 +151,7 @@ public class ControlleurCompte extends Controller implements Serializable{
 		this.compteAModifier.setProfil(list);
 		this.repertoire.modifierCompte(compteAModifier);
 		// imprimer le formulaire
-		imprimerFormulaire(fToPrint);
+		imprimerFormulaire(formulairePreremplie);
 
 	}
 	/**
@@ -282,7 +283,7 @@ public boolean info2Formulaire(HashMap<String,String> infos, Formulaire f){
    pairs stored in a hashmap which is used to register
    information entered by terminal.
  * @param infos  hashmap
- * @param f Profile to modify
+ * @param p Profile to modify
  * @return if all the keys in Hashmap match the pattern
  */
 public boolean info2Profile(HashMap<String,String> infos, ProfilVaccination p){

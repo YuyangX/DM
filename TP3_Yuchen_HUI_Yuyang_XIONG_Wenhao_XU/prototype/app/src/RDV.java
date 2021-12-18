@@ -11,6 +11,19 @@ public class RDV implements Serializable{
 	private String email;
 	private Boolean confirmation;
 
+	public RDV() {}
+
+	public RDV(String numeroDeReservation, String nom, String prenom, PlageHoraire plageHoraire,
+			   String typeDeDose, String email, Boolean confirmation) {
+		this.numeroDeReservation = numeroDeReservation;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.plageHoraire = plageHoraire;
+		this.typeDeDose = typeDeDose;
+		this.email = email;
+		this.confirmation = confirmation;
+	}
+
 	public String getNumeroDeReservation() {
 		return this.numeroDeReservation;
 	}
@@ -83,4 +96,7 @@ public class RDV implements Serializable{
 		this.email = email;
 	}
 
+	public void confirmerRDV() {
+		confirmation = true;
+	}
 }

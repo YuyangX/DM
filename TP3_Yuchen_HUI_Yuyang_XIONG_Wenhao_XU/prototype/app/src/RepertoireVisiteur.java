@@ -1,15 +1,19 @@
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Random;
 import java.util.concurrent.ConcurrentSkipListMap;
 
 public class RepertoireVisiteur {
 
 	private ArrayList<RDV> listeRDV = new ArrayList<>();
-	private ArrayList<Walkin> listeVisiteur = new ArrayList<>();
+	private ArrayList<Walkin> listeWalkin = new ArrayList<>(); // contient seulement des walkin du jour
 	private ArrayList<String> tousLesNumReservation = new ArrayList<>();
+	private RDV nouveauRDV;
 	private int indexRDV;
+
+	public RDV getNouveauRDV() {
+		return nouveauRDV;
+	}
 
 	/**
 	 * Cette méthode ajoute un visiteur planifié dans notre répertoire de visiteurs
@@ -18,6 +22,7 @@ public class RepertoireVisiteur {
 	public void addRDV(RDV rdv) {
 		// TODO - implement RepertoireVisiteur.addRDV
 		listeRDV.add(rdv);
+		nouveauRDV = rdv;
 	}
 
 	/**
@@ -26,7 +31,7 @@ public class RepertoireVisiteur {
 	 */
 	public void addWalkin(Walkin walkin) {
 		// TODO - implement RepertoireVisiteur.addWalkin
-		listeVisiteur.add(walkin);
+		listeWalkin.add(walkin);
 	}
 
 	/**
@@ -60,12 +65,12 @@ public class RepertoireVisiteur {
 	 * et le numéro de téléphone passés en paramètre.
 	 * @param nom le nom du visiteur spontané qu'on veut trouver
 	 * @param tel le numéro de téléphone du visiteur spontané qu'on veut trouver
-	 * @return un visiteur spontané qu'on a trouvé avec le nom et le numéro de téléphone, null
-	 * s'il n'y a pas de visiteur spontané correspondant à ce nom ou ce numéro de téléphone.
+	 * @return un visiteur spontané qu'on a trouvé, null s'il n'y a pas de visiteur spontané
+	 * correspondant à ce nom ou ce numéro de téléphone.
 	 */
 	public Walkin getWalkin(String nom, String tel) {
 		// TODO - implement RepertoireVisiteur.getWalkin
-		for (Walkin walkin : listeVisiteur) {
+		for (Walkin walkin : listeWalkin) {
 			if (walkin.getNom().equals(nom) && walkin.getTel().equals(tel)) { // bien trouvé un visiteur avec le même nom et numéro de téléphone
 				return walkin;
 			}
@@ -156,8 +161,8 @@ public class RepertoireVisiteur {
 	}
 
 	/**
-	 * generate a calendar containing everyday quantity of reservations from the RDV list
-	 * @return calendar
+	 * generate for "fixing RDV" a calendar containing everyday quantity of reservations from the RDV list
+	 * @return calendar with form: [(20210521, 20), (20210522, 16), ...]
 	 */
 	public ConcurrentSkipListMap<Integer, Integer> getCalendar() {
 		ConcurrentSkipListMap<Integer, Integer> calendar = new ConcurrentSkipListMap<>();
@@ -173,5 +178,41 @@ public class RepertoireVisiteur {
 		return calendar;
 	}
 
+	/**
+	 * generate a list of hours containing quantity of RDV in every hour of the date chosen
+	 * @param datePrise date of which we want to get list of hours
+	 * @return list of hours with form: [(8, 4), (9, 7), (10, 13), ...]
+	 */
+	public ConcurrentSkipListMap<Integer, Integer> getHoraires(String datePrise) {
+		ConcurrentSkipListMap<Integer, Integer> horairesDatePrise = new ConcurrentSkipListMap<>();
+		for (RDV rdv : listeRDV) {
+			PlageHoraire plageHoraire = rdv.getPlageHoraire();
+			if (plageHoraire.getDate().equals(datePrise)) {
+				int hhDeRDV = plageHoraire.getHH();
+				if (!horairesDatePrise.containsKey(hhDeRDV)) horairesDatePrise.put(hhDeRDV, 0);
+				int numRDV = horairesDatePrise.get(hhDeRDV); // nombre de RDV dans cette heure
+				numRDV += 1;
+				horairesDatePrise.replace(hhDeRDV, numRDV);
+			}
+		}
+		return horairesDatePrise;
+	}
 
+	/**
+	 * generate a list of hours containing quantity of people in every hour of today
+	 * @param dateDuJour today's date
+	 * @return list of hours with form: [(8, 4), (9, 7), (10, 13), ...]
+	 */
+	public ConcurrentSkipListMap<Integer, Integer> getHorairesDuJour(String dateDuJour) {
+		ConcurrentSkipListMap<Integer, Integer> horairesDuJour = getHoraires(dateDuJour);
+		for (Walkin walkin : listeWalkin) {
+			PlageHoraire plageHoraire = walkin.getPlageHoraire();
+			int hhDeRDV = plageHoraire.getHH();
+			if (!horairesDuJour.containsKey(hhDeRDV)) horairesDuJour.put(hhDeRDV, 0);
+			int numRDV = horairesDuJour.get(hhDeRDV); // nombre de RDV dans cette heure
+			numRDV += 1;
+			horairesDuJour.replace(hhDeRDV, numRDV);
+			}
+		return horairesDuJour;
+	}
 }

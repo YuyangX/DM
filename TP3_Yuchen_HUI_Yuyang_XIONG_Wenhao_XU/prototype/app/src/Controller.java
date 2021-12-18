@@ -24,7 +24,7 @@ public abstract class Controller implements Serializable{
 			case "ville":
 				return verifierLimit(50, value);
 			case "dateVisite":
-			case "dateNe" :
+			case "dateNe":
 				return verifierDate(value);
 			case "heureVisite":
 				return verifierHeure(value);
@@ -115,7 +115,7 @@ public abstract class Controller implements Serializable{
 		if (!dateFlag) {
 			return false;
 		}
-		DateFormat formatter = new SimpleDateFormat("YYYY-MM-DD" ) ;
+		DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd") ;
 		formatter.setLenient(false);
 		try{
 			Date date = formatter.parse(str);
@@ -135,7 +135,6 @@ public abstract class Controller implements Serializable{
 			return true;
 		}else{
 			return false;
-
 		}
 	}
 
