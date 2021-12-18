@@ -613,7 +613,11 @@ public class Menu implements Serializable{
 							if (!enter.isEmpty()) {
 								switch (String.valueOf(enterVerify(order,enter))){
 									case "true":
-										hash.put(choix2Type(order),enter);
+										if (hash.containsKey(choix2Type(order))){
+											hash.replace(choix2Type(order),enter);
+										}else {
+											hash.put(choix2Type(order), enter);
+										}
 										System.out.println("Success enter: "+enter);
 										break LOOP;
 									case "false":
@@ -634,6 +638,7 @@ public class Menu implements Serializable{
 					case "0":
 						System.out.println("Finishing...Finished!");
 						return hash;
+
 					default:
 						System.out.println("Sorry, wrong type :( Please re-enter");
 						break;
