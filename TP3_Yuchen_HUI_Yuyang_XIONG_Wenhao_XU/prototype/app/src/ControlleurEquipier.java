@@ -20,17 +20,17 @@ public class ControlleurEquipier extends Controller implements Serializable{
 	public boolean infoScanner(HashMap<String,String> infos,Benevole benevole){
 		for (Map.Entry<String,String> info: infos.entrySet()){
 			switch (info.getKey()){
-				case "codeIden":benevole.setCodeIdentification(info.getValue());
-				case "motDePasse":benevole.setMotDePasse(info.getValue());
-				case "numCompte":benevole.setNumeroDeCompte(info.getValue());
-				case "prenom":benevole.setPrenom(info.getValue());
-				case "nom":benevole.setNom(info.getValue());
-				case "dateNe":benevole.setDateDeNaissance(info.getValue());
-				case "email":benevole.setAdresseCourriel(info.getValue());
-				case "numTele":benevole.setNumeroDeTelephone(info.getValue());
-				case "adresse":benevole.setAdresse(info.getValue());
-				case "codePost":benevole.setCodePostal(info.getValue());
-				case "ville":benevole.setVille(info.getValue());
+				case "codeIden":benevole.setCodeIdentification(info.getValue());break;
+				case "motDePasse":benevole.setMotDePasse(info.getValue());break;
+				case "numCompte":benevole.setNumeroDeCompte(info.getValue());break;
+				case "prenom":benevole.setPrenom(info.getValue());break;
+				case "nom":benevole.setNom(info.getValue());break;
+				case "dateNe":benevole.setDateDeNaissance(info.getValue());break;
+				case "email":benevole.setAdresseCourriel(info.getValue());break;
+				case "numTele":benevole.setNumeroDeTelephone(info.getValue());break;
+				case "adresse":benevole.setAdresse(info.getValue());break;
+				case "codePost":benevole.setCodePostal(info.getValue());break;
+				case "ville":benevole.setVille(info.getValue());break;
 				default:
 					System.out.println("Benevole pattern not matched");
 					return false;
@@ -110,16 +110,20 @@ public class ControlleurEquipier extends Controller implements Serializable{
 	/**
 	 * Search for a benevole to modify
 	 * @param code code identification
-	 * @return -1 Not found, 1 found
+	 * @return false Not found, true found
 	 */
-	public int chercherBenevole(String code) {
+	public boolean chercherBenevole(String code) {
 		for (int i=0;i < repertoire.benevoles.size();i++) {
 			if (repertoire.benevoles.get(i).getCodeIdentification().equals(code)) {
 				benevolAModifier = repertoire.benevoles.get(i);
-				return 1;
+				return true;
 			}
 		}
-		return -1;
+		return false;
+	}
+
+	public Benevole getBenevolAModifier() {
+		return benevolAModifier;
 	}
 
 	/**
