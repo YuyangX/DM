@@ -17,6 +17,9 @@ public class Date implements Serializable{
 	public Date(String date){
 		//presume date has form of "YYYY-DD-MM"
 		String[] dateString = date.split("-");
+		System.out.println(dateString[0]);
+		System.out.println(dateString[1]);
+
 		this.annee = dateString[0];
 		this.mois = dateString[1];
 		this.jour = dateString[2];

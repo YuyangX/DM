@@ -139,7 +139,7 @@ public class RepertoireVisiteur {
 	 */
 	public String generateNumReservation(){
 		String nouveau = generate6String();
-		if (tousLesNumReservation.indexOf(nouveau) == -1){
+		if (!tousLesNumReservation.contains(nouveau)){
 			this.tousLesNumReservation.add(nouveau);
 			return nouveau;
 		}else{

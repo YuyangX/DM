@@ -5,7 +5,7 @@ import java.util.Map;
 public class ControlleurEquipier extends Controller implements Serializable{
 
 	public static final long serialVersionUID = 0523452003275L;
-	private RepertoireEquipier repertoire;
+	private RepertoireEquipier repertoire = new RepertoireEquipier();
 	private Benevole benevolAModifier;
 	private Employe employeLogin;
 

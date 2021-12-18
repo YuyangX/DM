@@ -11,7 +11,7 @@ public class ControlleurCompte extends Controller implements Serializable{
 
 	// pour qu'il soit serializable
 	public static final long serialVersionUID = 8437L;
-	private RepertoireCompte repertoire;
+	private RepertoireCompte repertoire = new RepertoireCompte();
 	private Compte compteAModifier;
 	private Formulaire formulairePreremplie;
 

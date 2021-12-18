@@ -4,7 +4,7 @@ import java.util.concurrent.ConcurrentSkipListMap;
 
 public class ControlleurVisiteur extends Controller {
 
-	private RepertoireVisiteur repertoire;
+	private RepertoireVisiteur repertoire = new RepertoireVisiteur();
 
 	public ControlleurVisiteur() {}
 
@@ -23,13 +23,13 @@ public class ControlleurVisiteur extends Controller {
 	private String genererCourriel() {
 		RDV nouveauRDV = repertoire.getNouveauRDV();
 		return "--------- Notification envoyée à " + nouveauRDV.getEmail() + "---------\n"
-			 + "NUMERO DE RESERVATION" + nouveauRDV.getNumeroDeReservation() + "\n"
-			 + "PRENOM" + nouveauRDV.getPrenom() + "\n"
-			 + "NOM" + nouveauRDV.getNom() + "\n"
-			 + "DATE DE LA VISITE" + nouveauRDV.getPlageHoraire().getDate() + "\n"
-			 + "HEURE DE LA VISITE" + nouveauRDV.getPlageHoraire().getHeure() + "\n"
-			 + "TYPE DE DOSE" + nouveauRDV.getTypeDeDose() + "\n"
-			 + "-----------------------------------------------------------------------";
+			 + "NUMERO DE RESERVATION: " + nouveauRDV.getNumeroDeReservation() + "\n"
+			 + "PRENOM: " + nouveauRDV.getPrenom() + "\n"
+			 + "NOM: " + nouveauRDV.getNom() + "\n"
+			 + "DATE DE LA VISITE: " + nouveauRDV.getPlageHoraire().getDate() + "\n"
+			 + "HEURE DE LA VISITE: " + nouveauRDV.getPlageHoraire().getHeure() + "\n"
+			 + "TYPE DE DOSE: " + nouveauRDV.getTypeDeDose() + "\n"
+			 + "-------------------------------------------------------------";
 	}
 
 	/**
@@ -56,7 +56,7 @@ public class ControlleurVisiteur extends Controller {
 	public void createRDV(HashMap<String, String> infos) {
 		String heureVisite = infos.get("heureVisite");
 		String dateVisite = infos.get("dateVisite");
-		PlageHoraire plageHoraire = new PlageHoraire(heureVisite, dateVisite);
+		PlageHoraire plageHoraire = new PlageHoraire(dateVisite, heureVisite);
 		String numReservation = repertoire.generateNumReservation();
 		RDV rdvCree = new RDV(numReservation, infos.get("nom"), infos.get("prenom"),
 				plageHoraire, infos.get("typeDeDose"), infos.get("email"), false);
@@ -122,7 +122,19 @@ public class ControlleurVisiteur extends Controller {
 	/**
 	 * Vérifie s'il existe un rdv dont le numéro de réservation est celui en paramètre
 	 * @param numeroDeReservation
-	 * @return "true" représente qu'il existe un tel rdv, "false" représente que non
+	 * @return nom et numéro de téléphone du visiteur. "non" représente que ce numéro de réservation n'existe pas
+	 */
+	public String verifierRDV(String numeroDeReservation) {
+		// TODO - implement ControlleurVisiteur.verifierRDV
+		RDV rdvAConfirmer = repertoire.getRDV(numeroDeReservation);
+		if (rdvAConfirmer == null) return "non"; // si un tel rdv n'existe pas
+		return rdvAConfirmer.getNom() + " " + rdvAConfirmer.getPlageHoraire().getHeure();
+	}
+
+	/**
+	 * Confirmer s'il existe un rdv dont le numéro de réservation est celui en paramètre
+	 * @param numeroDeReservation
+	 * @return "true" si ce rdv a bien été confirmé, "false" si ce numéro de réservation n'existe pas
 	 */
 	public boolean confirmerRDV(String numeroDeReservation) {
 		// TODO - implement ControlleurVisiteur.confirmerRDV
@@ -131,6 +143,7 @@ public class ControlleurVisiteur extends Controller {
 		rdvAConfirmer.confirmerRDV();
 		return true;
 	}
+
 	/**
 	 * Vérifie s'il existe un visiteur spontané dans la liste de walkins d'aujourd'hui
      * en vétifiant le nom et le numéro de téléphone que le visiteur offre
@@ -139,11 +152,10 @@ public class ControlleurVisiteur extends Controller {
      * @return temps que le visiteur spontané a fixé avec le bénévole, "null" s'il
      * n'existe pas de tel visiteur
 	 */
-	public String confirmerWalkin(String nom, String tel) {
+	public boolean confirmerWalkin(String nom, String tel) {
 		// TODO - implement ControlleurVisiteur.confirmerWalkin
 		Walkin walkinTrouve =  repertoire.getWalkin(nom, tel);
-		if (walkinTrouve == null) return null;
-        return walkinTrouve.getPlageHoraire().getHeure();
+		return walkinTrouve != null;
 	}
 
 	public RepertoireVisiteur getRepertoire() {
