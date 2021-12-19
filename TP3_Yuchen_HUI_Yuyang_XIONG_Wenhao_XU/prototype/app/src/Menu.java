@@ -444,6 +444,7 @@ public class Menu implements Serializable{
 					case "1":
 						//需添加检测必要信息是否齐全的判断函数
 						controleurEquipier.ajouterBenevole(mapScanner());
+						System.out.println("Successfully added!");
 						break;
 					case "2":
 						System.out.println("Veuillez entrer le code d'identification " +

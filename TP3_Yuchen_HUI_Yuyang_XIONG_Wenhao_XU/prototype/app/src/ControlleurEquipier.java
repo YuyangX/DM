@@ -45,8 +45,14 @@ public class ControlleurEquipier extends Controller implements Serializable{
 	 */
 	public Boolean ajouterBenevole(HashMap<String,String> infos) {
 		Benevole benevoleAdd = new Benevole();
+		String num = repertoire.generateNumCompte();
+		String id = repertoire.generateID();
+		benevoleAdd.setNumeroDeCompte(num);
+		benevoleAdd.setCodeIdentification(id);
 		Boolean bool = infoScanner(infos,benevoleAdd);
 		repertoire.ajouterBenevole(benevoleAdd);
+		System.out.println("Code d'identification: "+id);
+		System.out.println("Numero de compte: "+num);
 		return bool;
 	}
 

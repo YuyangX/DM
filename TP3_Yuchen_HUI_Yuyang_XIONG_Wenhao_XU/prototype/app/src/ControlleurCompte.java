@@ -175,7 +175,7 @@ public class ControlleurCompte extends Controller implements Serializable{
 	/**
 	 * Simuler la fonctionnalité d'impression d'un formulaire
 	 * qui imprimera un formulaire à la console de terminal.
-	 * @param infosRestantes
+	 * @param
 	 */
 	public void imprimerFormulaire(Formulaire fToPrint) {
 		// TODO - implement ControlleurCompte.imprimerFormulaire

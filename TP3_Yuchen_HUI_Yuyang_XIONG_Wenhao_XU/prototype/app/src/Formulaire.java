@@ -195,7 +195,6 @@ public class Formulaire implements Serializable{
 		return this.lotDuVaccin;
 	}
 
-	private String 
 	/**
 	 * 
 	 * @param lotDuVaccin

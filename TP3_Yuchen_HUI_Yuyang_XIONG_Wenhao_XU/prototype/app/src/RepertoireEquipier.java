@@ -1,5 +1,6 @@
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class RepertoireEquipier implements Serializable{
 
@@ -8,6 +9,60 @@ public class RepertoireEquipier implements Serializable{
 	public ArrayList<Employe> employes = new ArrayList<>();
 	public ArrayList<Benevole> benevoles = new ArrayList<>();
 	private int index;
+	private ArrayList<String> tousLesNumCompte;
+	private ArrayList<String> tousLesID;
+
+	/**
+	 * generate a random account number never be used.
+	 * @return account number
+	 */
+	public String generateNumCompte(){
+		String nouveau = generate12String();
+		if (tousLesNumCompte.indexOf(nouveau) == -1){
+			this.tousLesNumCompte.add(nouveau);
+			return nouveau;
+		}else{
+			return generateNumCompte();
+		}
+	}
+	/**
+	 * generate a random string presents a account of "12 chiffres"
+	 * @return
+	 */
+	private String generate12String (){
+		Random rand = new Random();
+		String numero ="";
+		for(int a = 0;a < 12; a++){
+			numero += rand.nextInt(10);
+		}
+		return numero;
+	}
+
+	/**
+	 * generate a random account number never be used.
+	 * @return account number
+	 */
+	public String generateID(){
+		String nouveau = generate9String();
+		if (tousLesID.indexOf(nouveau) == -1){
+			this.tousLesID.add(nouveau);
+			return nouveau;
+		}else{
+			return generateID();
+		}
+	}
+	/**
+	 * generate a random string presents a account of "9 chiffres"
+	 * @return
+	 */
+	private String generate9String (){
+		Random rand = new Random();
+		String numero ="";
+		for(int a = 0;a < 9; a++){
+			numero += rand.nextInt(10);
+		}
+		return numero;
+	}
 
 	/**
 	 * Supprimer un benevole
@@ -18,6 +73,8 @@ public class RepertoireEquipier implements Serializable{
 		if (benevoleTrouve == null) {
 			return false;
 		} else {
+			tousLesID.remove(code);
+			tousLesNumCompte.remove(benevoleTrouve.getNumeroDeCompte());
 			benevoles.remove(benevoleTrouve);
 			return true;
 		}
