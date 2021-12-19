@@ -9,8 +9,8 @@ public class RepertoireEquipier implements Serializable{
 	public ArrayList<Employe> employes = new ArrayList<>();
 	public ArrayList<Benevole> benevoles = new ArrayList<>();
 	private int index;
-	private ArrayList<String> tousLesNumCompte;
-	private ArrayList<String> tousLesID;
+	private ArrayList<String> tousLesNumCompte = new ArrayList<>();
+	private ArrayList<String> tousLesID = new ArrayList<>();
 
 	/**
 	 * generate a random account number never be used.
@@ -18,7 +18,7 @@ public class RepertoireEquipier implements Serializable{
 	 */
 	public String generateNumCompte(){
 		String nouveau = generate12String();
-		if (tousLesNumCompte.indexOf(nouveau) == -1){
+		if (!tousLesNumCompte.contains(nouveau)){
 			this.tousLesNumCompte.add(nouveau);
 			return nouveau;
 		}else{

@@ -38,7 +38,7 @@ public class Menu implements Serializable{
 		isEmploye = employe;
 	}
 
-	public void printBenevoleMenu() {
+	private void printBenevoleMenu() {
 		System.out.println(
 				"************ Menu Bénévole ***********\n"+
 				"1.Vérifier RDV\n"+
@@ -47,7 +47,7 @@ public class Menu implements Serializable{
 				"Veuillez saisir le numéro du service que vous voulez faire:");
 	}
 
-	public void printEmployeMenu() {
+	private void printEmployeMenu() {
 		System.out.println(
 				"************ Menu Employé ************\n"+
 						"1. Gestion Bénévole:\n" +
@@ -122,6 +122,11 @@ public class Menu implements Serializable{
 		}
 		return loginResult;
 	}
+
+
+	/**
+	 * Manipulation des sélections du menu Benevole
+	 */
 	public void benevoleMenu(){
 		Scanner myReader = new Scanner(System.in);
 		while (myReader.hasNextLine()) {
@@ -148,6 +153,9 @@ public class Menu implements Serializable{
 		}
 	}
 
+	/**
+	 * Manipulation des sélections du menu Employe
+	 */
 	public void employeMenu(){
 		Scanner myReader = new Scanner(System.in);
 		while (myReader.hasNextLine()) {
@@ -397,7 +405,7 @@ public class Menu implements Serializable{
 		throw new UnsupportedOperationException();
 	}
 
-	public void printGestionMenu(int choix){
+	private void printGestionMenu(int choix){
 		switch (choix){
 			case 1:
 				System.out.println(
@@ -432,6 +440,9 @@ public class Menu implements Serializable{
 		}
 	}
 
+	/**
+	 * Manipulation des sélections du "Gestion de Benevole"
+	 */
 	public void gererBene() {
 		printGestionMenu(1);
 		String id = null;
@@ -443,9 +454,10 @@ public class Menu implements Serializable{
 				switch (order) {
 					case "1":
 						//需添加检测必要信息是否齐全的判断函数
+						//加Hypotese
 						controleurEquipier.ajouterBenevole(mapScanner());
 						System.out.println("Successfully added!");
-						break;
+						break OUT;
 					case "2":
 						System.out.println("Veuillez entrer le code d'identification " +
 								"de benevole que vous souhaitez modifier." +
@@ -545,7 +557,7 @@ public class Menu implements Serializable{
 		}
 	}
 
-	public void printMapMenu(){
+	private void printMapMenu(){
 		System.out.println("Sélectionnez une entrée que vous décidez de faire：\n" +
 				"1. Prénom\n" +
 				"2. Nom\n" +
@@ -576,6 +588,9 @@ public class Menu implements Serializable{
 				"0. Finish and exit");
 	}
 
+	/**
+	 * @return Renvoie un formulaire avec des informations (pour faciliter l'ajout, la modification, etc.)
+	 */
 	public HashMap<String,String> mapScanner(){
 
 		//需添加检测必要信息是否齐全的判断函数
@@ -655,7 +670,7 @@ public class Menu implements Serializable{
 		return hash;
 	}
 
-	public String choix2Type(String choix){
+	private String choix2Type(String choix){
 		String type = null;
 		switch (choix){
 			case "1": type = "nom"; break;
@@ -683,6 +698,11 @@ public class Menu implements Serializable{
 		return type;
 	}
 
+	/**
+	 * @param key datatype
+	 * @param value enter
+	 * @return Verifier si l'entrer is valide
+	 */
 	public boolean enterVerify(String key, String value){
 		return Controller.isValid(choix2Type(key),value);
 	}
