@@ -16,6 +16,14 @@ public class ControlleurCompte extends Controller implements Serializable{
 	private Formulaire formulairePreremplie;
 
 	/**
+	 * Constructor : initialisation des attibuts
+	 */
+	public ControlleurCompte(){
+		this.compteAModifier = new Compte();
+		this.formulairePreremplie = new Formulaire();
+	 	this.repertoire = new RepertoireCompte();
+	}
+	/**
 	 * Generate a account number and creat a account to
 	 * add in repository.
 	 * @param infos informations entered by user.
@@ -23,17 +31,42 @@ public class ControlleurCompte extends Controller implements Serializable{
 	 * (without repetition with those already exist).
 	 */
 	public String creerCompte(HashMap<String,String> infos) {
+		// two task :
+		// 1, create a compte
+		// 2, remplir la première fois profil de vaccination.
+		//task1
 		Compte compte = new Compte();
+		//task2
+		ProfilVaccination profil = new ProfilVaccination();
+		//generate a compte number
 		String num = this.repertoire.generateNumCompte();
 		compte.setNumeroDeCompte(num);
+		//transferer entree
 		boolean tf = info2Compte(infos, compte);
 		info2Formulaire(infos,formulairePreremplie);
 		if (tf == false){
 			System.out.println("pattern not matched in creer Compte");
 		}
+		// 2, remplir la première fois profil de vaccination.
+		
 		repertoire.ajouterCompte(compte);
+		System.out.println(CourrielCreationCompte());
+		
 		return num;
 
+	}
+	
+	public String CourrielCreationCompte(){
+		String result =  
+		"ENVOIE 0%.........\n";
+		result += "ENVOIE 23.333333%.........\n";
+		result += "ENVOIE 64%.........\n";
+		result += "ENVOIE 89%.........\n";
+		result += "ENVOIE 100%.........!\n";
+		result += "ENVOIE LE NUMERO DE COMPTE A " 
+		+ compteAModifier.getAdresseCourriel()
+		+" AVEC SUCCES! AU REVOIR! \n";
+		return result;
 	}
 
 	/**
@@ -208,14 +241,10 @@ public class ControlleurCompte extends Controller implements Serializable{
 		this.compteAModifier = compte;
 		return true;
 	}
-
 	/**
-	 * 
-	 * @param infos
+	 * preremplir le formulaire 
 	 */
-	public Boolean modifierProfil(String[] infos) {
-		throw new UnsupportedOperationException();
-	}
+	public void preremplirFormulaire(){}
 
 /**
    Change attributes of a Compte type object by analysing entry
