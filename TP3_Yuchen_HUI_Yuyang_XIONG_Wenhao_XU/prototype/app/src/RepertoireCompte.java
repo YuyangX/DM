@@ -40,11 +40,11 @@ public class RepertoireCompte implements Serializable{
 	 */
 	private String generate12String (){
 		Random rand = new Random();
-        String Numero ="";
+        String numero ="";
         for(int a = 0;a < 12; a++){
-        Numero += rand.nextInt(10);
+        numero += rand.nextInt(10);
         }
-       return Numero;
+       return numero;
 	}
 
 	/**
