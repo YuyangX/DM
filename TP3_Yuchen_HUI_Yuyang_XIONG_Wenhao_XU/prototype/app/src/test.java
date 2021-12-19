@@ -7,12 +7,28 @@ import java.util.regex.Pattern;
 public class test {
     public static void main(String[] args){
 
-        String str = "2021-12-31";
-//
-        if (test1(str)){
-            System.out.println("success");
-        }else {
-            System.out.println("E");
+        String str = "21211";
+        System.out.println(isNum(str));
+        System.out.println(verifierChiffre(5,str));
+
+    }
+
+    public static boolean verifierChiffre(int numChiffre,String entry){
+        if (!isNum(entry)){
+            return false;
+        }
+        if (entry.length()!=numChiffre){
+            return false;
+        }
+        return true;
+    }
+
+    public static boolean isNum(String str){
+        try {
+            Integer.parseInt(str);
+            return true;
+        }catch (NumberFormatException e){
+            return false;
         }
     }
 
