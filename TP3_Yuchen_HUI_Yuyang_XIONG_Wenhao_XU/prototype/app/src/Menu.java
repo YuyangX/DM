@@ -49,10 +49,8 @@ public class Menu implements Serializable{
 						"  -- (y compris formulaire et preuve)\n" +
 						"3. Gestion des RDVs:\n" +
 						"4. Envoyer des rappels\n" +
-						"5. Remplir et imprimer formulaire\n"+
-						"6. Envoyer preuve de vaccination\n" +
-						"7. Confirm rdv\n"+
-						"8. Confirm walkin\n"+
+						"5. Confirm rdv\n"+
+						"6. Confirm walkin\n"+
 						"0. EXIT\n"+
 						"Veuillez saisir le numéro du service que vous voulez faire:");
 	}
@@ -177,7 +175,7 @@ public class Menu implements Serializable{
 						confirmerRDV();
 						printEmployeMenu();
 						break;
-					case "8":
+					case "6":
 						confirmerWalkin();
 						printEmployeMenu();
 						break;
@@ -1032,8 +1030,6 @@ public class Menu implements Serializable{
 		
 	}
 	public void rappel() {
-		// TODO - implement Menu.rappel
-		throw new UnsupportedOperationException();
 		Scanner myReader = new Scanner(System.in);
 		while (myReader.hasNextLine()) {
 			String order = myReader.nextLine();

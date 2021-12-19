@@ -216,4 +216,20 @@ public class RepertoireVisiteur {
 			}
 		return horairesDuJour;
 	}
+
+	public ArrayList<RDV> getListeRDV() {
+		return listeRDV;
+	}
+
+	public ArrayList<Walkin> getListeWalkin() {
+		return listeWalkin;
+	}
+
+	public ArrayList<String> getTousLesNumReservation() {
+		return tousLesNumReservation;
+	}
+
+	public int getIndexRDV() {
+		return indexRDV;
+	}
 }
