@@ -52,11 +52,12 @@ public class Menu implements Serializable{
 				"************ Menu Employé ************\n"+
 						"1. Gestion Bénévole:\n" +
 						"2. Gestion des comptes:\n" +
+						"  -- (y compris formulaire et preuve)\n" +
 						"3. Gestion des RDVs:\n" +
 						"4. Envoyer des notifications\n" +
-						"5. Remplir et imprimer formulaire\n"+
-						"6. Envoyer preuve de vaccination\n" +
-						"7. Confirm visiteur\n"+
+						// "5. Remplir et imprimer formulaire\n"+
+						// "6. Envoyer preuve de vaccination\n" +
+						"5. Confirm visiteur\n"+
 						"0. EXIT\n"+
 						"Veuillez saisir le numéro du service que vous voulez faire:");
 	}
@@ -166,15 +167,15 @@ public class Menu implements Serializable{
 						rappel();
 						printEmployeMenu();
 						break;
+					// case "5":
+					// 	formulaire();
+					// 	printEmployeMenu();
+					// 	break;
+					// case "6":
+					// 	preuve();
+					// 	printEmployeMenu();
+					// 	break;
 					case "5":
-						formulaire();
-						printEmployeMenu();
-						break;
-					case "6":
-						preuve();
-						printEmployeMenu();
-						break;
-					case "7":
 						confirmerRDV();
 						printEmployeMenu();
 						break;
@@ -188,6 +189,9 @@ public class Menu implements Serializable{
 				}
 			}
 		}
+	}
+
+	private void formulaire() {
 	}
 
 	public void creerRDV() {
@@ -397,7 +401,7 @@ public class Menu implements Serializable{
 		switch (choix){
 			case 1:
 				System.out.println(
-						"Gestion Bénévole:\n" +
+						"**********  Gestion Bénévole ***********\n" +
 								"1. Créer un bénévole\n" +
 								"2. Modifier un bénévole\n" +
 								"3. Supprimer un bénévole\n"+
@@ -407,9 +411,10 @@ public class Menu implements Serializable{
 				break;
 			case 2:
 				System.out.println(
-						"Gestion des comptes:\n" +
-								"1. Créer un compte\n" +
+						"************ Gestion des comptes *************8\n" +
+								"1. Créer un compte (ensuite remplir et imprimer formulaire) \n" +
 								"2. Modifier un compte\n" +
+								"  -- ( y compris completer profil et remplir formulaire)\n" +
 								"3. Supprimer un compte\n"+
 								"0. EXIT\n"+
 								"Veuillez saisir le numéro du service que vous voulez faire:"
@@ -417,7 +422,7 @@ public class Menu implements Serializable{
 				break;
 			case 3:
 				System.out.println(
-						"Gestion des RDVs:\n" +
+						"******** Gestion des RDVs **********:\n" +
 								"1. Créer un RDV\n" +
 								"2. Supprimer un RDV\n"+
 								"0. EXIT\n"+
@@ -562,7 +567,7 @@ public class Menu implements Serializable{
 				"9. Numéro de réservation(6 chiffres)\n" +
 				"10. Date de la visite(yyyy-MM-dd)\n" +
 				"11. Heure de la visite(HH:mm)\n" +
-				"12. Type de dose(reponse accepte: 1,2)\n" +
+				"12. Type de dose(reponse accepte: un,deux)\n" +
 				"——————————————————————————————————\n" +
 				"Formulaire:\n" +
 				"13. Numéro carte assurance maladie(sans espace)\n" +
@@ -688,26 +693,191 @@ public class Menu implements Serializable{
 
 	public void gererComte() {
 		printGestionMenu(2);
+
+		String id = null;
+		Scanner myReader = new Scanner(System.in);
+		OUT:
+		while (myReader.hasNextLine()) {
+			String order = myReader.nextLine();
+			if (!order.isEmpty()) {
+				switch (order) {
+					case "1":
+					    String numDeCompte ;
+						numDeCompte = controleurCompte.creerCompte(mapScanner());
+						System.out.println("Successfully added! Compte number is : "
+											+ numDeCompte 
+											+ "\n"
+											+ "Press any key + enter to continue to fill in a formular");
+					    myReader.nextLine();
+						String result = "-------------------------------------------------\n";
+						result  +=      "--             Remplir le formulaire           --\n";
+						result  +=      "-------------------------------------------------\n";
+						System.out.println(result);
+						controleurCompte.chercherCompte(numDeCompte);
+						controleurCompte.remplirFormulaire(mapScanner());
+						System.out.println("Press any key + enter to continue");
+						myReader.nextLine();
+						break OUT;
+					case "2":
+						System.out.println("Veuillez entrer le numero de compte " +
+								"du compte que vous souhaitez modifier.\n" +
+								"Entrez 0 pour revenir au niveau précédent du menu.\n"+
+								"Entrez 1 pour retrouver le compte par email et date de naissance\n"
+								);
+						Scanner codeReader1 = new Scanner(System.in);
+						while (codeReader1.hasNextLine()) {
+							String code = codeReader1.nextLine();
+							if (!code.isEmpty()) {
+								if (code.equals("0")){
+									printGestionMenu(2);
+									break OUT;
+								}
+
+								if (code.equals("1")){
+									System.out.println("veuillez enter le courriel");
+									String mail = codeReader1.nextLine();
+									System.out.println("veuillez entrer la date de naissance (YYYY-mm-dd)");
+									String ne = codeReader1.nextLine();
+									code = controleurCompte.retrouverCompte(mail, ne);
+									if (code.equals("nullllll")){
+										System.out.println("je trouve pas le compte...");
+										break OUT;
+									}
+									System.out.println("Le compte est trouve, avec le numero de : "
+														+ code);
+								}
+								if (controleurCompte.chercherCompte(code)){
+									id = code;
+									break;
+								}else{
+									System.out.println("Compte not found. Please re-enter." +
+											"Pressez 0 pour revenir au niveau précédent du menu.");
+								}
+							}
+						}
+						System.out.println("Prenom: "+controleurCompte.getCompteAModifier().getPrenom());
+						System.out.println("Nom: "+controleurCompte.getCompteAModifier().getNom());
+						System.out.println("Date de naissance: "+
+								controleurCompte.getCompteAModifier().getDateDeNaissance());
+						System.out.println("Confirm? 1-Confirm, 0-Exit.");
+						Scanner confirmReader1 = new Scanner(System.in);
+						while (confirmReader1.hasNextLine()) {
+							String confirm = confirmReader1.nextLine();
+							if (!confirm.isEmpty()) {
+								switch (confirm){
+									case "1" :
+										gererModifieCompteSousMenu();
+										break OUT;
+									case "0" :
+										break OUT;
+									default:
+										System.out.println("Sorry, enter invalide :( Please re-enter");
+										break;
+								}
+							}
+						}
+						break;
+					case "3":
+						System.out.println("Veuillez entrer le numero de compte " +
+								"du compte que vous souhaitez modifier.\n" +
+								"Entrez 0 pour revenir au niveau précédent du menu.\n");
+						Scanner codeReader2 = new Scanner(System.in);
+						while (codeReader2.hasNextLine()) {
+							String code = codeReader2.nextLine();
+							if (!code.isEmpty()) {
+								if (code.equals("0")){
+									printGestionMenu(2);
+									break OUT;
+								}
+								if (controleurCompte.chercherCompte(code)){
+									id = code;
+								}else{
+									System.out.println("Compte not found. Please re-enter." +
+											"Entrez 0 pour revenir au niveau précédent du menu.");
+								}
+							}
+						}
+						System.out.println("Prenom: "+controleurCompte.getCompteAModifier().getPrenom());
+						System.out.println("Nom: "+controleurCompte.getCompteAModifier().getNom());
+						System.out.println("Date de naissance: "+
+								controleurCompte.getCompteAModifier().getDateDeNaissance());
+						System.out.println("Confirm? 1-Confirm, 0-Exit.");
+						Scanner confirmReader2 = new Scanner(System.in);
+						while (confirmReader2.hasNextLine()) {
+							String confirm = confirmReader2.nextLine();
+							if (!confirm.isEmpty()) {
+								switch (confirm){
+									case "1" :
+										controleurCompte.supprimerCompte(id);
+										System.out.println("Supprime avec success.");
+										break OUT;
+									case "0" :
+										break OUT;
+									default:
+										System.out.println("Sorry, enter invalide :( Please re-enter");
+										break;
+								}
+							}
+						}
+//						break;
+					case "0":
+						System.out.println("Exiting system...Exited!");
+						System.exit(0);
+						break;
+					default:
+						System.out.println("Sorry, enter invalide :( Please re-enter");
+						break;
+				}
+			}
+		}
 	}
 
 	public void gererRDV() {
 		printGestionMenu(3);
 	}
 
+	private void gererModifieCompteSousMenu(){
+		System.out.println(printModifieCompteSousMenu());
+		Scanner choixReader2 = new Scanner(System.in);
+		while (choixReader2.hasNextLine()) {
+			String confirm = choixReader2.nextLine();
+			if (!confirm.isEmpty()) {
+				switch (confirm){
+					case "1" :
+					controleurCompte.preremplirFormulaire();
+					controleurCompte.remplirFormulaire(mapScanner()); break;
+					case "2" :
+					controleurCompte.completerProfile(mapScanner()); break;
+				    case "3" :
+					controleurCompte.modifierCompte(mapScanner()); break;
+					case "0" :
+						break ;
+					default:
+						System.out.println("Sorry, enter invalide :( Please re-enter");
+						
+				}
+				break;
+			}
+		}
+
+	}
+	private String printModifieCompteSousMenu(){
+		String result = "**********Modifier Compte submenu*********\n";
+		result = "OK! Vous avez des choix ci-dessous en termes de modification\n";
+		result = "Entrez 0 pour exit()\n";
+		result += "1. Remplir le formulaire \n";
+		result += "2. completer le profil \n";
+		result += "3. modifier des entrees normales (nom, prenom .. autre que formualaire)\n";
+		result += "0. exit()\nVeuillez saisir le numéro du service que vous voulez faire : \n";
+		return result;
+		
+		
+	}
 	public void rappel() {
 		// TODO - implement Menu.rappel
 		throw new UnsupportedOperationException();
 	}
 
-	public void formulaire() {
-		// TODO - implement Menu.formulaire
-		throw new UnsupportedOperationException();
-	}
-
-	public void preuve() {
-		// TODO - implement Menu.preuve
-		throw new UnsupportedOperationException();
-	}
 
 	/**
 	 * 

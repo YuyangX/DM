@@ -1,5 +1,6 @@
 import java.io.Serializable;
 
+import javax.lang.model.util.ElementScanner6;
 import javax.naming.spi.DirStateFactory.Result;
 
 public class Formulaire implements Serializable{
@@ -198,8 +199,10 @@ public class Formulaire implements Serializable{
 	private String bool2String(boolean origin){
 		if (origin == true)
 			return "Oui";
-		else
+		else if(origin == false)
 			return "Non";
+		else
+			return null;
 	}
 	/**
 	 * 
@@ -215,17 +218,24 @@ public class Formulaire implements Serializable{
 		result  +=      "-------------------------------------------------\n";
 		result  +=      "--                Questionnaire                --\n";
 		result  +=      "-------------------------------------------------\n";
-		result  +=      "INFORMATIONS REMPLIES PAR L'EMPLOYÉ\n";
+		result  +=      "INFORMATIONS REMPLIES PAR L'EMPLOYÉ\n ";
 		result += "Numero de compte : " + this.numeroDeCompte + "\n ";
 		result += "Nom : " + this.nom+ "\n ";
 		result += "Prenom : " + this.prenom+ "\n ";
 		result += "Date de naissance : " + this.dateDeNaissance + "\n ";
+		result += "Date de visite : " + this.dateDeVisite + "\n ";
 		result += "Numero de carte assuranceMaladie : " 
 		+ this.numeroDeCarteAssuranceMaladie + "\n ";
-		result += "Avez-vous recu la premiere dose ? :  : " 
+		result += "Quel type de vaccin voulez-vous etre recu ? : " 
+		+ this.vaccinVoulu + "\n ";
+		result += "Avez-vous des allergies ? :   " 
+		+bool2String(this.allergie) + "\n ";
+		result += "Avez-vous des symptomes de COVID-19 ? :   " 
+		+bool2String(this.symptome) + "\n ";
+		result += "Avez-vous recu la premiere dose ? :   " 
 		+bool2String(this.premiemeDoseRecu) + "\n ";
 		result += "Avez-vous contracte le Covid ? : " + 
-		this.bool2String(contracterCOVID) + "\n ";
+		this.bool2String(contracterCOVID) + "\n";
 		result += "         ..........\n";
 		result += "         ..........\n";
 		result += "         ..........\n";
@@ -234,9 +244,9 @@ public class Formulaire implements Serializable{
 		result += "         ..........\n";
 		result += "         ..........\n";
         result += "\n\njuste une simulation donc je n'ai pas mis le tout\n\n";
-		result += "INFORMATIONS REMPLIES PAR LE PROFESSIONNEL DE LA SANTÉ\n";
+		result += "INFORMATIONS REMPLIES PAR LE PROFESSIONNEL DE LA \n SANTÉ\n";
 		result += "Avez-vous procédé à la vaccination : " + 
-		this.bool2String(procedeALaVaccination) + "\n ";
+		this.bool2String(procedeALaVaccination) + "\n";
 		result += "Nom du vaccin procédé : ______________________" + "\n"; 
 		result += "Code du vaccin procédé : ______________________" + "\n"; 
 		result += "Lot du vaccin procédé : ______________________" + "\n"; 

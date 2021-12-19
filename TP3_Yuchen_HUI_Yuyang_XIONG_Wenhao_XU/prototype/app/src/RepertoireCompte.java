@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.Random;
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * @author Yuchen Hui
@@ -136,20 +135,5 @@ public class RepertoireCompte implements Serializable{
 		
 	}
 
-	public ArrayList<Compte> CompteAujourDhui(){
-		Date date = new Date(); // java.util.Date
-		String[] dateArray = date.toString().split(" ");
-		ArrayList<Compte> listcompteToday = new ArrayList<>();
-		for (Compte compte : comptes) {
-			if(compte.getProfilNewest().getDateDeVaccination().getAnnee().equals(dateArray[5])
-			&&compte.getProfilNewest().getDateDeVaccination().getMois().equals(dateArray[1])
-			&&compte.getProfilNewest().getDateDeVaccination().getJour().equals(dateArray[2])){
-				listcompteToday.add(compte);
-			}
-			
-		}
-
-		return listcompteToday;
-	}
 
 }
