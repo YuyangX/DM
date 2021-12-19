@@ -71,7 +71,8 @@ public class RepertoireVisiteur {
 	public Walkin getWalkin(String nom, String tel) {
 		// TODO - implement RepertoireVisiteur.getWalkin
 		for (Walkin walkin : listeWalkin) {
-			if (walkin.getNom().equals(nom) && walkin.getTel().equals(tel)) { // bien trouvé un visiteur avec le même nom et numéro de téléphone
+			// bien trouvé un visiteur avec le même nom et numéro de téléphone
+			if (walkin.getNom().equals(nom) && walkin.getTel().equals(tel)) {
 				return walkin;
 			}
 		}
@@ -149,7 +150,7 @@ public class RepertoireVisiteur {
 
 	/**
 	 * generate a random string presents a account of "6 chiffres"
-	 * @return
+	 * @return reservation number
 	 */
 	private String generate6String (){
 		Random rand = new Random();

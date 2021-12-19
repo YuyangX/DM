@@ -13,35 +13,22 @@ public class Date implements Serializable{
 	 * by the method "isvalide()" in menu or controller. 
 	 * @param date "YYYY-DD-MM"
 	 */
-	
 	public Date(String date){
 		//presume date has form of "YYYY-DD-MM"
 		String[] dateString = date.split("-");
-
 		this.annee = dateString[0];
 		this.mois = dateString[1];
 		this.jour = dateString[2];
 	}
+
 	public String getAnnee() {
 		return this.annee;
-	}
-
-	/**
-	 * setter
-	 * 	 * @param Annee
-	 */
-	public void setAnnee(String Annee) {
-		this.annee = Annee;
 	}
 
 	public String getMois() {
 		return this.mois;
 	}
 
-	/**
-	 * setter
-	 * @param Mois
-	 */
 	public void setMois(String Mois) {
 		this.mois = Mois;
 	}
@@ -49,11 +36,7 @@ public class Date implements Serializable{
 	public String getJour() {
 		return this.jour;
 	}
-    
-	/**
-	 * setter
-	 * @param Jour
-	 */
+
 	public void setJour(String Jour) {
 		this.jour = Jour;
 	}
@@ -65,6 +48,7 @@ public class Date implements Serializable{
 		this.mois.equals(date.mois)
 		&&this.jour.equals(date.jour)));
 	}
+
 	@Override
 	public String toString() {
 	    String result = this.annee + "-" + this.mois + "-" + this.jour;
