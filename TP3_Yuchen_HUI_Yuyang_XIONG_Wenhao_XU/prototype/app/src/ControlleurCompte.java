@@ -25,19 +25,21 @@ public class ControlleurCompte extends Controller implements Serializable{
 	}
 	/**
 	 * Generate a account number and creat a account to
-	 * add in repository.
+	 * add in repository. Also fill in a part of profile de 
+	 * vaccination and send a mail to communicate the account number.
 	 * @param infos informations entered by user.
 	 * @return account number generated automatically 
 	 * (without repetition with those already exist).
 	 */
 	public String creerCompte(HashMap<String,String> infos) {
-		// two task :
+		// 3 tasks :
 		// 1, create a compte
 		// 2, remplir la première fois profil de vaccination.
+		// 3, mail
 		//task1
 		Compte compte = new Compte();
 		//task2
-		ProfilVaccination profil = new ProfilVaccination();
+		ProfilVaccination newProfil = new ProfilVaccination();
 		//generate a compte number
 		String num = this.repertoire.generateNumCompte();
 		compte.setNumeroDeCompte(num);
@@ -47,9 +49,15 @@ public class ControlleurCompte extends Controller implements Serializable{
 		if (tf == false){
 			System.out.println("pattern not matched in creer Compte");
 		}
+
 		// 2, remplir la première fois profil de vaccination.
-		
+		info2Profile(infos, newProfil);
+		remplirPremiereFoisProfil(newProfil); 
+
+		//ajouter dans le repository
 		repertoire.ajouterCompte(compte);
+
+		// 3,courriel
 		System.out.println(CourrielCreationCompte());
 		
 		return num;
@@ -171,21 +179,30 @@ public class ControlleurCompte extends Controller implements Serializable{
 		ProfilVaccination newProfile = new ProfilVaccination();
 	    info2Formulaire(infos, formulairePreremplie);
 		info2Profile(infos, newProfile);
-		ProfilVaccination[] list = this.compteAModifier.getProfil();
-
-		// which profil?
-		if (list[0] == null){
-			list[0] = newProfile;
-		}else if (list[1] == null){
-			list[1] = newProfile;
-		}else{
-			System.out.println("you can only be vaccinated two times");
-		}
-		this.compteAModifier.setProfil(list);
+		remplirPremiereFoisProfil(newProfile);
 		this.repertoire.modifierCompte(compteAModifier);
 		// imprimer le formulaire
 		imprimerFormulaire(formulairePreremplie);
 
+
+	}
+	/**
+	 * execute the task of : put the profil in to the compte
+	 * during the first time of 
+	 * @param p profile de vaccination
+	 */
+	public void remplirPremiereFoisProfil(ProfilVaccination p){
+		ProfilVaccination[] list = this.compteAModifier.getProfil();
+
+		// which profil?
+		if (list[0] == null){
+			list[0] = p;
+		}else if (list[1] == null){
+			list[1] = p;
+		}else{
+			System.out.println("you can only be vaccinated two times");
+		}
+		this.compteAModifier.setProfil(list);
 	}
 	/**
 	 * cette fonction sera utilisé à la fin d'une journée, quand l'employé
@@ -242,9 +259,19 @@ public class ControlleurCompte extends Controller implements Serializable{
 		return true;
 	}
 	/**
-	 * preremplir le formulaire 
+	 * preremplir le formulaire en extrayant les champs 
+	 * de l'objet "compteAModifier"(un attribut) et utiliser les setters
+	 * pour configurer les champs correspondants de l'objet
+	 * FormulairePrerempli(un attribut)
 	 */
-	public void preremplirFormulaire(){}
+	public void preremplirFormulaire(){
+		formulairePreremplie.setNom(compteAModifier.getNom());
+		formulairePreremplie.setPrenom(compteAModifier.getPrenom());
+		formulairePreremplie.setNumeroDeCompte(compteAModifier.getNumeroDeCompte());
+		formulairePreremplie.setDateDeNaissance(compteAModifier.getDateDeNaissance().toString());
+		
+
+	}
 
 /**
    Change attributes of a Compte type object by analysing entry
