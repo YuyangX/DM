@@ -150,7 +150,7 @@ public class RepertoireVisiteur {
 
 	/**
 	 * generate a random string presents a account of "6 chiffres"
-	 * @return
+	 * @return reservation number
 	 */
 	private String generate6String (){
 		Random rand = new Random();

@@ -14,14 +14,14 @@ public class PlageHoraire extends Date implements Serializable{
 		return this.heure;
 	}
 
-	/**
-	 * 
-	 * @param Heure
-	 */
 	public void setHeure(String Heure) {
 		this.heure = Heure;
 	}
 
+	/**
+	 * retourne une date ayant la forme YYYY-MM-JJ
+	 * @return date
+	 */
 	public String getDate() {
 		return getAnnee() + "-" + getMois() + "-" + getJour();
 	}

@@ -9,7 +9,6 @@ import java.util.concurrent.ConcurrentSkipListMap;
 
 public class Menu implements Serializable{
 
-
 	public static final long serialVersionUID = 8490729875L;
 	private int loggedUser; // 0 représente bénévole, 1 représente employé
 	private Boolean isEmploye;
@@ -23,11 +22,6 @@ public class Menu implements Serializable{
 		this.controleurEquipier = controleurEquipier;
 		this.controleurCompte = controleurCompte;
 		this.controleurVisiteur = controleurVisiteur;
-	}
-
-	public void processus() {
-		loginMenu();
-
 	}
 
 	public Boolean getEmploye() {
@@ -191,6 +185,11 @@ public class Menu implements Serializable{
 		}
 	}
 
+	/**
+	 * Crée un nouveau rdv.
+	 * @return true représente qu'un nouveau rdv a bien été créé, false représente qu'on a
+	 * interrompu le processus de la création.
+	 */
 	public boolean creerRDV() {
 		HashMap<String, String> infosNouveauRDV = new HashMap<>();
 		imprimerCalendar();
@@ -273,6 +272,9 @@ public class Menu implements Serializable{
 		return true;
 	}
 
+	/**
+	 * Imprime un calendrier, qui montre chaque jour et son nombre de rdvs contenus.
+	 */
 	private void imprimerCalendar() {
 		ConcurrentSkipListMap<Integer, Integer> calendar = controleurVisiteur.getCalendar();
 		int compte = 0;
@@ -288,6 +290,9 @@ public class Menu implements Serializable{
 		System.out.println("\n");
 	}
 
+	/**
+	 * Imprime un horaire d'un certain jour, qui montre chaque heure son nombre de rdvs contenus.
+	 */
 	private void imprimerHoraire(String datePrise) {
 		ConcurrentSkipListMap<Integer, Integer> horaires = controleurVisiteur.getHoraireDatePrise(datePrise);
 		int compte = 0;
@@ -300,6 +305,11 @@ public class Menu implements Serializable{
 		if (compte == 0) System.out.println("(Il n'y a pas encore de rdvs à ce jour.)\n");
 	}
 
+	/**
+	 * Supprime un rdv du système.
+	 * @return true représente qu'un rdv a bien été supprimé, false représente qu'on a
+	 * interrompu le processus d'une suppression.
+	 */
 	public boolean removeRDV() {
 		// TODO - implement Menu.removeRDV
 		Scanner scanner = new Scanner(System.in);
@@ -324,6 +334,9 @@ public class Menu implements Serializable{
 		return true;
 	}
 
+	/**
+	 * Vérifie si un rdv est dans le système.
+	 */
 	public void verifierRDV() {
 		// TODO - implement Menu.verifierRDV
 		Scanner scanner = new Scanner(System.in);
@@ -349,6 +362,9 @@ public class Menu implements Serializable{
 		}
 	}
 
+	/**
+	 * Change l'état d'un rdv dans le système, de "non confirmé" à "confirmé".
+	 */
 	public void confirmerRDV() {
 		// TODO - implement Menu.confirmerRDV
 		Scanner scanner = new Scanner(System.in);
@@ -361,7 +377,7 @@ public class Menu implements Serializable{
 				if (Controller.isValid("nomReserve", numReservation)) {
 					boolean resultat = controleurVisiteur.confirmerRDV(numReservation);
 					if (resultat) {
-						System.out.println("RDV confirmé!");
+						System.out.println("RDV confirmé!\n");
 						break;
 					} else {
 						System.out.println("Ce numéro de réservation n'existe pas! Réessayer SVP.");
@@ -373,7 +389,11 @@ public class Menu implements Serializable{
 		}
 	}
 
-
+	/**
+	 * Crée un nouveau walkin.
+	 * @return true représente qu'un nouveau walkin a bien été créé, false représente qu'on a
+	 * interrompu le processus de la création.
+	 */
 	public boolean creerWalkin() {
 		HashMap<String, String> infosNouveauWalkin = new HashMap<>();
 		Scanner scanner = new Scanner(System.in);
@@ -393,7 +413,7 @@ public class Menu implements Serializable{
 				}
 			}
 		}
-		System.out.println("Veuillez entrer l'heure de vaccination pour le walkin:");
+		System.out.println("\nVeuillez entrer l'heure de vaccination pour le walkin:");
 		System.out.println("(Pressez 0 à retourner au menu)");
 		while (scanner.hasNextLine()) {
 			String heure = scanner.nextLine();
@@ -457,6 +477,9 @@ public class Menu implements Serializable{
 		return true;
 	}
 
+	/**
+	 * Imprime un horaire d'aujourd'hui, qui montre chaque heure son nombre de rdvs contenus.
+	 */
 	private void imprimerHoraireDuJour (String dateDuJour) {
 		ConcurrentSkipListMap<Integer, Integer> horaires = controleurVisiteur.getHoraireDuJour(dateDuJour);
 		int compte = 0;
@@ -469,6 +492,9 @@ public class Menu implements Serializable{
 		if (compte == 0) System.out.println("(Il n'y a pas encore de rdvs aujourd'hui.)\n");
 	}
 
+	/**
+	 * Vérifie si un walkin est dans le système.
+	 */
 	public void confirmerWalkin() {
 		// TODO - implement Menu.confirmerRDV
 		Scanner scanner = new Scanner(System.in);
@@ -506,9 +532,11 @@ public class Menu implements Serializable{
 		} else {
 			System.out.println("Ce walkin n'existe pas.");
 		}
-		return;
 	}
 
+	/**
+	 * Envoie un rappel aux visiteurs qui vont avoir un rdv dans 2 jours.
+	 */
 	public void rappelerRDV() {
 		controleurVisiteur.envoyerRappel();
 	}
@@ -812,6 +840,8 @@ public class Menu implements Serializable{
 						boolean succes1 = creerRDV();
 						System.out.println("\n");
 						if (succes1) System.out.println("*** Réussi d'ajouter un rdv ***\n");
+						if (succes1) System.out.println("\n*** Veuillez noter votre numéro de réservation, " +
+								"il se trouve dans le courriel. ***\n");
 						System.out.println("\n");
 						break;
 					case "2":

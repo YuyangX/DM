@@ -22,7 +22,7 @@ public class ControlleurVisiteur extends Controller {
 	 */
 	private String genererCourriel() {
 		RDV nouveauRDV = repertoire.getNouveauRDV();
-		return "\n--------- Notification envoyée à " + nouveauRDV.getEmail() + "---------\n"
+		return "\n--------- Courriel envoyé à " + nouveauRDV.getEmail() + "---------\n"
 			 + "NUMERO DE RESERVATION: " + nouveauRDV.getNumeroDeReservation() + "\n"
 			 + "PRENOM: " + nouveauRDV.getPrenom() + "\n"
 			 + "NOM: " + nouveauRDV.getNom() + "\n"
@@ -79,7 +79,7 @@ public class ControlleurVisiteur extends Controller {
 	public void addWalkin(HashMap<String, String> infos) {
 		String heureVisite = infos.get("heureVisite");
 		String dateVisite = infos.get("dateVisite");
-		PlageHoraire plageHoraire = new PlageHoraire(heureVisite, dateVisite);
+		PlageHoraire plageHoraire = new PlageHoraire(dateVisite, heureVisite);
 		repertoire.addWalkin(new Walkin(infos.get("nom"), infos.get("prenom"), plageHoraire, infos.get("tel")));
 	}
 
@@ -120,7 +120,7 @@ public class ControlleurVisiteur extends Controller {
 	private String genererRappel(RDV rdvARappeler) {
 		return "--------- Rappel envoyé à " + rdvARappeler.getEmail() + "---------\n"
 			 + "Votre RDV, numéro de réservation: " + rdvARappeler.getNumeroDeReservation() + ", va bientôt se passer.\n"
-			 + "Temps: " + rdvARappeler.getPlageHoraire().getDate() + ", " + rdvARappeler.getPlageHoraire().getHeure();
+			 + "Temps: " + rdvARappeler.getPlageHoraire().getDate() + ", " + rdvARappeler.getPlageHoraire().getHeure() + "\n";
 	}
 
 	/**
