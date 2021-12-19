@@ -1,5 +1,7 @@
 import java.io.Serializable;
 
+import javax.naming.spi.DirStateFactory.Result;
+
 public class Formulaire implements Serializable{
 	
 	
@@ -193,12 +195,32 @@ public class Formulaire implements Serializable{
 		return this.lotDuVaccin;
 	}
 
+	private String 
 	/**
 	 * 
 	 * @param lotDuVaccin
 	 */
 	public void setLotDuVaccin(String lotDuVaccin) {
 		this.lotDuVaccin = lotDuVaccin;
+	}
+
+	@Override
+	public String toString() {
+		String result = "" ;
+		result  +=      "-------------------------------------------------\n";
+		result  +=      "--                Questionnaire                --\n";
+		result  +=      "-------------------------------------------------\n";
+		result += "Numero de compte : " + this.numeroDeCompte + "\n ";
+		result += "Nom : " + this.nom+ "\n ";
+		result += "Prenom : " + this.prenom+ "\n ";
+		result += "Date de naissance : " + this.dateDeNaissance + "\n ";
+		result += "Numero de carte assuranceMaladie : " 
+		+ this.numeroDeCarteAssuranceMaladie + "\n ";
+		result += "Avez-vous recu la premiere dose ? :  : " + this.dateDeNaissance + "\n ";
+
+
+
+		
 	}
 
 }
