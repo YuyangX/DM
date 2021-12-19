@@ -67,22 +67,10 @@ public class Menu implements Serializable{
 	public int loginMenu() {
 		System.out.println("Veuillez entrer votre code d'identification, ou pressez 0 à quitter l'App:");
 		Scanner scan1 = new Scanner(System.in);
-//		Benevole benevoleTrouve = new Benevole();
-//		Employe employeTrouve = new Employe();
 		int loginResult = -1;
 		while (scan1.hasNextLine()) {
 			String codeIdentification = scan1.nextLine();
 			if (!codeIdentification.isEmpty()) {
-//				if (codeIdentification.substring(0,1).equals("b")) {
-//					benevoleTrouve = controleurEquipier.getRepertoire().getBenevole(codeIdentification);
-//					isEmploye = false;
-//					break;
-//				} else if (codeIdentification.substring(0,1).equals("e")) {
-//					employeTrouve = controleurEquipier.getRepertoire().getEmploye(codeIdentification);
-//					isEmploye = true;
-//					break;
-//				} else {
-//					System.out.println("Invalide. Ressayez SVP.");
 				if (codeIdentification.equals("0")) {
 					System.out.println("Exiting system...Exited!");
 					System.exit(0);
@@ -453,8 +441,10 @@ public class Menu implements Serializable{
 			if (!order.isEmpty()) {
 				switch (order) {
 					case "1":
-						//需添加检测必要信息是否齐全的判断函数
-						//加Hypotese
+						//Si les informations sont incomplètes,
+						// le système signalera une erreur lors de l'opération suivante.
+						System.out.println("Le Benevole doit contenir au moins " +
+								"les informations suivantes lors de son ajout : nom, prénom et date de naissance.");
 						controleurEquipier.ajouterBenevole(mapScanner());
 						System.out.println("Successfully added!");
 						break OUT;
@@ -559,31 +549,31 @@ public class Menu implements Serializable{
 
 	private void printMapMenu(){
 		System.out.println("Sélectionnez une entrée que vous décidez de faire：\n" +
-				"1. Prénom\n" +
-				"2. Nom\n" +
-				"3. Date de naissance\n" +
-				"4. Adresse courriel\n" +
-				"5. Numéro de télephone\n" +
+				"1. Prénom(50 caractère max)\n" +
+				"2. Nom(50 caractère max)\n" +
+				"3. Date de naissance(yyyy-MM-dd)\n" +
+				"4. Adresse courriel(xxx@xxx)\n" +
+				"5. Numéro de télephone(10 chiffres)\n" +
 				"6. Adresse(numéro, rue)\n" +
-				"7. Code postal\n" +
-				"8. Ville\n" +
+				"7. Code postal(6 chiffres)\n" +
+				"8. Ville(50 caractère max)\n" +
 				"——————————————————————————————————\n" +
 				"Visite:\n" +
-				"9. Numéro de réservation\n" +
+				"9. Numéro de réservation(6 chiffres)\n" +
 				"10. Date de la visite(yyyy-MM-dd)\n" +
 				"11. Heure de la visite(HH:mm)\n" +
-				"12. Type de dose\n" +
+				"12. Type de dose(reponse accepte: 1,2)\n" +
 				"——————————————————————————————————\n" +
 				"Formulaire:\n" +
-				"13. Numéro carte assurance maladie\n" +
-				"14. Avez-vous déjà reçu une première dose?\n" +
-				"15. Avez-vous déjà contracté la COVID?\n" +
-				"16. Avez-vous des symptômes de la COVID?\n" +
-				"17. Avez-vous des allergies?\n" +
-				"18. Quel vaccin souhaitez-vous recevoir?\n" +
-				"19. Avez-vous procédé à la vaccination?\n" +
-				"20. Nom du vaccin\n" +
-				"21. Code du vaccin\n" +
+				"13. Numéro carte assurance maladie(sans espace)\n" +
+				"14. Avez-vous déjà reçu une première dose?(Oui/Non)\n" +
+				"15. Avez-vous déjà contracté la COVID?(Oui/Non)\n" +
+				"16. Avez-vous des symptômes de la COVID?(Oui/Non)\n" +
+				"17. Avez-vous des allergies?(Oui/Non)\n" +
+				"18. Quel vaccin souhaitez-vous recevoir?(Moderna/Pfizer/AstraZeneca/Janssen)\n" +
+				"19. Avez-vous procédé à la vaccination?(Oui/Non)\n" +
+				"20. Nom du vaccin(Moderna/Pfizer/AstraZeneca/Janssen)\n" +
+				"21. Code du vaccin(24 caractère max)\n" +
 				"——————————————————————————————————\n" +
 				"0. Finish and exit");
 	}
@@ -592,8 +582,6 @@ public class Menu implements Serializable{
 	 * @return Renvoie un formulaire avec des informations (pour faciliter l'ajout, la modification, etc.)
 	 */
 	public HashMap<String,String> mapScanner(){
-
-		//需添加检测必要信息是否齐全的判断函数
 
 		HashMap<String,String> hash = new HashMap<>();
 		printMapMenu();
@@ -604,7 +592,6 @@ public class Menu implements Serializable{
 			if (!order.isEmpty()) {
 				LOOP:
 				switch (order) {
-//					这里没有添加id之类的自动生成的数据，需手动添加方法
 					case "1":
 					case "2":
 					case "3":
@@ -646,14 +633,6 @@ public class Menu implements Serializable{
 										System.out.println("Sorry, enter invalide :( Please re-enter");
 										break;
 								}
-//								if (enterVerify(order,enter)){
-//									hash.put(choix2Type(order),enter);
-//									System.out.println("Success modified: "+enter);
-//									break LOOP;
-//								}else {
-//									System.out.println("Sorry, enter invalide :( Please re-enter");
-//									break;
-//								}
 							}
 						}
 						break;
