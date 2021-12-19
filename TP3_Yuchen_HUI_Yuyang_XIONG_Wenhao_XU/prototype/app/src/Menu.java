@@ -544,11 +544,7 @@ public class Menu implements Serializable{
 		}
 	}
 
-	public HashMap<String,String> mapScanner(){
-
-		//需添加检测必要信息是否齐全的判断函数
-
-		HashMap<String,String> hash = new HashMap<>();
+	public void printMapMenu(){
 		System.out.println("Sélectionnez une entrée que vous décidez de faire：\n" +
 				"1. Prénom\n" +
 				"2. Nom\n" +
@@ -577,12 +573,20 @@ public class Menu implements Serializable{
 				"21. Code du vaccin\n" +
 				"——————————————————————————————————\n" +
 				"0. Finish and exit");
+	}
+
+	public HashMap<String,String> mapScanner(){
+
+		//需添加检测必要信息是否齐全的判断函数
+
+		HashMap<String,String> hash = new HashMap<>();
+		printMapMenu();
 
 		Scanner myReader = new Scanner(System.in);
-		LOOP:
 		while (myReader.hasNextLine()) {
 			String order = myReader.nextLine();
 			if (!order.isEmpty()) {
+				LOOP:
 				switch (order) {
 //					这里没有添加id之类的自动生成的数据，需手动添加方法
 					case "1":
@@ -619,6 +623,8 @@ public class Menu implements Serializable{
 											hash.put(choix2Type(order), enter);
 										}
 										System.out.println("Success enter: "+enter);
+										System.out.println("*************************************************");
+										printMapMenu();
 										break LOOP;
 									case "false":
 										System.out.println("Sorry, enter invalide :( Please re-enter");
