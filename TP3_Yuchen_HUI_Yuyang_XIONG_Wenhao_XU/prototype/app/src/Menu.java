@@ -1,5 +1,8 @@
 import com.sun.net.httpserver.Authenticator;
 
+import java.io.FileOutputStream;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import javax.sound.midi.ControllerEventListener;
 import java.util.HashMap;
@@ -67,6 +70,7 @@ public class Menu implements Serializable{
 			if (!codeIdentification.isEmpty()) {
 				if (codeIdentification.equals("0")) {
 					System.out.println("Exiting system...Exited!");
+					serializaiton();
 					System.exit(0);
 				}
 				int cherResult = controleurEquipier.chercherEquipier(codeIdentification);
@@ -88,6 +92,7 @@ public class Menu implements Serializable{
 			if (!motDePasse.isEmpty()) {
 				if (motDePasse.equals("0")) {
 					System.out.println("Exiting system...Exited!");
+					serializaiton();
 					System.exit(0);
 				}
 				loginResult = controleurEquipier.login(motDePasse,loggedUser);
@@ -128,6 +133,7 @@ public class Menu implements Serializable{
 						break;
 					case "0":
 						System.out.println("Exiting system...Exited!");
+					    serializaiton();
 						System.exit(0);
 						break;
 					default:
@@ -181,6 +187,7 @@ public class Menu implements Serializable{
 						break;
 					case "0":
 						System.out.println("Exiting system...Exited!");
+					    serializaiton();
 						System.exit(0);
 						break;
 					default:
@@ -698,6 +705,7 @@ public class Menu implements Serializable{
 //						break;
 					case "0":
 						System.out.println("Exiting system...Exited!");
+					    serializaiton();
 						System.exit(0);
 						break;
 					default:
@@ -872,11 +880,23 @@ public class Menu implements Serializable{
 						result  +=      "-------------------------------------------------\n";
 						System.out.println(result);
 						controleurCompte.chercherCompte(numDeCompte);
-						controleurCompte.remplirFormulaire(mapScanner());
+						HashMap<String,String> temp = mapScanner();
+						HashMap<String,String> temp1;
+						while (temp.size() < 6){
+							System.out.println("pas assez d'entree !\n" + 
+						"Veuillez saisir plus d'entre pour generer un formulaire");
+                            temp1 = mapScanner(); 
+							for (Map.Entry<String,String> e : temp1.entrySet()) {
+								temp.put(e.getKey(),e.getValue());
+								
+							}
+						}
+						controleurCompte.remplirFormulaire(temp);
 						System.out.println("Press any key + enter to continue");
 						myReader.nextLine();
 						break OUT;
 					case "2":
+					
 						System.out.println("Veuillez entrer le numero de compte " +
 								"du compte que vous souhaitez modifier.\n" +
 								"Entrez 0 pour revenir au niveau précédent du menu.\n"+
@@ -889,9 +909,7 @@ public class Menu implements Serializable{
 								if (code.equals("0")){
 									printGestionMenu(2);
 									break OUT;
-								}
-
-								if (code.equals("1")){
+								}else if (code.equals("1")){
 									System.out.println("veuillez enter le courriel");
 									String mail = codeReader1.nextLine();
 									System.out.println("veuillez entrer la date de naissance (YYYY-mm-dd)");
@@ -900,10 +918,8 @@ public class Menu implements Serializable{
 									if (code.equals("nullllll")){
 										System.out.println("je trouve pas le compte...");
 										break OUT;
-									}
-									System.out.println("Le compte est trouve, avec le numero de : "
-														+ code);
 								}
+								
 								if (controleurCompte.chercherCompte(code)){
 									id = code;
 									break;
@@ -934,7 +950,8 @@ public class Menu implements Serializable{
 								}
 							}
 						}
-						break;
+					
+						break;}
 					case "3":
 						System.out.println("Veuillez entrer le numero de compte " +
 								"du compte que vous souhaitez modifier.\n" +
@@ -979,9 +996,7 @@ public class Menu implements Serializable{
 						}
 //						break;
 					case "0":
-						System.out.println("Exiting system...Exited!");
-						System.exit(0);
-						break;
+						break OUT;
 					default:
 						System.out.println("Sorry, enter invalide :( Please re-enter");
 						break;
@@ -1055,6 +1070,7 @@ public class Menu implements Serializable{
 						break;
 					case "0":
 						System.out.println("Exiting system...Exited!");
+					    serializaiton();
 						System.exit(0);
 						break;
 					default:
@@ -1085,9 +1101,29 @@ public class Menu implements Serializable{
 		throw new UnsupportedOperationException();
 	}
 
-	public void quit() {
-		// TODO - implement Menu.quit
-		System.exit(0);
-	}
 
+	public void serializaiton(){
+		try {
+			
+			ObjectOutputStream oosCompte,oosVisiteur,oosEquipier = null;
+			oosCompte = new ObjectOutputStream(new FileOutputStream("compte.dat"));
+			oosVisiteur = new ObjectOutputStream(new FileOutputStream("visiteur.dat"));
+			oosEquipier = new ObjectOutputStream(new FileOutputStream("equipier.dat"));
+			oosCompte.writeObject(this.controleurCompte);
+			oosCompte.flush();
+			oosCompte.close();
+			oosVisiteur.writeObject(this.controleurVisiteur);
+			oosVisiteur.flush();
+			oosVisiteur.close();
+			oosEquipier.writeObject(this.controleurEquipier);
+			oosEquipier.flush();
+			oosEquipier.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+
+		}
+        
+
+	}
 }

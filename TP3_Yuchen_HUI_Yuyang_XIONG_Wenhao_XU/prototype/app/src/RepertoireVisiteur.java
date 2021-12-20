@@ -1,10 +1,11 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
 import java.util.concurrent.ConcurrentSkipListMap;
 
-public class RepertoireVisiteur {
-
+public class RepertoireVisiteur implements Serializable{
+    public static final long serialVersionUID = 0236520327L;
 	private ArrayList<RDV> listeRDV = new ArrayList<>();
 	private ArrayList<Walkin> listeWalkin = new ArrayList<>(); // contient seulement des walkin du jour
 	private ArrayList<String> tousLesNumReservation = new ArrayList<>();

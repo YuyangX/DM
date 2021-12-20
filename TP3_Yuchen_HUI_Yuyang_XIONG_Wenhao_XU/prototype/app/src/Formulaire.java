@@ -246,7 +246,7 @@ public class Formulaire implements Serializable{
         result += "\n\njuste une simulation donc je n'ai pas mis le tout\n\n";
 		result += "INFORMATIONS REMPLIES PAR LE PROFESSIONNEL DE LA \n SANTÉ\n";
 		result += "Avez-vous procédé à la vaccination : " + 
-		this.bool2String(procedeALaVaccination) + "\n";
+		"______________________" + "\n";
 		result += "Nom du vaccin procédé : ______________________" + "\n"; 
 		result += "Code du vaccin procédé : ______________________" + "\n"; 
 		result += "Lot du vaccin procédé : ______________________" + "\n"; 
