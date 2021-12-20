@@ -27,7 +27,7 @@ public class RepertoireEquipier implements Serializable{
 	}
 	/**
 	 * generate a random string presents a account of "12 chiffres"
-	 * @return
+	 * @return 12 chiffres
 	 */
 	private String generate12String (){
 		Random rand = new Random();
@@ -44,7 +44,7 @@ public class RepertoireEquipier implements Serializable{
 	 */
 	public String generateID(){
 		String nouveau = generate9String();
-		if (tousLesID.indexOf(nouveau) == -1){
+		if (!tousLesID.contains(nouveau)){
 			this.tousLesID.add(nouveau);
 			return nouveau;
 		}else{
@@ -53,7 +53,7 @@ public class RepertoireEquipier implements Serializable{
 	}
 	/**
 	 * generate a random string presents a account of "9 chiffres"
-	 * @return
+	 * @return 9 chiffres
 	 */
 	private String generate9String (){
 		Random rand = new Random();
@@ -68,15 +68,13 @@ public class RepertoireEquipier implements Serializable{
 	 * Supprimer un benevole
 	 * @param code  code identification
 	 */
-	public Boolean supprimerBenevole(String code) {
+	public void supprimerBenevole(String code) {
 		Benevole benevoleTrouve = getBenevole(code);
 		if (benevoleTrouve == null) {
-			return false;
 		} else {
 			tousLesID.remove(code);
 			tousLesNumCompte.remove(benevoleTrouve.getNumeroDeCompte());
 			benevoles.remove(benevoleTrouve);
-			return true;
 		}
 	}
 

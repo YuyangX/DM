@@ -90,7 +90,6 @@ public class ControlleurVisiteur extends Controller {
 	 * "true" représente qu'il a réussi d'enlever un tel rdv.
 	 */
 	public boolean removeRDV(String numeroDeReservation) {
-		// TODO - implement ControlleurVisiteur.removeRDV
 		RDV rdvASupprimer = repertoire.getRDV(numeroDeReservation);
 		if (rdvASupprimer == null) return false;
 		repertoire.removeRDV();
@@ -101,7 +100,6 @@ public class ControlleurVisiteur extends Controller {
 	 * envoyer des rappels
 	 */
 	public void envoyerRappel() {
-		// TODO - implement ControlleurVisiteur.envoyerRappel
 		ArrayList<RDV> rdvsARappeler = repertoire.getRappel();
 		int compteur = 0;
 		System.out.println("\n*** Rappel de rdvs ***\n");
@@ -129,7 +127,6 @@ public class ControlleurVisiteur extends Controller {
 	 * @return nom et numéro de téléphone du visiteur. "non" représente que ce numéro de réservation n'existe pas
 	 */
 	public String verifierRDV(String numeroDeReservation) {
-		// TODO - implement ControlleurVisiteur.verifierRDV
 		RDV rdvAConfirmer = repertoire.getRDV(numeroDeReservation);
 		if (rdvAConfirmer == null) return "non"; // si un tel rdv n'existe pas
 		return rdvAConfirmer.getNom() + " " + rdvAConfirmer.getPlageHoraire().getHeure();
@@ -141,7 +138,6 @@ public class ControlleurVisiteur extends Controller {
 	 * @return "true" si ce rdv a bien été confirmé, "false" si ce numéro de réservation n'existe pas
 	 */
 	public boolean confirmerRDV(String numeroDeReservation) {
-		// TODO - implement ControlleurVisiteur.confirmerRDV
 		RDV rdvAConfirmer = repertoire.getRDV(numeroDeReservation);
 		if (rdvAConfirmer == null) return false; // si un tel rdv n'existe pas
 		rdvAConfirmer.confirmerRDV();
@@ -157,7 +153,6 @@ public class ControlleurVisiteur extends Controller {
      * n'existe pas de tel visiteur
 	 */
 	public boolean confirmerWalkin(String nom, String tel) {
-		// TODO - implement ControlleurVisiteur.confirmerWalkin
 		Walkin walkinTrouve =  repertoire.getWalkin(nom, tel);
 		return walkinTrouve != null;
 	}

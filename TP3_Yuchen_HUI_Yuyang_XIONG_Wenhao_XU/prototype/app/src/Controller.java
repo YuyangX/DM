@@ -138,15 +138,6 @@ public abstract class Controller implements Serializable{
 		}
 	}
 
-	//chiffre
-	public static final String REG_NUMBER = ".*\\d+.*";
-	//majuscule
-	public static final String REG_UPPERCASE = ".*[A-Z]+.*";
-	//minuscule
-	public static final String REG_LOWERCASE = ".*[a-z]+.*";
-	//caractère spécial
-	public static final String REG_SYMBOL = ".*[~!@#$%^&*()_+|<>,.?/:;'\\[\\]{}\"]+.*";
-
 	/**
 	 * Vérifiez que le mot de passe saisi est au bon format.
 	 * @param password password to verify
@@ -156,10 +147,14 @@ public abstract class Controller implements Serializable{
 		//Retournez false si le mot de passe est vide ou s'il comporte moins de 8 chiffres.
 		if (password == null || password.length() <8 ) return false;
 		int i = 0;
-		if (password.matches(REG_NUMBER)) i++;
-		if (password.matches(REG_LOWERCASE))i++;
-		if (password.matches(REG_UPPERCASE)) i++;
-		if (password.matches(REG_SYMBOL)) i++;
+		//chiffre
+		if (password.matches(".*\\d+.*")) i++;
+		//majuscule
+		if (password.matches(".*[A-Z]+.*"))i++;
+		//minuscule
+		if (password.matches(".*[a-z]+.*")) i++;
+		//caractère spécial
+		if (password.matches(".*[~!@#$%^&*()_+|<>,.?/:;'\\[\\]{}\"]+.*")) i++;
 		if (i  < 4 )  return false;
 		return true;
 	}

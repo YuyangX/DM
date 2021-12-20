@@ -4,7 +4,6 @@ import java.io.ObjectInputStream;
 public class VaxTodore {
 
 	public static void main(String[] args) {
-		// TODO - implement VaxTodore.main
 		RepertoireEquipier repertoireEquipier = new RepertoireEquipier();
 		ControlleurEquipier controlleurEquipier = new ControlleurEquipier();
 		ControlleurVisiteur controlleurVisiteur = new ControlleurVisiteur();

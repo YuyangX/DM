@@ -169,14 +169,6 @@ public class Menu implements Serializable{
 						rappelerRDV();
 						printEmployeMenu();
 						break;
-					// case "5":
-					// 	formulaire();
-					// 	printEmployeMenu();
-					// 	break;
-					// case "6":
-					// 	preuve();
-					// 	printEmployeMenu();
-					// 	break;
 					case "5":
 						confirmerRDV();
 						printEmployeMenu();
@@ -219,6 +211,7 @@ public class Menu implements Serializable{
 					break;
 				} else {
 					System.out.println("Format invalide, suivez le format 'YYYY-MM-JJ'. Reessayez SVP.");
+					System.out.println("(Pressez 0 à retourner au menu)");
 				}
 			}
 		}
@@ -233,10 +226,12 @@ public class Menu implements Serializable{
 					break;
 				} else {
 					System.out.println("Format invalide, suivez le format 'HH:mm'. Reessayez SVP.");
+					System.out.println("(Pressez 0 à retourner au menu)");
 				}
 			}
 		}
 		System.out.println("Veuillez entrer votre nom de famille:");
+		System.out.println("(Pressez 0 à retourner au menu)");
 		while (scanner1.hasNextLine()) {
 			String nomFamille = scanner1.nextLine();
 			if (nomFamille.equals("0")) return false;
@@ -246,6 +241,7 @@ public class Menu implements Serializable{
 			}
 		}
 		System.out.println("Veuillez entrer votre prenom:");
+		System.out.println("(Pressez 0 à retourner au menu)");
 		while (scanner1.hasNextLine()) {
 			String prenom = scanner1.nextLine();
 			if (prenom.equals("0")) return false;
@@ -255,6 +251,7 @@ public class Menu implements Serializable{
 			}
 		}
 		System.out.println("Le type de dose que vous voulez prendre, 'un' ou 'deux':");
+		System.out.println("(Pressez 0 à retourner au menu)");
 		while (scanner1.hasNextLine()) {
 			String type = scanner1.nextLine();
 			if (type.equals("0")) return false;
@@ -264,10 +261,12 @@ public class Menu implements Serializable{
 					break;
 				} else {
 					System.out.println("Format invalide, saisissez 'un' ou 'deux'. Reessayez SVP.");
+					System.out.println("(Pressez 0 à retourner au menu)");
 				}
 			}
 		}
 		System.out.println("Veuillez entrer votre email:");
+		System.out.println("(Pressez 0 à retourner au menu)");
 		while (scanner1.hasNextLine()) {
 			String email = scanner1.nextLine();
 			if (email.equals("0")) return false;
@@ -277,6 +276,7 @@ public class Menu implements Serializable{
 					break;
 				} else {
 					System.out.println("Format invalide. Reessayez SVP.");
+					System.out.println("(Pressez 0 à retourner au menu)");
 				}
 			}
 		}
@@ -298,7 +298,7 @@ public class Menu implements Serializable{
 			String dateFormelle = date.substring(0, 4) + "-" + date.substring(4, 6) + "-" + date.substring(6);
 			System.out.println("Date: " + dateFormelle + "  Nombre de personnes: " + day.getValue());
 			compte++;
- 		}
+		}
 		if (compte ==0) System.out.println("(Il n'y a pas encore de rdvs enregistrés dans le système.)\n");
 		System.out.println("\n");
 	}
@@ -337,10 +337,12 @@ public class Menu implements Serializable{
 					if (resultat) {
 						break;
 					} else {
-						System.out.println("Ce numéro de réservation n'existe pas!");
+						System.out.println("Ce numéro de réservation n'existe pas! Réessayez SVP.");
+						System.out.println("(Pressez 0 à retourner au menu)");
 					}
 				} else {
 					System.out.println("Format invalide. Reessayez SVP.");
+					System.out.println("(Pressez 0 à retourner au menu)");
 				}
 			}
 		}
@@ -394,9 +396,11 @@ public class Menu implements Serializable{
 						break;
 					} else {
 						System.out.println("Ce numéro de réservation n'existe pas! Réessayer SVP.");
+						System.out.println("(Pressez 0 à retourner au menu)");
 					}
 				} else {
 					System.out.println("Format invalide. Réessayez SVP.");
+					System.out.println("(Pressez 0 à retourner au menu)");
 				}
 			}
 		}
@@ -509,7 +513,6 @@ public class Menu implements Serializable{
 	 * Vérifie si un walkin est dans le système.
 	 */
 	public void confirmerWalkin() {
-		// TODO - implement Menu.confirmerRDV
 		Scanner scanner = new Scanner(System.in);
 		String nomAValider = null;
 		String telAValider = null;
@@ -521,8 +524,10 @@ public class Menu implements Serializable{
 			if (!nom.isEmpty()) {
 				if (Controller.isValid("nom", nom)) {
 					nomAValider = nom;
+					break;
 				} else {
 					System.out.println("Format invalide. Réessayez SVP.");
+					System.out.println("(Pressez 0 à retourner au menu)");
 				}
 			}
 		}
@@ -534,8 +539,10 @@ public class Menu implements Serializable{
 			if (!tel.isEmpty()) {
 				if (Controller.isValid("numTele", tel)) {
 					telAValider = tel;
+					break;
 				} else {
 					System.out.println("Format invalide. Réessayez SVP.");
+					System.out.println("(Pressez 0 à retourner au menu)");
 				}
 			}
 		}
@@ -543,7 +550,7 @@ public class Menu implements Serializable{
 		if (resultat) {
 			System.out.println("Walkin confirmé!");
 		} else {
-			System.out.println("Ce walkin n'existe pas.");
+			System.out.println("\n*** Ce walkin n'existe pas. ***\n");
 		}
 	}
 
@@ -554,10 +561,6 @@ public class Menu implements Serializable{
 		controleurVisiteur.envoyerRappel();
 	}
 
-	public void sponCal() {
-		// TODO - implement Menu.sponCal
-		throw new UnsupportedOperationException();
-	}
 
 	private void printGestionMenu(int choix){
 		switch (choix){
@@ -994,7 +997,6 @@ public class Menu implements Serializable{
 								}
 							}
 						}
-//						break;
 					case "0":
 						break OUT;
 					default:
@@ -1007,46 +1009,6 @@ public class Menu implements Serializable{
 
 	public void gererRDV() {
 		printGestionMenu(3);
-	}
-
-	private void gererModifieCompteSousMenu(){
-		System.out.println(printModifieCompteSousMenu());
-		Scanner choixReader2 = new Scanner(System.in);
-		while (choixReader2.hasNextLine()) {
-			String confirm = choixReader2.nextLine();
-			if (!confirm.isEmpty()) {
-				switch (confirm){
-					case "1" :
-					controleurCompte.preremplirFormulaire();
-					controleurCompte.remplirFormulaire(mapScanner()); break;
-					case "2" :
-					controleurCompte.completerProfile(mapScanner()); break;
-				    case "3" :
-					controleurCompte.modifierCompte(mapScanner()); break;
-					case "0" :
-						break ;
-					default:
-						System.out.println("Sorry, enter invalide :( Please re-enter");
-						
-				}
-				break;
-			}
-		}
-
-	}
-	private String printModifieCompteSousMenu(){
-		String result = "**********Modifier Compte submenu*********\n";
-		result = "OK! Vous avez des choix ci-dessous en termes de modification\n";
-		result = "Entrez 0 pour exit()\n";
-		result += "1. Remplir le formulaire \n";
-		result += "2. completer le profil \n";
-		result += "3. modifier des entrees normales (nom, prenom .. autre que formualaire)\n";
-		result += "0. exit()\nVeuillez saisir le numéro du service que vous voulez faire : \n";
-		return result;
-		
-		
-	}
-	public void rappel() {
 		Scanner myReader = new Scanner(System.in);
 		while (myReader.hasNextLine()) {
 			String order = myReader.nextLine();
@@ -1082,25 +1044,43 @@ public class Menu implements Serializable{
 		}
 	}
 
+	private void gererModifieCompteSousMenu(){
+		System.out.println(printModifieCompteSousMenu());
+		Scanner choixReader2 = new Scanner(System.in);
+		while (choixReader2.hasNextLine()) {
+			String confirm = choixReader2.nextLine();
+			if (!confirm.isEmpty()) {
+				switch (confirm){
+					case "1" :
+					controleurCompte.preremplirFormulaire();
+					controleurCompte.remplirFormulaire(mapScanner()); break;
+					case "2" :
+					controleurCompte.completerProfile(mapScanner()); break;
+				    case "3" :
+					controleurCompte.modifierCompte(mapScanner()); break;
+					case "0" :
+						break ;
+					default:
+						System.out.println("Sorry, enter invalide :( Please re-enter");
+						
+				}
+				break;
+			}
+		}
 
-	/**
-	 * 
-	 * @param choix
-	 */
-	public void jugeBene(int choix) {
-		// TODO - implement Menu.jugeBene
-		throw new UnsupportedOperationException();
 	}
 
-	/**
-	 * 
-	 * @param choix
-	 */
-	public void jugeVisi(int choix) {
-		// TODO - implement Menu.jugeVisi
-		throw new UnsupportedOperationException();
-	}
+	private String printModifieCompteSousMenu(){
+		String result = "**********Modifier Compte submenu*********\n";
+		result = "OK! Vous avez des choix ci-dessous en termes de modification\n";
+		result = "Entrez 0 pour exit()\n";
+		result += "1. Remplir le formulaire \n";
+		result += "2. completer le profil \n";
+		result += "3. modifier des entrees normales (nom, prenom .. autre que formualaire)\n";
+		result += "0. exit()\nVeuillez saisir le numéro du service que vous voulez faire : \n";
+		return result;
 
+	}
 
 	public void serializaiton(){
 		try {
