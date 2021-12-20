@@ -162,7 +162,7 @@ public class Formulaire implements Serializable{
 
 	/**
 	 * 
-	 * @param procedeALaVaccination
+	 * @param yOrN
 	 */
 	public void setProcedeALaVaccination(String yOrN) {
 		this.procedeALaVaccination = (yOrN.equals("Oui")? true : false);
