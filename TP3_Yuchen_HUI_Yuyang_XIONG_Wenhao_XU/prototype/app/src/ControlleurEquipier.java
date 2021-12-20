@@ -43,7 +43,7 @@ public class ControlleurEquipier extends Controller implements Serializable{
 	 * Ajouter un benevole
 	 * @param infos information d'un benevole
 	 */
-	public Boolean ajouterBenevole(HashMap<String,String> infos) {
+	public void ajouterBenevole(HashMap<String,String> infos) {
 		Benevole benevoleAdd = new Benevole();
 		String num = repertoire.generateNumCompte();
 		String id = repertoire.generateID();
@@ -53,15 +53,14 @@ public class ControlleurEquipier extends Controller implements Serializable{
 		repertoire.ajouterBenevole(benevoleAdd);
 		System.out.println("Code d'identification: "+id);
 		System.out.println("Numero de compte: "+num);
-		return bool;
 	}
 
 	/**
 	 * Supprimer un benevole
 	 * @param code code identification
 	 */
-	public boolean supprimerBenevole(String code) {
-		return repertoire.supprimerBenevole(code);
+	public void supprimerBenevole(String code) {
+		repertoire.supprimerBenevole(code);
 	}
 
 	/**
