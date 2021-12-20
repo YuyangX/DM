@@ -20,7 +20,6 @@ public class RepertoireVisiteur {
 	 * @param rdv un objet RDV qui va être ajouté dans notre répertoire de visiteurs
 	 */
 	public void addRDV(RDV rdv) {
-		// TODO - implement RepertoireVisiteur.addRDV
 		listeRDV.add(rdv);
 		nouveauRDV = rdv;
 	}
@@ -30,7 +29,6 @@ public class RepertoireVisiteur {
 	 * @param walkin un objet Walkin qui va être ajouté dans notre répertoire de visiteurs
 	 */
 	public void addWalkin(Walkin walkin) {
-		// TODO - implement RepertoireVisiteur.addWalkin
 		listeWalkin.add(walkin);
 	}
 
@@ -38,7 +36,6 @@ public class RepertoireVisiteur {
 	 * Cette méthode enlève un visiteur planifié dans notre répertoire de visiteurs
 	 */
 	public void removeRDV() {
-		// TODO - implement RepertoireVisiteur.removeRDV
 		listeRDV.remove(indexRDV);
 	}
 
@@ -50,7 +47,6 @@ public class RepertoireVisiteur {
 	 * correspondant à ce numéro de réservation.
 	 */
 	public RDV getRDV(String numeroDeReservation) {
-		// TODO - implement RepertoireVisiteur.getRDV
 		for (int i = 0; i < listeRDV.size(); i++) {
 			if (listeRDV.get(i).getNumeroDeReservation().equals(numeroDeReservation)) { // bien trouvé un RDV avec le même numéro de réservation
 				this.indexRDV = i;
@@ -69,7 +65,6 @@ public class RepertoireVisiteur {
 	 * correspondant à ce nom ou ce numéro de téléphone.
 	 */
 	public Walkin getWalkin(String nom, String tel) {
-		// TODO - implement RepertoireVisiteur.getWalkin
 		for (Walkin walkin : listeWalkin) {
 			// bien trouvé un visiteur avec le même nom et numéro de téléphone
 			if (walkin.getNom().equals(nom) && walkin.getTel().equals(tel)) {
@@ -84,7 +79,6 @@ public class RepertoireVisiteur {
 	 * @return une liste de RDV qui vont avoir lieu dans moins de 2 jours
 	 */
 	public ArrayList<RDV> getRappel() {
-		// TODO - implement RepertoireVisiteur.getRappel
 		Date date = new Date(); // java.util.Date
 		String[] dateArray = date.toString().split(" ");
 		int annee = Integer.parseInt(dateArray[5]);
