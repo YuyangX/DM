@@ -40,7 +40,7 @@ public class ProfilVaccination implements Serializable{
 
 	/**
 	 * 
-	 * @param typeDeDose
+	 * @param yOrN
 	 */
 	public void setTypeDeDose(String yOrN) {
 		this.typeDeDose = (yOrN.equals("Oui")? "deux" : "un");

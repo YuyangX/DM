@@ -86,7 +86,7 @@ public class Compte implements Serializable{
 
 	/**
 	 * setter for attribute listeProfil
-	 * @param profil
+	 * @param profils
 	 */
 	public void setProfil(ProfilVaccination[] profils) {
 		this.listeProfil = profils;

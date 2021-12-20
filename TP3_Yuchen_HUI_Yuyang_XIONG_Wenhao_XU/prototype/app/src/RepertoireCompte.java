@@ -134,6 +134,16 @@ public class RepertoireCompte implements Serializable{
 		this.index = index;
 		
 	}
+	public int getIndex() {
+		return index;
+	}
 
+    public ArrayList<String> getTousLesNumCompte() {
+		return tousLesNumCompte;
+	}
+
+	public ArrayList<Compte> getComptes() {
+		return comptes;
+	}
 
 }
