@@ -10,7 +10,6 @@ public class ControlleurVisiteur extends Controller {
 
 	/**
 	 * envoyer un courriel contenant des informations d'un RDV
-	 * @return courriel
 	 */
 	public void envoyerCourriel() {
 		System.out.println(genererCourriel());

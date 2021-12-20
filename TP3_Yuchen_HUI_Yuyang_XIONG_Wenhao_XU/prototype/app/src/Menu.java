@@ -726,12 +726,14 @@ public class Menu implements Serializable{
 				"12. Type de dose(reponse accepte: un,deux)\n" +
 				"——————————————————————————————————\n" +
 				"Formulaire:\n" +
+				"(Remplis par employe)\n" + 
 				"13. Numéro carte assurance maladie(sans espace)\n" +
 				"14. Avez-vous déjà reçu une première dose?(Oui/Non)\n" +
 				"15. Avez-vous déjà contracté la COVID?(Oui/Non)\n" +
 				"16. Avez-vous des symptômes de la COVID?(Oui/Non)\n" +
 				"17. Avez-vous des allergies?(Oui/Non)\n" +
 				"18. Quel vaccin souhaitez-vous recevoir?(Moderna/Pfizer/AstraZeneca/Janssen)\n" +
+				"(Remplis par personnel)\n" +
 				"19. Avez-vous procédé à la vaccination?(Oui/Non)\n" +
 				"20. Nom du vaccin(Moderna/Pfizer/AstraZeneca/Janssen)\n" +
 				"21. Code du vaccin(24 caractère max)\n" +

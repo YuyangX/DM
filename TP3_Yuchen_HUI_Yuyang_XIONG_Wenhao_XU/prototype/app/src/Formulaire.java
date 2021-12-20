@@ -102,7 +102,7 @@ public class Formulaire implements Serializable{
 
 	/**
 	 * 
-	 * @param premiemeDoseRecu
+	 * @param yOrN
 	 */
 	public void setPremiemeDoseRecu(String yOrN) {
 		this.premiemeDoseRecu = (yOrN.equals("Oui")? true : false);
@@ -114,7 +114,7 @@ public class Formulaire implements Serializable{
 
 	/**
 	 * 
-	 * @param contracterCOVID
+	 * @param yOrN
 	 */
 	public void setContracterCOVID(String yOrN) {
 		this.contracterCOVID = (yOrN.equals("Oui")? true : false);
@@ -126,7 +126,7 @@ public class Formulaire implements Serializable{
 
 	/**
 	 * 
-	 * @param symptome
+	 * @param yOrN
 	 */
 	public void setSymptome(String yOrN) {
 		this.symptome = (yOrN.equals("Oui")? true : false);
@@ -138,7 +138,7 @@ public class Formulaire implements Serializable{
 
 	/**
 	 * 
-	 * @param allergie
+	 * @param yOrN
 	 */
 	public void setAllergie(String yOrN) {
 		this.allergie = (yOrN.equals("Oui")? true : false);
